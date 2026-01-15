@@ -1,0 +1,249 @@
+/* References Page*/
+
+.references-section,
+.pdf-section {
+  background: white;
+  padding: 25px;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  margin-bottom: 30px;
+}
+
+.references-section h2,
+.pdf-section h2 {
+  color: var(--navy);
+  margin-bottom: 15px;
+}
+
+.citation-list {
+  list-style: disc;
+  padding-left: 20px;
+  line-height: 1.6;
+}
+
+.pdf-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.pdf-btn {
+  background: var(--gold);
+  color: var(--dark-gray);
+  padding: 12px 18px;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 25px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.pdf-btn:hover {
+  background: #ffd633;
+}
+
+/* Hero Section (subpage v)*/
+
+.hero-references {
+  position: relative;
+  background: url('../images/Fishing.jpg') center/cover no-repeat;
+  height: 350px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+}
+
+.hero-feedback {
+  position: relative;
+  background: url('../images/LoongwoodGardens.jpg') center/cover no-repeat;
+  height: 350px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+}
+
+.hero-food {
+  position: relative;
+  background: url('../images/food.jpg') center/cover no-repeat;
+  height: 350px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+}
+
+.hero-health {
+  position: relative;
+  background: url('../images/health.jpg') center/cover no-repeat;
+  height: 350px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+}
+
+.hero-house {
+  position: relative;
+  background: url('../images/home.jpg') center/cover no-repeat;
+  height: 350px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+}
+
+.hero-move {
+  position: relative;
+  background: url('../images/move.jpg') center/cover no-repeat;
+  height: 350px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+}
+
+.hero-work {
+  position: relative;
+  background: url('../images/work.jpg') center/cover no-repeat;
+  height: 350px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+}
+
+.hero-book {
+  position: relative;
+  background: url('../images/school.jpg') center/cover no-repeat;
+  height: 350px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+}
+
+/* Feedback page*/
+.feedback-main {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+.feedback-card {
+  background: white;
+  padding: 25px;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  margin-bottom: 30px;
+}
+
+.feedback-card h2 {
+  margin-bottom: 15px;
+  color: var(--navy);
+}
+
+.feedback-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.feedback-form input,
+.feedback-form select,
+.feedback-form textarea {
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.submit-btn {
+  background: var(--gold);
+  color: var(--dark-gray);
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background 0.2s ease;
+}
+
+.submit-btn:hover {
+  background: #ffd633;
+}
+
+.resource-main {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.resource-card {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  padding: 20px;
+  align-items: center;
+}
+
+.resource-image img {
+  min-width: 300px;
+  max-width: 300px;
+  border-radius: 6px;
+}
+
+.resource-content {
+  flex: 1;
+  min-width: 250px;
+}
+
+.resource-content h2 {
+  font-size: 1.5rem;
+  color: var(--navy);
+  margin-bottom: 10px;
+}
+
+.resource-content p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--dark-gray);
+  margin-bottom: 15px;
+}
+
+.resource-btn {
+  display: inline-block;
+  background: var(--gold);
+  color: var(--dark-gray);
+  padding: 10px 16px;
+  border-radius: 6px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+
+.resource-btn:hover {
+  background: #ffd633;
+}
+
+.highlight {
+  outline: 3px solid var(--gold);
+  background: rgba(255, 204, 0, 0.15);
+  transition: 0.2s ease;
+}

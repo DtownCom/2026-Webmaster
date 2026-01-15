@@ -1,0 +1,183 @@
+/* --------------------------------------------------
+   RESET + BASE STYLES
+-------------------------------------------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f7f7f7;
+    color: #333;
+    line-height: 1.6;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+    min-height: calc(100vh - 400px); /* adjust based on your header/footer height */
+    max-width: 1200px; /* keeps text readable on large screens */
+    margin: 0 auto; /* centers the content */
+    padding: clamp(32px, 4vw, 40px);
+
+}
+
+/* --------------------------------------------------
+   COLOR SYSTEM
+-------------------------------------------------- */
+:root {
+    --navy: #003f7f;
+    --gold: #ffcc00;
+    --light-gray: #f7f7f7;
+    --dark-gray: #333;
+    --white: #ffffff;
+}
+
+/* footer stuff */
+
+.footer-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.footer-links {
+    display: flex;
+    gap: 15px;
+}
+
+.footer-note {
+    font-size: 14px;
+    color: #ffffff;
+}
+
+.main-footer {
+    background: var(--navy);
+    color: white;
+    padding: 20px;
+    text-align: center;
+    margin-top: auto;
+}
+
+/* Seach Bar Stuff */
+
+.search-section {
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+#siteSearch {
+    width: min(600px, 90%);
+    padding: 12px 16px;
+    border-radius: 6px;
+    border: 1px solid #aaa;
+    font-size: 16px;
+}
+
+.highlight {
+    outline: 3px solid var(--gold);
+    background: rgba(255, 204, 0, 0.15);
+    transition: 0.2s ease;
+}
+
+/* Top Bar */
+.main-header {
+  position: sticky;
+  top: 0;
+  background: var(--navy);
+  padding: 10px 20px;
+  z-index: 100;
+}
+
+.top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 12px 20px;
+  background: var(--navy);
+}
+
+.top-nav {
+  display: flex;
+  gap: 12px;
+  margin-left: auto;
+}
+
+.top-nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.top-nav a:hover {
+  text-decoration: underline;
+}
+
+#siteSearch {
+  padding: 8px 12px;
+  border-radius: 4px;
+  border: none;
+  max-width: 300px;
+}
+
+.logo-title {
+    gap: 12px;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+    margin-right: auto;
+}
+
+.logo-img {
+  width: 40px;
+  height: auto;
+}
+
+/* button and default hero*/
+
+.hero-heading {
+    font-size: 50px;
+}
+
+.hero-subheading {
+    font-size: 25px;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* dark overlay */
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.cta-btn {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 12px 20px;
+  background: var(--gold);
+  color: var(--dark-gray);
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.2s ease;
+}
+
+.cta-btn:hover {
+  background: #f8e8a8;
+}
