@@ -260,41 +260,77 @@ main {
   background: #f8e8a8;
 }
 
-/* --------------------------------------------------
-   RESOURCE DIRECTORY
--------------------------------------------------- */
-.filter-bar {
-    display: flex;
-    gap: 10px;
-    padding: 20px;
-    justify-content: center;
+/*RESOURCE DIRECTORY */
+.directory-main {
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 20px;
 }
 
-.filter-bar input,
-.filter-bar select {
-    padding: 10px;
-    border-radius: 4px;
-    border: 1px solid #aaa;
-    width: 250px;
+.directory-controls {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
 }
 
-.resource-list {
-    padding: 20px;
-    max-width: 900px;
-    margin: auto;
+#directorySearch,
+#directoryFilter {
+  padding: 10px 14px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
 }
 
-.resource-card {
-    background: white;
-    padding: 20px;
-    border-radius: 6px;
-    border: 1px solid #ddd;
-    margin-bottom: 15px;
+.directory-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 5px;
 }
 
-.resource-card h3 {
-    color: var(--navy);
-    margin-bottom: 8px;
+.directory-card {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  text-align: center;
+}
+
+
+.directory-card h3 {
+  color: var(--navy);
+  margin-bottom: 10px;
+}
+
+.directory-card p {
+  color: var(--dark-gray);
+  margin-bottom: 15px;
+}
+
+
+
+.dir-btn:hover {
+  background: #ffd633;
+}
+
+.directory-preview-card {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  margin-bottom: 20px;
+}
+
+.directory-preview-card h3 a {
+  color: var(--navy);
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.directory-preview-card p {
+  color: var(--dark-gray);
+  line-height: 1.5;
 }
 
 .hero-resources {

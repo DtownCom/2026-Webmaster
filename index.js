@@ -1,70 +1,32 @@
-/* --------------------------------------------------
-   MOBILE MENU
--------------------------------------------------- */
-const sidebar = document.getElementById("sidebar");
-const mobileToggle = document.getElementById("mobileToggle");
+// Resource Directory
 
-const mobileUnToggle = document.getElementById("mobileUnToggle");
+const searchInput = document.getElementById("directorySearch");
+const filterSelect = document.getElementById("directoryFilter");
+const cards = document.querySelectorAll(".directory-preview-card");
 
-if (mobileUnToggle) {
-    mobileUnToggle.addEventListener("click", () => {
-        sidebar.classList.remove("open");
-    });
-}
+function updateDirectory() {
+  const searchQuery = searchInput.value.toLowerCase().trim();
+  const filterValue = filterSelect.value;
 
-if (mobileToggle) {
-    mobileToggle.addEventListener("click", () => {
-        sidebar.classList.add("open");
-    });
-}
+  cards.forEach(card => {
+    const name = card.dataset.name.toLowerCase();
+    const category = card.dataset.category;
 
-/* --------------------------------------------------
-   RESOURCE DIRECTORY DATA
--------------------------------------------------- */
-const resources = [
-    {
-        name: "Community Food Bank",
-        category: "food",
-        description: "Weekly food distribution for families."
-    },
-    {
-        name: "Shelter Assistance Program",
-        category: "housing",
-        description: "Emergency housing and rental support."
-    },
-    {
-        name: "Free Health Clinic",
-        category: "health",
-        description: "Walk-in clinic offering basic medical care."
+    const matchesSearch = name.includes(searchQuery);
+    const matchesFilter = filterValue === "all" || filterValue === category;
+
+    if (matchesSearch && matchesFilter) {
+      card.style.display = "block";
+    } else {
+      card.style.display = "none";
     }
-];
-
-/* --------------------------------------------------
-   RENDER RESOURCE DIRECTORY
--------------------------------------------------- */
-function renderResources(list) {
-    const container = document.getElementById("resourceList");
-    if (!container) return;
-
-    container.innerHTML = "";
-
-    list.forEach(item => {
-        const card = document.createElement("div");
-        card.classList.add("resource-card");
-
-        card.innerHTML = `
-            <h3>${item.name}</h3>
-            <p><strong>Category:</strong> ${item.category}</p>
-            <p>${item.description}</p>
-        `;
-
-        container.appendChild(card);
-    });
+  });
 }
 
-renderResources(resources);
+searchInput.addEventListener("input", updateDirectory);
+filterSelect.addEventListener("change", updateDirectory);
 
-// search bar code //
+// search bar code 
 
 document.getElementById("siteSearch").addEventListener("input", function () {
   const query = this.value.toLowerCase().trim();

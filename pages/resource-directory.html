@@ -36,27 +36,223 @@
     </section>
 
   <!-- MAIN CONTENT -->
-    <main>
+    <main class="directory-main">
 
-        <h1 class="page-title">Resource Directory</h1>
+        <section class="directory-controls">
+            <input 
+                type="text" 
+                id="directorySearch" 
+                placeholder="Search resources by name..."
+            >
 
-        <!-- Search + Filters -->
-        <div class="filter-bar">
-            <input type="text" id="searchInput" placeholder="Search resources...">
-            <select id="categoryFilter">
+            <select id="directoryFilter">
                 <option value="all">All Categories</option>
                 <option value="food">Food Security</option>
-                option value="housing">Housing & Shelter</option>
+                <option value="housing">Housing & Shelter</option>
                 <option value="health">Health</option>
                 <option value="education">Education</option>
                 <option value="transportation">Transportation</option>
                 <option value="volunteering">Volunteering</option>
             </select>
-        </div>
+        </section>
 
-        <!-- Dynamic Resource List -->
-        <div id="resourceList" class="resource-list"></div>
+  <!--Grid -->
+        <section class="directory-grid">
 
+            <div class="directory-preview-card" data-category="food" data-name="Lord’s Pantry of Downingtown">
+                <h3>
+                    <a href="food.html">Lord’s Pantry of Downingtown</a>
+                </h3>
+                <p><strong>Category: </strong>Food Security</p>
+                <p>Lord’s Pantry of Downingtown provides groceries and essential food assistance to individuals and families facing food insecurity in the local community.</p>
+            </div>
+
+            <div class="directory-preview-card" data-category="food" data-name="Safe Harbor of Chester County">
+                <h3>
+                    <a href="food.html">Safe Harbor of Chester County</a>
+                </h3>
+                <p><strong>Category: </strong>Food Security</p>
+                <p>Safe Harbor of Chester County delivers meals and comprehensive support services that help unhoused adults move toward stability and housing.</p>
+            </div>
+
+            <div class="directory-preview-card" data-category="food" data-name="Downingtown Area School District Food Pantry">
+                <h3>
+                    <a href="food.html">Downingtown Area School District Food Pantry</a>
+                </h3>
+                <p><strong>Category: </strong>Food Security</p>
+                <p>The DASD Food Pantry supports students and families in need by providing food and essential items to reduce barriers to learning.</p>
+            </div>
+
+            <div class="directory-preview-card" data-category="food" data-name="Chester County Food Bank">
+                <h3>
+                    <a href="food.html">Chester County Food Bank</a>
+                </h3>
+                <p><strong>Category: </strong>Food Security</p>
+                <p>The Chester County Food Bank connects residents with food pantries, meal programs, and nutrition assistance through its county-wide Food Finder network.</p>
+            </div>
+
+            <div class="directory-preview-card" data-category="education" data-name="Downingtown Elementary Schools">
+                <h3>
+                    <a href="education.html">Downingtown Elementary Schools</a>
+                </h3>
+                <p><strong>Category: </strong>Education</p>
+                <p>Downingtown elementary schools provide foundational academic instruction and social-emotional development for young learners in the Downingtown Area School District.</p>
+            </div>
+
+            <div class="directory-preview-card" data-category="education" data-name="Downingtown Middle Schools">
+                <h3>
+                    <a href="education.html">Downingtown Middle Schools</a>
+                </h3>
+                <p><strong>Category: </strong>Education</p>
+                <p>Downingtown middle schools support early adolescents through rigorous academics, exploratory learning, and developmental guidance that prepares students for high school.</p>
+            </div>
+
+            <div class="directory-preview-card" data-category="education" data-name="Downingtown High Schools">
+                <h3>
+                    <a href="education.html">Downingtown High Schools</a>
+                </h3>
+                <p><strong>Category: </strong>Education</p>
+                <p>Downingtown high schools offer advanced coursework, career pathways, and extracurricular opportunities that prepare students for college and the workforce.</p>
+            </div>
+
+            <div class="directory-preview-card" data-category="education" data-name="Downingtown Community Education Foundation">
+                <h3>
+                    <a href="education.html">Downingtown Community Education Foundation</a>
+                </h3>
+                <p><strong>Category: </strong>Education</p>
+                <p>The Downingtown Community Education Foundation enhances student learning by funding innovative programs, grants, and enrichment opportunities across the district.</p>
+            </div>
+            
+            <div class="directory-preview-card" data-category="health" data-name="Educational and Behavioral Health Services">
+                <h3>
+                    <a href="health.html">Educational and Behavioral Health Services</a>
+                </h3>
+                <p><strong>Category: </strong>Health</p>
+                <p>Educational and Behavioral Health Services provide counseling, mental health support, and behavioral interventions to help students succeed academically and emotionally.</p>
+            </div>
+
+            <div class="directory-preview-card" data-category="health" data-name="Communities that Care">
+                <h3>
+                    <a href="health.html">Communities that Care</a>
+                </h3>
+                <p><strong>Category: </strong>Health</p>
+                <p>Communities That Care brings together schools and community partners to prevent youth substance use and promote healthy development through evidence-based programs.</p>
+            </div>
+
+            <div class="directory-preview-card" data-category="health" data-name="Chester County Groups for Addiction Disorders">
+                <h3>
+                    <a href="health.html">Chester County Groups for Addiction Disorders</a>
+                </h3>
+                <p><strong>Category: </strong>Health</p>
+                <p>Chester County addiction support organizations offer prevention education, treatment referrals, and behavioral health resources for individuals affected by substance use disorders.</p>
+            </div>
+
+            <div class="directory-preview-card" data-category="health" data-name="988 Lifeline">
+                <h3>
+                    <a href="health.html">988 Lifeline</a>
+                </h3>
+                <p><strong>Category: </strong>Health</p>
+                <p>The 988 Lifeline provides 24/7 confidential crisis support for individuals experiencing emotional distress, mental health emergencies, or suicidal thoughts.</p>
+            </div>
+
+
+
+            <div class="directory-preview-card" data-category="housing" data-name="Housing Partnership of Chester County">
+                <h3>
+                    <a href="housing.html">Housing Partnership of Chester County</a>
+                </h3>
+                <p><strong>Category: </strong>Housing & Shelter</p>
+                <p>The Housing Partnership of Chester County provides housing assistance, education, and support services that help individuals and families achieve and maintain long-term housing stability.</p>
+            </div>
+
+            <div class="directory-preview-card" data-category="housing" data-name="Atkinson Men’s Shelter">
+                <h3>
+                    <a href="housing.html">Atkinson Men’s Shelter</a>
+                </h3>
+                <p><strong>Category: </strong>Housing & Shelter</p>
+                <p>The W.C. Atkinson Men’s Shelter offers emergency housing and supportive services to help unhoused men in Chester County stabilize and transition toward independence.</p>
+            </div>
+
+            <div class="directory-preview-card" data-category="housing" data-name="Family Promise of Southern Chester County">
+                <h3>
+                    <a href="housing.html">Family Promise of Southern Chester County</a>
+                </h3>
+                <p><strong>Category: </strong>Housing & Shelter</p>
+                <p>Pennsylvania 2-1-1 connects individuals and families with emergency shelter, rental assistance, eviction prevention, and other housing-related resources through a free, confidential helpline.</p>
+            </div>
+
+            <div class="directory-preview-card" data-category="housing" data-name="Pennsylvania 2-1-1 Housing Assistance">
+                <h3>
+                    <a href="housing.html">Pennsylvania 2-1-1 Housing Assistance</a>
+                </h3>
+                <p><strong>Category: </strong>Housing & Shelter</p>
+                <p>Family Promise of Southern Chester County supports families experiencing homelessness through temporary housing, case management, and services that promote long-term stability.</p>
+            </div>
+
+
+            <div class="directory-preview-card" data-category="volunteering" data-name="Downingtown Library">
+                <h3>
+                    <a href="volunteering.html">Downingtown Library</a>
+                </h3>
+                <p><strong>Category: </strong>Volunteering</p>
+                <p>Downingtown Library offers youth and adult volunteers opportunities to support library operations, community events, and educational programs that strengthen local access to learning and resources.</p>
+            </div>
+
+            <div class="directory-preview-card" data-category="volunteering" data-name="Meals on Wheels of Chester County">
+                <h3>
+                    <a href="volunteering.html">Meals on Wheels of Chester County</a>
+                </h3>
+                <p><strong>Category: </strong>Volunteering</p>
+                <p>Meals on Wheels of Chester County relies on volunteers to deliver nutritious meals and provide vital social connection to homebound seniors across the county.</p>
+            </div>
+
+            <div class="directory-preview-card" data-category="volunteering" data-name="Chester County Community Foundation">
+                <h3>
+                    <a href="volunteering.html">Chester County Community Foundation</a>
+                </h3>
+                <p><strong>Category: </strong>Volunteering</p>
+                <p>The Chester County Community Foundation connects residents with volunteer opportunities at nonprofits addressing food security, education, youth development, and community health.</p>
+            </div>
+
+            <div class="directory-preview-card" data-category="volunteering" data-name="Chesco Volunteer Opportunities">
+                <h3>
+                    <a href="volunteering.html">Chesco Volunteer Opportunities</a>
+                </h3>
+                <p><strong>Category: </strong>Volunteering</p>
+                <p>Volunteer Chesco serves as the county’s central hub for matching residents with meaningful service roles across health, human services, transportation, and community support programs.</p>
+            </div>
+
+            <div class="directory-preview-card" data-category="transportation" data-name="SEPTA Regional Rail">
+                <h3>
+                    <a href="transportation.html">SEPTA Regional Rail</a>
+                </h3>
+                <p><strong>Category: </strong>Transportation</p>
+                <p>SEPTA Regional Rail provides frequent, electrified commuter-rail service connecting Chester County and surrounding suburbs to Center City Philadelphia and major regional employment hubs.</p>
+            </div>
+
+            <div class="directory-preview-card" data-category="transportation" data-name="Chester County ROVER">
+                <h3>
+                    <a href="transportation.html">Chester County ROVER</a>
+                </h3>
+                <p><strong>Category: </strong>Transportation</p>
+                <p>Chesco Connect offers flexible, door-to-door shared-ride transportation across Chester County, helping residents access essential destinations where fixed-route transit is limited.</p>
+            </div>
+
+            <div class="directory-preview-card" data-category="transportation" data-name="The Struble Trail">
+                <h3>
+                    <a href="transportation.html">The Struble Trail</a>
+                </h3>
+                <p><strong>Category: </strong>Transportation</p>
+                <p>The Struble Trail is a scenic, paved multi-use path that supports walking, biking, and short-distance commuting while connecting neighborhoods, parks, and natural areas near Downingtown.</p>
+            </div>
+
+            <div class="directory-preview-card" data-category="transportation" data-name="Amtrak Keystone Service">
+                <h3>
+                    <a href="transportation.html">Amtrak Keystone Service</a>
+                </h3>
+                <p><strong>Category: </strong>Transportation</p>
+                <p>The Amtrak Keystone Service delivers fast, reliable intercity rail travel linking Chester County with Philadelphia, Harrisburg, and New York City through multiple daily departures.</p>
+        </section>
     </main>
 
   <!-- FOOTER -->
