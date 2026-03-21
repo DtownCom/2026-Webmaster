@@ -43,8 +43,6 @@
   background: #ffd633;
 }
 
-/* Hero Section (subpage v)*/
-
 .hero-references {
   position: relative;
   background: url('../images/Fishing.jpg') center/cover no-repeat;
@@ -133,7 +131,7 @@
   text-align: center;
 }
 
-/* Feedback page*/
+
 .feedback-main {
   max-width: 900px;
   margin: 40px auto;
