@@ -4,298 +4,125 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Downingtown Community Resource Hub</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <style>
-        /* ── RESET & VARIABLES ── */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        :root {
-            --navy: #001a35; /* Deeper navy */
-            --navy-mid: #002c55;
-            --gold: #f0a000; /* Richer gold */
-            --gold-light: #ffc533;
-            --cream: #fdfaf4;
-            --white: #ffffff;
-            --text-body: #3d3530;
-            --text-muted: #8a7f76;
-            --line-color: #e5e0d8;
-            --radius: 6px; /* Sleeker, less rounded */
-            --transition: 0.18s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        html { scroll-behavior: smooth; }
-
-        body {
-            font-family: 'Source Sans 3', sans-serif;
-            background: var(--cream);
-            color: var(--text-body);
-            line-height: 1.75;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-            overflow-x: hidden;
-        }
-
-        /* ── TYPOGRAPHY UTILITIES ── */
-        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; font-weight: 700; color: var(--navy); }
-        p { color: var(--text-body); }
-        .section-label { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 8px; }
-
-        /* ── HEADER ── */
-        .main-header { position: sticky; top: 0; z-index: 200; background: var(--navy); padding: 16px 40px; }
-        .top-bar { display: flex; align-items: center; justify-content: space-between; max-width: 1200px; margin: 0 auto; }
-        .logo-title { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--white); text-decoration: none; }
-        .top-nav { display: flex; gap: 8px; }
-        .top-nav a { color: rgba(255,255,255,0.8); text-decoration: none; font-size: 0.88rem; font-weight: 600; padding: 8px 18px; border-radius: var(--radius); transition: var(--transition); }
-        .top-nav a:hover, .top-nav a.active { color: var(--white); background: rgba(255,255,255,0.1); }
-        .search-wrapper { position: relative; }
-        .search-wrapper svg { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); pointer-events: none; color: #aaa; }
-        #siteSearch { padding: 9px 14px 9px 36px; border-radius: var(--radius); border: none; width: 220px; font-size: 0.87rem; background: rgba(255,255,255,0.08); color: var(--white); outline: none; transition: var(--transition); }
-        #siteSearch::placeholder { color: rgba(255,255,255,0.3); }
-        #siteSearch:focus { background: rgba(255,255,255,0.95); color: var(--text-body); width: 260px; }
-
-        /* ── HERO ── */
-        .hero { position: relative; background: linear-gradient(135deg, rgba(0,28,70,0.95) 0%, rgba(0,28,70,0.6) 100%), url('images/hero.jpg') center/cover; padding: 120px 40px; color: var(--white); text-align: center; }
-        .hero-content { max-width: 680px; margin: 0 auto; animation: heroIn 1s ease both; }
-        @keyframes heroIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-        .hero h1 { font-size: 3.4rem; font-weight: 900; color: var(--white); line-height: 1.12; margin-bottom: 16px; }
-        .hero h1 em { font-style: normal; color: var(--gold-light); }
-        .hero p { color: rgba(255,255,255,0.9); font-size: 1.1rem; }
-        .hero-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 32px; }
-        .btn { display: inline-flex; align-items: center; padding: 13px 28px; border-radius: var(--radius); text-decoration: none; font-weight: 700; font-size: 0.92rem; transition: var(--transition); }
-        .btn-primary { background: var(--gold); color: var(--navy); }
-        .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 6px 16px rgba(240,160,0,0.3); }
-        .btn-ghost { color: var(--white); border: 2px solid rgba(255,255,255,0.3); }
-        .btn-ghost:hover { border-color: var(--white); background: rgba(255,255,255,0.06); }
-
-        /* ── MAIN CONTENT ── */
-        main { flex: 1; max-width: 1200px; margin: 0 auto; width: 100%; padding: 60px 40px; }
-
-        /* ── WELCOME ── (Clean Stacking) */
-        .welcome { display: flex; flex-direction: column; gap: 40px; border-bottom: 2px solid var(--line-color); padding-bottom: 60px; margin-bottom: 60px; }
-        .welcome-content { display: grid; grid-template-columns: 1fr 200px; gap: 40px; align-items: center; }
-        .welcome h2 { font-size: 2.2rem; margin-bottom: 14px; }
-        .welcome p { font-size: 1.05rem; margin-bottom: 10px; }
-        .welcome a { color: var(--navy-mid); font-weight: 700; text-decoration: none; border-bottom: 2px solid var(--gold); padding-bottom: 1px; }
-        .welcome a:hover { color: var(--gold); }
-        .badge { text-align: center; }
-        .badge-num { font-size: 4rem; color: var(--gold); font-weight: 900; line-height: 1; }
-        .badge-label { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; color: var(--text-muted); letter-spacing: 0.05em; }
-
-        /* ── PROFESSIONAL SECTIONS (LISTS, NO BOXES) ── */
-        .stack-section { margin-bottom: 80px; }
-        .stack-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
-        .stack-item { padding: 20px 0; border-bottom: 1px solid var(--line-color); transition: var(--transition); position: relative; }
-        .stack-item:hover { border-bottom-color: var(--gold); padding-left: 10px; background: rgba(0,0,0,0.02); }
-        .stack-item-title-wrap { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
-        .stack-item h4 { font-size: 1.25rem; }
-        .stack-item p { font-size: 0.95rem; color: var(--text-muted); }
-        .stack-item .vector-icon { width: 20px; height: 20px; fill: #aaa; transition: var(--transition); }
-        .stack-item:hover .vector-icon { fill: var(--gold); }
-
-        /* ── PROFESSIONAL DIRECTORY (Typographic Index) ── */
-        .category-list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
-        .category-link { display: flex; align-items: center; gap: 12px; background: var(--white); border: 1px solid var(--line-color); padding: 18px 20px; border-radius: var(--radius); text-decoration: none; transition: var(--transition); }
-        .category-link:hover { border-color: var(--gold); transform: translateY(-3px); box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
-        .category-link h3 { font-size: 1.05rem; margin-bottom: 2px; }
-        .category-link p { font-size: 0.82rem; color: var(--text-muted); }
-        .category-link .vector-icon { width: 18px; height: 18px; fill: #aaa; transition: var(--transition); flex-shrink: 0; }
-        .category-link:hover .vector-icon { fill: var(--gold); }
-
-        /* ── FOOTER ── */
-        .main-footer { background: var(--navy); color: rgba(255,255,255,0.6); padding: 48px 40px 28px; margin-top: auto; }
-        .footer-inner { max-width: 1200px; margin: 0 auto; }
-        .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; padding-bottom: 36px; border-bottom: 1px solid rgba(255,255,255,0.1); margin-bottom: 24px; }
-        .ft-name { font-size: 1.1rem; color: var(--white); margin-bottom: 10px; font-weight: 700; }
-        .footer-col h4 { font-size: 0.8rem; color: var(--gold-light); text-transform: uppercase; margin-bottom: 16px; font-weight: 700; letter-spacing: 0.05em; }
-        .footer-col a { display: block; color: inherit; text-decoration: none; font-size: 0.9rem; margin-bottom: 10px; transition: var(--transition); }
-        .footer-col a:hover { color: var(--white); padding-left: 2px; }
-        .footer-bottom { display: flex; justify-content: space-between; font-size: 0.8rem; }
-        .footer-bottom-links { display: flex; gap: 20px; }
-        .footer-bottom-links a { color: inherit; text-decoration: none; transition: var(--transition); }
-        .footer-bottom-links a:hover { color: var(--white); }
-
-        /* ── RESPONSIVE ── */
-        @media (max-width: 960px) {
-            .hero h1 { font-size: 2.8rem; }
-            .welcome-content { grid-template-columns: 1fr; text-align: center; }
-            .badge { margin-top: 20px; }
-            .stack-row { grid-template-columns: 1fr; gap: 10px; }
-            .category-list { grid-template-columns: 1fr; }
-        }
-    </style>
+    <link rel="stylesheet" href="index.css">
 </head>
+
 <body>
 
-<header class="main-header">
-    <div class="top-bar">
-        <a href="index.html" class="logo-title">Downingtown Community Hub</a>
-        <nav class="top-nav">
-            <a href="index.html" class="active">Home</a>
-            <a href="pages/resource-directory.html">Resource Directory</a>
-        </nav>
-        <div class="search-wrapper">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-            <input type="text" id="siteSearch" placeholder="Search resources…" autocomplete="off">
-        </div>
-    </div>
-</header>
-
-<section class="hero">
-    <div class="hero-content">
-        <h1>Find the help<br>you <em>need</em>, today.</h1>
-        <p>A friendly, accessible guide to local resources and opportunities in the Downingtown area — free and always available.</p>
-        <div class="hero-btns">
-            <a href="#categories" class="btn btn-primary">Browse Categories ↓</a>
-            <a href="pages/resource-directory.html" class="btn btn-ghost">Full Directory</a>
-        </div>
-    </div>
-</section>
-
-<main>
-    <section class="welcome">
-        <span class="section-label">Your Resource</span>
-        <div class="welcome-content">
-            <div class="welcome-text">
-                <h2>Welcome to your community hub.</h2>
-                <p>One unified point for local support and services. Lifelong resident or new to the area, everything is organized and accessible.</p>
-                <p>Missing a resource? Let us know on our <a href="pages/FeedbackSuggestions.html">Feedback</a> page!</p>
+    <header class="main-header">
+        <div class="top-bar">
+            <div class="logo">
+                <img src="images/community-icon-21.png" alt="Logo" class="logo-img">
             </div>
-            <div class="badge">
-                <div class="badge-num">50+</div>
-                <div class="badge-label">Verified Listings</div>
+            <div class="logo-title">
+ Downingtown Community Resource Hub
             </div>
+            <nav class="top-nav">
+                <a href="index.html">Home</a>
+                <a href="pages/resource-directory.html">Resource Directory</a>
+            </nav>
+            <input type="text" id="siteSearch" placeholder="Search this page...">
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="hero-heading">Downingtown Community Resource Hub</h1>
+            <p class="hero-subheading">A Community Website So You Can Find Your Needs!</p>
+            <a href="#categories" class="cta-btn">Explore Resources</a>
         </div>
     </section>
 
-    <section class="stack-section">
-        <span class="section-label">Getting Started</span>
-        <h2 class="section-title">Essential Resources</h2>
-        <div class="stack-row">
-            <div class="stack-item">
-                <div class="stack-item-title-wrap">
-                    <svg class="vector-icon" viewBox="0 0 24 24"><path d="M11 9H9V2H7v7H5V2H3v7c0 2.12 1.66 3.84 3.75 3.97V22h2.5v-9.03C11.34 12.84 13 11.12 13 9V2h-2v7zm8-3v14h-2.5V6H13v-4h9v4h-3z"/></svg>
+
+    <main class="main-content">
+
+        <section class="welcome-banner">
+            <h2>Welcome to the Downingtown Community Resource Hub!</h2>
+            <p>
+                We’re so glad you’re here. This site is your one-stop spot for finding local support, services, and opportunities. Whether you're looking for food assistance, housing, health care, or ways to get involved — we've got you covered.
+            </p>
+            <p>
+                Bookmark this page and explore the categories below. If you know of a resource that should be added, please visit our <a href="pages/FeedbackSuggestions.html">Feedback & Suggestions</a> page.
+            </p>
+        </section>
+
+
+        <section class="new-residents">
+            <h3>New to Downingtown?</h3>
+            <div class="feature-row">
+                <div class="feature-box">
                     <h4>Food Access</h4>
+                    <p>Use the "Food Security" resource to find food banks, meal programs, and community gardens.</p>
                 </div>
-                <p>Food banks, meal programs, and community gardens serving the area.</p>
-            </div>
-            <div class="stack-item">
-                <div class="stack-item-title-wrap">
-                    <svg class="vector-icon" viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+                <div class="feature-box">
                     <h4>Housing Help</h4>
+                    <p>Use the "Housing & Shelter" resource to learn about shelters, rental assistance, and home repair programs.</p>
                 </div>
-                <p>Shelters, rental assistance programs, and home repair services near you.</p>
-            </div>
-            <div class="stack-item">
-                <div class="stack-item-title-wrap">
-                    <svg class="vector-icon" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                <div class="feature-box">
                     <h4>Health Services</h4>
+                    <p>Use the "Health" resource to discover clinics, mental health support, and wellness programs.</p>
                 </div>
-                <p>Discover local clinics, mental health support, and wellness programs.</p>
+            </div>
+        </section>
+
+        <section id="categories" class="category-section">
+            <h2>Explore Our Resources</h2>
+            <div class="category-grid">
+                <div class="category-card">
+                    <a href="pages/food.html" class="category-card-link">
+                        <div class="card-icon">🍎</div>
+                        <h3>Food Security</h3>
+                    </a>
+                </div>
+                <div class="category-card">
+                    <a href="pages/housing.html" class="category-card-link">
+                        <div class="card-icon">🏠</div>
+                        <h3>Housing & Shelter</h3>
+                    </a>
+                </div>
+                <div class="category-card">
+                    <a href="pages/health.html" class="category-card-link">
+                        <div class="card-icon">❤️</div>
+                        <h3>Health</h3>
+                    </a>
+                </div>
+                <div class="category-card">
+                    <a href="pages/education.html" class="category-card-link">
+                        <div class="card-icon">📚</div>
+                        <h3>Education</h3>
+                    </a>
+                </div>
+                <div class="category-card">
+                    <a href="pages/transportation.html" class="category-card-link">
+                        <div class="card-icon">🚋</div>
+                        <h3>Transportation</h3>
+                    </a>
+                </div>
+                <div class="category-card">
+                    <a href="pages/volunteering.html" class="category-card-link">
+                        <div class="card-icon">👍</div>
+                        <h3>Volunteering</h3>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="pages/refrences.html" class="cta-btn">References</a>
+                <a href="pages/FeedbackSuggestions.html" class="cta-btn">Feedback & Suggestions</a>
             </div>
         </div>
-    </section>
 
-    <section id="categories" class="stack-section">
-        <span class="section-label">All Resources</span>
-        <h2 class="section-title">Directory Categories</h2>
-        <div class="category-list">
-            <a href="pages/food.html" class="category-link">
-                <svg class="vector-icon" viewBox="0 0 24 24"><path d="M11 9H9V2H7v7H5V2H3v7c0 2.12 1.66 3.84 3.75 3.97V22h2.5v-9.03C11.34 12.84 13 11.12 13 9V2h-2v7zm8-3v14h-2.5V6H13v-4h9v4h-3z"/></svg>
-                <div class="card-text">
-                    <h3>Food Security</h3>
-                    <p>Banks & gardens</p>
-                </div>
-            </a>
-            <a href="pages/housing.html" class="category-link">
-                <svg class="vector-icon" viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
-                <div class="card-text">
-                    <h3>Housing & Shelter</h3>
-                    <p>Assistance & repairs</p>
-                </div>
-            </a>
-            <a href="pages/health.html" class="category-link">
-                <svg class="vector-icon" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-                <div class="card-text">
-                    <h3>Health</h3>
-                    <p>Clinics & wellness</p>
-                </div>
-            </a>
-            <a href="pages/education.html" class="category-link">
-                <svg class="vector-icon" viewBox="0 0 24 24"><path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"/></svg>
-                <div class="card-text">
-                    <h3>Education</h3>
-                    <p>Schools & learning</p>
-                </div>
-            </a>
-            <a href="pages/transportation.html" class="category-link">
-                <svg class="vector-icon" viewBox="0 0 24 24"><path d="M19 13v-2c0-4.42-3.58-8-8-8H5a8 8 0 0 0-8 8v2h1v3H1v4c0 1.1.9 2 2 2h1c1.1 0 2-.9 2-2v-1h6v1c0 1.1.9 2 2 2h1c1.1 0 2-.9 2-2v-4h1v-3h-1zm-6-2c0-.55.45-1 1-1s1 .45 1 1v2h-2v-2zm-2-2c-.55 0-1-.45-1-1s.45-1 1-1h6c.55 0 1 .45 1 1s-.45 1-1 1h-6z"/></svg>
-                <div class="card-text">
-                    <h3>Transportation</h3>
-                    <p>Transit & ride passes</p>
-                </div>
-            </a>
-            <a href="pages/volunteering.html" class="category-link">
-                <svg class="vector-icon" viewBox="0 0 24 24"><path d="M1 21h4V9H1v12zm22-11c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-2z"/></svg>
-                <div class="card-text">
-                    <h3>Volunteering</h3>
-                    <p>Give back & connect</p>
-                </div>
-            </a>
-        </div>
-    </section>
-</main>
-
-<footer class="main-footer">
-    <div class="footer-inner">
-        <div class="footer-top">
-            <div class="footer-brand">
-                <div class="ft-name">Community Resource Hub</div>
-                <p>Connecting Downingtown residents with local services.</p>
-            </div>
-            <div class="footer-col">
-                <h4>Explore</h4>
-                <a href="pages/food.html">Food Security</a>
-                <a href="pages/housing.html">Housing</a>
-                <a href="pages/health.html">Health Services</a>
-                <a href="pages/education.html">Education</a>
-            </div>
-            <div class="footer-col">
-                <h4>Site</h4>
-                <a href="pages/resource-directory.html">Directory</a>
-                <a href="pages/FeedbackSuggestions.html">Feedback</a>
-                <a href="pages/refrences.html">References</a>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>© 2026. Not affiliated with government.</p>
-            <div class="footer-bottom-links">
-                <a href="pages/refrences.html">References</a>
-                <a href="pages/FeedbackSuggestions.html">Feedback</a>
-            </div>
-        </div>
-    </div>
-</footer>
-
-<script>
-    // Simplified search highligher
-    const siteSearchInput = document.getElementById("siteSearch");
-    if (siteSearchInput) {
-        siteSearchInput.addEventListener("input", function () {
-            const query = this.value.toLowerCase().trim();
-            const searchable = document.querySelectorAll("h2, h3, h4, p, li");
-            searchable.forEach(el => el.style.background = "");
-            if (!query) return;
-            searchable.forEach(el => {
-                if (el.textContent.toLowerCase().includes(query)) {
-                    el.style.background = "rgba(240,160,0,0.15)"; // Soft gold highlight
-                }
-            });
-        });
-    }
-</script>
-
+        <p>2026 Downingtown Community Resource Hub</p>
+    </footer>
+    <script src="index.js"></script>
 </body>
 </html>
+v 
