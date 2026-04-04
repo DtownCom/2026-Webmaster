@@ -6,6 +6,8 @@
   <title>Resource Directory – Downingtown Community Resource Hub</title>
   <link rel="stylesheet" href="default.css">
   <link rel="stylesheet" href="../index.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
 </head>
 
 <body>
@@ -56,8 +58,30 @@
             </select>
         </section>
 
+  <!-- MAP EMBED -->
+        <section class="directory-map">
+            <h2 class="map-heading">Resource Locations</h2>
+            <p class="map-subheading">Each pin shows where a resource is located. Click a pin for details and a link to that resource.</p>
+            <div class="map-legend">
+                <span class="legend-item"><span class="legend-dot" style="background:#22c55e;"></span>Food</span>
+                <span class="legend-item"><span class="legend-dot" style="background:#f59e0b;"></span>Housing</span>
+                <span class="legend-item"><span class="legend-dot" style="background:#ef4444;"></span>Health</span>
+                <span class="legend-item"><span class="legend-dot" style="background:#6366f1;"></span>Education</span>
+                <span class="legend-item"><span class="legend-dot" style="background:#0ea5e9;"></span>Transportation</span>
+                <span class="legend-item"><span class="legend-dot" style="background:#ec4899;"></span>Volunteering</span>
+            </div>
+            <div class="map-container">
+                <div id="resourceMap" style="height:460px;"></div>
+            </div>
+        </section>
+
   <!--Grid -->
         <section class="directory-grid">
+            <div id="noResults" class="no-results-msg" style="display:none;">
+                <div class="no-results-icon">🔍</div>
+                <h3>No resources found</h3>
+                <p>Try a different search term or select a different category.</p>
+            </div>
 
             <div class="directory-preview-card" data-category="food" data-name="Lord’s Pantry of Downingtown">
                 <h3>
@@ -252,6 +276,7 @@
                 </h3>
                 <p><strong>Category: </strong>Transportation</p>
                 <p>The Amtrak Keystone Service delivers fast, reliable intercity rail travel linking Chester County with Philadelphia, Harrisburg, and New York City through multiple daily departures.</p>
+            </div>
         </section>
     </main>
 
@@ -264,10 +289,76 @@
             </div>
         </div>
 
-        <p>2026 Downingtown Community Resource Hub</p>
     </footer>
 
         <script src="../index.js"></script>
+        <script>
+          window.addEventListener('load', function () {
+          const resourceMap = L.map('resourceMap').setView([40.000, -75.680], 11);
+          L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 18,
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+          }).addTo(resourceMap);
+
+          const catColors = {
+            food: '#22c55e',
+            housing: '#f59e0b',
+            health: '#ef4444',
+            education: '#6366f1',
+            transportation: '#0ea5e9',
+            volunteering: '#ec4899'
+          };
+
+          function makeIcon(color) {
+            return L.divIcon({
+              html: `<div style="background:${color};width:16px;height:16px;border-radius:50%;border:2.5px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,0.4);"></div>`,
+              className: '',
+              iconSize: [16, 16],
+              iconAnchor: [8, 8],
+              popupAnchor: [0, -12]
+            });
+          }
+
+          const resources = [
+            { name: "Lord's Pantry of Downingtown",             category: 'food',           coords: [40.0018, -75.7066], link: 'food.html' },
+            { name: 'Safe Harbor of Chester County',             category: 'food',           coords: [39.9650, -75.5970], link: 'food.html' },
+            { name: 'DASD Food Pantry',                         category: 'food',           coords: [40.0093, -75.7256], link: 'food.html' },
+            { name: 'Chester County Food Bank',                 category: 'food',           coords: [40.0381, -75.6219], link: 'food.html' },
+            { name: 'Downingtown Elementary Schools',           category: 'education',      coords: [40.0065, -75.7280], link: 'education.html' },
+            { name: 'Downingtown Middle Schools',               category: 'education',      coords: [40.0100, -75.7150], link: 'education.html' },
+            { name: 'Downingtown High Schools',                 category: 'education',      coords: [40.0201, -75.7052], link: 'education.html' },
+            { name: 'Downingtown Community Education Foundation', category: 'education',    coords: [40.0070, -75.7260], link: 'education.html' },
+            { name: 'Educational & Behavioral Health Services', category: 'health',         coords: [40.0075, -75.7055], link: 'health.html' },
+            { name: 'Communities that Care',                    category: 'health',         coords: [40.0085, -75.7040], link: 'health.html' },
+            { name: 'Chester County Addiction Support Groups',  category: 'health',         coords: [39.9610, -75.5940], link: 'health.html' },
+            { name: 'Housing Partnership of Chester County',    category: 'housing',        coords: [39.9800, -75.8200], link: 'housing.html' },
+            { name: "Atkinson Men's Shelter",                   category: 'housing',        coords: [39.9615, -75.5950], link: 'housing.html' },
+            { name: 'Family Promise of Southern Chester County', category: 'housing',       coords: [39.8513, -75.7100], link: 'housing.html' },
+            { name: 'Downingtown Library',                      category: 'volunteering',   coords: [40.0086, -75.7010], link: 'volunteering.html' },
+            { name: 'Meals on Wheels of Chester County',        category: 'volunteering',   coords: [39.9620, -75.5960], link: 'volunteering.html' },
+            { name: 'Chester County Community Foundation',      category: 'volunteering',   coords: [39.9640, -75.5955], link: 'volunteering.html' },
+            { name: 'Chesco Volunteer Opportunities',           category: 'volunteering',   coords: [39.9630, -75.5965], link: 'volunteering.html' },
+            { name: 'SEPTA Regional Rail – Downingtown Station', category: 'transportation', coords: [40.0032, -75.7007], link: 'transportation.html' },
+            { name: 'Chester County ROVER / Chesco Connect',   category: 'transportation', coords: [39.9610, -75.5970], link: 'transportation.html' },
+            { name: 'The Struble Trail',                        category: 'transportation', coords: [40.0060, -75.7120], link: 'transportation.html' },
+            { name: 'Amtrak Keystone Service – Downingtown',   category: 'transportation', coords: [40.0030, -75.7004], link: 'transportation.html' }
+          ];
+
+          resources.forEach(r => {
+            const color = catColors[r.category];
+            const label = r.category.charAt(0).toUpperCase() + r.category.slice(1);
+            L.marker(r.coords, { icon: makeIcon(color) })
+              .addTo(resourceMap)
+              .bindPopup(
+                `<div style="min-width:190px;font-family:Inter,sans-serif;">
+                  <strong style="font-size:0.95rem;color:#1e3a8a;">${r.name}</strong><br>
+                  <span style="display:inline-block;margin:5px 0 8px;padding:2px 10px;border-radius:50px;background:${color}22;color:${color};font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;">${label}</span><br>
+                  <a href="${r.link}" style="font-size:0.85rem;color:#1d4ed8;font-weight:600;text-decoration:none;">View Resource →</a>
+                </div>`
+              );
+          });
+          }); // end window.load
+        </script>
 </body>
 </html>
 
