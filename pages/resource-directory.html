@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resource Directory – Downingtown Community Resource Hub</title>
+  <link rel="stylesheet" href="default.css">
+  <link rel="stylesheet" href="pages.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+    <header class="main-header">
+        <div class="top-bar">
+            <div class="logo">
+                <img src="../images/community-icon-21.png" alt="Logo" class="logo-img">
+            </div>
+            <div class="logo-title">
+ Downingtown Community Resource Hub
+            </div>
+            <nav class="top-nav">
+                <a href="../index.html">Home</a>
+                <div class="nav-dropdown">
+                    <a class="nav-dropdown-toggle" tabindex="0">Resources ▾</a>
+                    <div class="nav-dropdown-menu">
+                        <a href="food.html">🍎 Food Security</a>
+                        <a href="housing.html">🏠 Housing &amp; Shelter</a>
+                        <a href="health.html">❤️ Health</a>
+                        <a href="education.html">📚 Education</a>
+                        <a href="transportation.html">🚌 Transportation</a>
+                        <a href="volunteering.html">🤝 Volunteering</a>
+                    </div>
+                </div>
+                            <div class="nav-dropdown">
+                    <a class="nav-dropdown-toggle" tabindex="0">More ▾</a>
+                    <div class="nav-dropdown-menu">
+                        <a href="resource-finder.html">🔍 Resource Finder</a>
+                        <a href="events.html">📅 Events Calendar</a>
+                        <a href="faq.html">❓ FAQ</a>
+                        <a href="emergency.html">🚨 Emergency Resources</a>
+                        <a href="newsletter.html">📧 Newsletter</a>
+                        <a href="stories.html">💬 Success Stories</a>
+                        <a href="volunteer-signup.html">🙋 Volunteer Sign-Up</a>
+                    </div>
+                </div>
+                <a href="resource-directory.html">Resource Directory</a>
+                <a href="about.html">About Us</a>
+</nav>
+        </div>
+    </header>
+
+  <!-- HERO SECTION -->
+    <section class="hero-resources">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="hero-heading">Resource Directory</h1>
+            <p class="hero-subheading">Can't find something? Look here or use the search bar!</p>
+        </div>
+    </section>
+
+  <!-- MAIN CONTENT -->
+    <main class="directory-main">
+
+        <section class="directory-controls">
+            <input 
+                type="text" 
+                id="directorySearch" 
+                placeholder="Search resources by name..."
+            >
+
+            <select id="directoryFilter">
+                <option value="all">All Categories</option>
+                <option value="food">Food Security</option>
+                <option value="housing">Housing & Shelter</option>
+                <option value="health">Health</option>
+                <option value="education">Education</option>
+                <option value="transportation">Transportation</option>
+                <option value="volunteering">Volunteering</option>
+            </select>
+        </section>
+
+  <!-- MAP EMBED -->
+        <section class="directory-map">
+            <h2 class="map-heading">Resource Locations</h2>
+            <p class="map-subheading">Each pin shows where a resource is located. Click a pin for details and a link to that resource.</p>
+            <div class="map-legend">
+                <span class="legend-item"><span class="legend-dot" style="background:#22c55e;"></span>Food</span>
+                <span class="legend-item"><span class="legend-dot" style="background:#f59e0b;"></span>Housing</span>
+                <span class="legend-item"><span class="legend-dot" style="background:#ef4444;"></span>Health</span>
+                <span class="legend-item"><span class="legend-dot" style="background:#6366f1;"></span>Education</span>
+                <span class="legend-item"><span class="legend-dot" style="background:#0ea5e9;"></span>Transportation</span>
+                <span class="legend-item"><span class="legend-dot" style="background:#ec4899;"></span>Volunteering</span>
+            </div>
+            <div class="map-container">
+                <div id="resourceMap" style="height:460px;"></div>
+            </div>
+        </section>
+
+  <!--Grid -->
+        <section class="directory-grid">
+            <div id="noResults" class="no-results-msg" style="display:none;">
+                <div class="no-results-icon">🔍</div>
+                <h3>No resources found</h3>
+                <p>Try a different search term or select a different category.</p>
+            </div>
+
+            <div class="directory-preview-card" data-category="food" data-name="Lord’s Pantry of Downingtown">
+                <h3>
+                    <a href="food.html">Lord’s Pantry of Downingtown</a>
+                </h3>
+                <p><strong>Category: </strong>Food Security</p>
+                <p>Lord’s Pantry of Downingtown provides groceries and essential food assistance to individuals and families facing food insecurity in the local community.</p>
+            </div>
+
+            <div class="directory-preview-card" data-category="food" data-name="Safe Harbor of Chester County">
+                <h3>
+                    <a href="food.html">Safe Harbor of Chester County</a>
+                </h3>
+                <p><strong>Category: </strong>Food Security</p>
+                <p>Safe Harbor of Chester County delivers meals and comprehensive support services that help unhoused adults move toward stability and housing.</p>
+            </div>
+
+            <div class="directory-preview-card" data-category="food" data-name="Downingtown Area School District Food Pantry">
+                <h3>
+                    <a href="food.html">Downingtown Area School District Food Pantry</a>
+                </h3>
+                <p><strong>Category: </strong>Food Security</p>
+                <p>The DASD Food Pantry supports students and families in need by providing food and essential items to reduce barriers to learning.</p>
+            </div>
+
+            <div class="directory-preview-card" data-category="food" data-name="Chester County Food Bank">
+                <h3>
+                    <a href="food.html">Chester County Food Bank</a>
+                </h3>
+                <p><strong>Category: </strong>Food Security</p>
+                <p>The Chester County Food Bank connects residents with food pantries, meal programs, and nutrition assistance through its county-wide Food Finder network.</p>
+            </div>
+
+            <div class="directory-preview-card" data-category="education" data-name="Downingtown Elementary Schools">
+                <h3>
+                    <a href="education.html">Downingtown Elementary Schools</a>
+                </h3>
+                <p><strong>Category: </strong>Education</p>
+                <p>Downingtown elementary schools provide foundational academic instruction and social-emotional development for young learners in the Downingtown Area School District.</p>
+            </div>
+
+            <div class="directory-preview-card" data-category="education" data-name="Downingtown Middle Schools">
+                <h3>
+                    <a href="education.html">Downingtown Middle Schools</a>
+                </h3>
+                <p><strong>Category: </strong>Education</p>
+                <p>Downingtown middle schools support early adolescents through rigorous academics, exploratory learning, and developmental guidance that prepares students for high school.</p>
+            </div>
+
+            <div class="directory-preview-card" data-category="education" data-name="Downingtown High Schools">
+                <h3>
+                    <a href="education.html">Downingtown High Schools</a>
+                </h3>
+                <p><strong>Category: </strong>Education</p>
+                <p>Downingtown high schools offer advanced coursework, career pathways, and extracurricular opportunities that prepare students for college and the workforce.</p>
+            </div>
+
+            <div class="directory-preview-card" data-category="education" data-name="Downingtown Community Education Foundation">
+                <h3>
+                    <a href="education.html">Downingtown Community Education Foundation</a>
+                </h3>
+                <p><strong>Category: </strong>Education</p>
+                <p>The Downingtown Community Education Foundation enhances student learning by funding innovative programs, grants, and enrichment opportunities across the district.</p>
+            </div>
+            
+            <div class="directory-preview-card" data-category="health" data-name="Educational and Behavioral Health Services">
+                <h3>
+                    <a href="health.html">Educational and Behavioral Health Services</a>
+                </h3>
+                <p><strong>Category: </strong>Health</p>
+                <p>Educational and Behavioral Health Services provide counseling, mental health support, and behavioral interventions to help students succeed academically and emotionally.</p>
+            </div>
+
+            <div class="directory-preview-card" data-category="health" data-name="Communities that Care">
+                <h3>
+                    <a href="health.html">Communities that Care</a>
+                </h3>
+                <p><strong>Category: </strong>Health</p>
+                <p>Communities That Care brings together schools and community partners to prevent youth substance use and promote healthy development through evidence-based programs.</p>
+            </div>
+
+            <div class="directory-preview-card" data-category="health" data-name="Chester County Groups for Addiction Disorders">
+                <h3>
+                    <a href="health.html">Chester County Groups for Addiction Disorders</a>
+                </h3>
+                <p><strong>Category: </strong>Health</p>
+                <p>Chester County addiction support organizations offer prevention education, treatment referrals, and behavioral health resources for individuals affected by substance use disorders.</p>
+            </div>
+
+            <div class="directory-preview-card" data-category="health" data-name="988 Lifeline">
+                <h3>
+                    <a href="health.html">988 Lifeline</a>
+                </h3>
+                <p><strong>Category: </strong>Health</p>
+                <p>The 988 Lifeline provides 24/7 confidential crisis support for individuals experiencing emotional distress, mental health emergencies, or suicidal thoughts.</p>
+            </div>
+
+
+
+            <div class="directory-preview-card" data-category="housing" data-name="Housing Partnership of Chester County">
+                <h3>
+                    <a href="housing.html">Housing Partnership of Chester County</a>
+                </h3>
+                <p><strong>Category: </strong>Housing & Shelter</p>
+                <p>The Housing Partnership of Chester County provides housing assistance, education, and support services that help individuals and families achieve and maintain long-term housing stability.</p>
+            </div>
+
+            <div class="directory-preview-card" data-category="housing" data-name="Atkinson Men’s Shelter">
+                <h3>
+                    <a href="housing.html">Atkinson Men’s Shelter</a>
+                </h3>
+                <p><strong>Category: </strong>Housing & Shelter</p>
+                <p>The W.C. Atkinson Men’s Shelter offers emergency housing and supportive services to help unhoused men in Chester County stabilize and transition toward independence.</p>
+            </div>
+
+            <div class="directory-preview-card" data-category="housing" data-name="Family Promise of Southern Chester County">
+                <h3>
+                    <a href="housing.html">Family Promise of Southern Chester County</a>
+                </h3>
+                <p><strong>Category: </strong>Housing & Shelter</p>
+                <p>Pennsylvania 2-1-1 connects individuals and families with emergency shelter, rental assistance, eviction prevention, and other housing-related resources through a free, confidential helpline.</p>
+            </div>
+
+            <div class="directory-preview-card" data-category="housing" data-name="Pennsylvania 2-1-1 Housing Assistance">
+                <h3>
+                    <a href="housing.html">Pennsylvania 2-1-1 Housing Assistance</a>
+                </h3>
+                <p><strong>Category: </strong>Housing & Shelter</p>
+                <p>Family Promise of Southern Chester County supports families experiencing homelessness through temporary housing, case management, and services that promote long-term stability.</p>
+            </div>
+
+
+            <div class="directory-preview-card" data-category="volunteering" data-name="Downingtown Library">
+                <h3>
+                    <a href="volunteering.html">Downingtown Library</a>
+                </h3>
+                <p><strong>Category: </strong>Volunteering</p>
+                <p>Downingtown Library offers youth and adult volunteers opportunities to support library operations, community events, and educational programs that strengthen local access to learning and resources.</p>
+            </div>
+
+            <div class="directory-preview-card" data-category="volunteering" data-name="Meals on Wheels of Chester County">
+                <h3>
+                    <a href="volunteering.html">Meals on Wheels of Chester County</a>
+                </h3>
+                <p><strong>Category: </strong>Volunteering</p>
+                <p>Meals on Wheels of Chester County relies on volunteers to deliver nutritious meals and provide vital social connection to homebound seniors across the county.</p>
+            </div>
+
+            <div class="directory-preview-card" data-category="volunteering" data-name="Chester County Community Foundation">
+                <h3>
+                    <a href="volunteering.html">Chester County Community Foundation</a>
+                </h3>
+                <p><strong>Category: </strong>Volunteering</p>
+                <p>The Chester County Community Foundation connects residents with volunteer opportunities at nonprofits addressing food security, education, youth development, and community health.</p>
+            </div>
+
+            <div class="directory-preview-card" data-category="volunteering" data-name="Chesco Volunteer Opportunities">
+                <h3>
+                    <a href="volunteering.html">Chesco Volunteer Opportunities</a>
+                </h3>
+                <p><strong>Category: </strong>Volunteering</p>
+                <p>Volunteer Chesco serves as the county’s central hub for matching residents with meaningful service roles across health, human services, transportation, and community support programs.</p>
+            </div>
+
+            <div class="directory-preview-card" data-category="transportation" data-name="SEPTA Regional Rail">
+                <h3>
+                    <a href="transportation.html">SEPTA Regional Rail</a>
+                </h3>
+                <p><strong>Category: </strong>Transportation</p>
+                <p>SEPTA Regional Rail provides frequent, electrified commuter-rail service connecting Chester County and surrounding suburbs to Center City Philadelphia and major regional employment hubs.</p>
+            </div>
+
+            <div class="directory-preview-card" data-category="transportation" data-name="Chester County ROVER">
+                <h3>
+                    <a href="transportation.html">Chester County ROVER</a>
+                </h3>
+                <p><strong>Category: </strong>Transportation</p>
+                <p>Chesco Connect offers flexible, door-to-door shared-ride transportation across Chester County, helping residents access essential destinations where fixed-route transit is limited.</p>
+            </div>
+
+            <div class="directory-preview-card" data-category="transportation" data-name="The Struble Trail">
+                <h3>
+                    <a href="transportation.html">The Struble Trail</a>
+                </h3>
+                <p><strong>Category: </strong>Transportation</p>
+                <p>The Struble Trail is a scenic, paved multi-use path that supports walking, biking, and short-distance commuting while connecting neighborhoods, parks, and natural areas near Downingtown.</p>
+            </div>
+
+            <div class="directory-preview-card" data-category="transportation" data-name="Amtrak Keystone Service">
+                <h3>
+                    <a href="transportation.html">Amtrak Keystone Service</a>
+                </h3>
+                <p><strong>Category: </strong>Transportation</p>
+                <p>The Amtrak Keystone Service delivers fast, reliable intercity rail travel linking Chester County with Philadelphia, Harrisburg, and New York City through multiple daily departures.</p>
+            </div>
+        </section>
+    </main>
+
+  <!-- FOOTER -->
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="refrences.html" class="cta-btn">References</a>
+                <a href="FeedbackSuggestions.html" class="cta-btn">Feedback & Suggestions</a>
+            </div>
+        </div>
+
+    </footer>
+
+        <script src="index.js"></script>
+        <script>
+          window.addEventListener('load', function () {
+          const resourceMap = L.map('resourceMap').setView([40.000, -75.680], 11);
+          L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 18,
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+          }).addTo(resourceMap);
+
+          const catColors = {
+            food: '#22c55e',
+            housing: '#f59e0b',
+            health: '#ef4444',
+            education: '#6366f1',
+            transportation: '#0ea5e9',
+            volunteering: '#ec4899'
+          };
+
+          function makeIcon(color) {
+            return L.divIcon({
+              html: `<div style="background:${color};width:16px;height:16px;border-radius:50%;border:2.5px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,0.4);"></div>`,
+              className: '',
+              iconSize: [16, 16],
+              iconAnchor: [8, 8],
+              popupAnchor: [0, -12]
+            });
+          }
+
+          const resources = [
+            { name: "Lord's Pantry of Downingtown",             category: 'food',           coords: [40.0018, -75.7066], link: 'food.html' },
+            { name: 'Safe Harbor of Chester County',             category: 'food',           coords: [39.9650, -75.5970], link: 'food.html' },
+            { name: 'DASD Food Pantry',                         category: 'food',           coords: [40.0093, -75.7256], link: 'food.html' },
+            { name: 'Chester County Food Bank',                 category: 'food',           coords: [40.0381, -75.6219], link: 'food.html' },
+            { name: 'Downingtown Elementary Schools',           category: 'education',      coords: [40.0065, -75.7280], link: 'education.html' },
+            { name: 'Downingtown Middle Schools',               category: 'education',      coords: [40.0100, -75.7150], link: 'education.html' },
+            { name: 'Downingtown High Schools',                 category: 'education',      coords: [40.0201, -75.7052], link: 'education.html' },
+            { name: 'Downingtown Community Education Foundation', category: 'education',    coords: [40.0070, -75.7260], link: 'education.html' },
+            { name: 'Educational & Behavioral Health Services', category: 'health',         coords: [40.0075, -75.7055], link: 'health.html' },
+            { name: 'Communities that Care',                    category: 'health',         coords: [40.0085, -75.7040], link: 'health.html' },
+            { name: 'Chester County Addiction Support Groups',  category: 'health',         coords: [39.9610, -75.5940], link: 'health.html' },
+            { name: 'Housing Partnership of Chester County',    category: 'housing',        coords: [39.9800, -75.8200], link: 'housing.html' },
+            { name: "Atkinson Men's Shelter",                   category: 'housing',        coords: [39.9615, -75.5950], link: 'housing.html' },
+            { name: 'Family Promise of Southern Chester County', category: 'housing',       coords: [39.8513, -75.7100], link: 'housing.html' },
+            { name: 'Downingtown Library',                      category: 'volunteering',   coords: [40.0086, -75.7010], link: 'volunteering.html' },
+            { name: 'Meals on Wheels of Chester County',        category: 'volunteering',   coords: [39.9620, -75.5960], link: 'volunteering.html' },
+            { name: 'Chester County Community Foundation',      category: 'volunteering',   coords: [39.9640, -75.5955], link: 'volunteering.html' },
+            { name: 'Chesco Volunteer Opportunities',           category: 'volunteering',   coords: [39.9630, -75.5965], link: 'volunteering.html' },
+            { name: 'SEPTA Regional Rail – Downingtown Station', category: 'transportation', coords: [40.0032, -75.7007], link: 'transportation.html' },
+            { name: 'Chester County ROVER / Chesco Connect',   category: 'transportation', coords: [39.9610, -75.5970], link: 'transportation.html' },
+            { name: 'The Struble Trail',                        category: 'transportation', coords: [40.0060, -75.7120], link: 'transportation.html' },
+            { name: 'Amtrak Keystone Service – Downingtown',   category: 'transportation', coords: [40.0030, -75.7004], link: 'transportation.html' }
+          ];
+
+          resources.forEach(r => {
+            const color = catColors[r.category];
+            const label = r.category.charAt(0).toUpperCase() + r.category.slice(1);
+            L.marker(r.coords, { icon: makeIcon(color) })
+              .addTo(resourceMap)
+              .bindPopup(
+                `<div style="min-width:190px;font-family:Inter,sans-serif;">
+                  <strong style="font-size:0.95rem;color:#1e3a8a;">${r.name}</strong><br>
+                  <span style="display:inline-block;margin:5px 0 8px;padding:2px 10px;border-radius:50px;background:${color}22;color:${color};font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;">${label}</span><br>
+                  <a href="${r.link}" style="font-size:0.85rem;color:#1d4ed8;font-weight:600;text-decoration:none;">View Resource →</a>
+                </div>`
+              );
+          });
+          }); // end window.load
+        </script>
+</body>
+</html>
+
+
+
+
+
+    

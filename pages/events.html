@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Events Calendar – Downingtown Community Resource Hub</title>
+  <link rel="stylesheet" href="default.css">
+  <link rel="stylesheet" href="pages.css">
+</head>
+<body>
+
+  <header class="main-header">
+    <div class="top-bar">
+      <div class="logo">
+        <img src="../images/community-icon-21.png" alt="Logo" class="logo-img">
+      </div>
+      <div class="logo-title">Downingtown Community Resource Hub</div>
+      <nav class="top-nav">
+        <a href="../index.html">Home</a>
+        <div class="nav-dropdown">
+          <a class="nav-dropdown-toggle" tabindex="0">Resources ▾</a>
+          <div class="nav-dropdown-menu">
+            <a href="food.html">🍎 Food Security</a>
+            <a href="housing.html">🏠 Housing &amp; Shelter</a>
+            <a href="health.html">❤️ Health</a>
+            <a href="education.html">📚 Education</a>
+            <a href="transportation.html">🚌 Transportation</a>
+            <a href="volunteering.html">🤝 Volunteering</a>
+          </div>
+        </div>
+              <div class="nav-dropdown">
+          <a class="nav-dropdown-toggle" tabindex="0">More ▾</a>
+          <div class="nav-dropdown-menu">
+            <a href="resource-finder.html">🔍 Resource Finder</a>
+            <a href="events.html">📅 Events Calendar</a>
+            <a href="faq.html">❓ FAQ</a>
+            <a href="emergency.html">🚨 Emergency Resources</a>
+            <a href="newsletter.html">📧 Newsletter</a>
+            <a href="stories.html">💬 Success Stories</a>
+            <a href="volunteer-signup.html">🙋 Volunteer Sign-Up</a>
+          </div>
+        </div>
+        <a href="resource-directory.html">Resource Directory</a>
+        <a href="about.html">About Us</a>
+</nav>
+      <input type="text" id="siteSearch" placeholder="Search this page...">
+    </div>
+  </header>
+
+  <section class="hero-events">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1 class="hero-heading">Events Calendar</h1>
+      <p class="hero-subheading">Stay up to date with community events, food drives, health fairs, and more.</p>
+    </div>
+  </section>
+
+  <main class="interior-main">
+
+    <!-- Calendar -->
+    <section class="interior-card">
+      <div class="calendar-header">
+        <button class="cal-nav-btn" onclick="changeMonth(-1)">&#8592; Prev</button>
+        <h3 id="cal-title"></h3>
+        <button class="cal-nav-btn" onclick="changeMonth(1)">Next &#8594;</button>
+      </div>
+      <div class="calendar-grid" id="calendar-grid"></div>
+    </section>
+
+    <!-- Upcoming Events List -->
+    <section class="interior-card">
+      <h2>Upcoming Events</h2>
+      <div class="events-list" id="events-list"></div>
+    </section>
+
+  </main>
+
+  <footer class="main-footer">
+    <div class="footer-content">
+      <div class="footer-links">
+        <a href="refrences.html" class="cta-btn">References</a>
+        <a href="FeedbackSuggestions.html" class="cta-btn">Feedback &amp; Suggestions</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="index.js"></script>
+  <script>
+    const EVENTS = [
+      { month: 4, day: 5,  year: 2026, title: 'Community Food Drive',        desc: 'Donate non-perishable food items at Downingtown Borough Hall, 10am–2pm.',        color: 'green',  icon: '🍎' },
+      { month: 4, day: 10, year: 2026, title: 'Free Health Screening',        desc: 'Blood pressure, glucose & cholesterol checks. Brandywine Hospital, 9am–12pm.',   color: 'red',    icon: '❤️' },
+      { month: 4, day: 14, year: 2026, title: 'Volunteer Orientation',        desc: 'Learn how to get involved with local nonprofits. Community Center, 6pm.',         color: 'blue',   icon: '🤝' },
+      { month: 4, day: 19, year: 2026, title: 'Housing Workshop',             desc: 'Free Q&A on rental rights and assistance programs. Library, 1pm–3pm.',            color: 'purple', icon: '🏠' },
+      { month: 4, day: 22, year: 2026, title: 'Earth Day Trail Cleanup',      desc: 'Help clean up the Struble Trail. Meet at the East Brandywine trailhead, 8am.',    color: 'green',  icon: '🌍' },
+      { month: 4, day: 26, year: 2026, title: 'Transportation Town Hall',     desc: 'Community meeting on local transit improvements. Borough Hall, 7pm.',             color: 'gold',   icon: '🚌' },
+      { month: 5, day: 3,  year: 2026, title: 'Community Garden Planting Day',desc: 'Help plant the community garden. Kerr Park, 9am–12pm.',                          color: 'green',  icon: '🌱' },
+      { month: 5, day: 8,  year: 2026, title: 'Mental Health Awareness Walk', desc: 'Join us for a 5K walk supporting mental health. Starts at YMCA, 8am.',           color: 'red',    icon: '💚' },
+      { month: 5, day: 15, year: 2026, title: 'Job & Career Fair',            desc: 'Meet local employers. Downingtown Middle School gymnasium, 10am–3pm.',           color: 'purple', icon: '💼' },
+      { month: 5, day: 24, year: 2026, title: 'Kids Summer Ready Workshop',   desc: 'Free tutoring resources and summer learning guides. Library, 2pm.',               color: 'blue',   icon: '📚' },
+    ];
+
+    const colorClass = { green: 'green', red: 'red', blue: '', purple: 'purple', gold: 'gold' };
+    let currentDate = new Date(2026, 3, 1); // April 2026
+
+    function changeMonth(dir) {
+      currentDate.setMonth(currentDate.getMonth() + dir);
+      renderCalendar();
+    }
+
+    function renderCalendar() {
+      const year  = currentDate.getFullYear();
+      const month = currentDate.getMonth(); // 0-indexed
+      const today = new Date(2026, 3, 4);   // April 4 2026
+
+      const monthNames = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+      document.getElementById('cal-title').textContent = `${monthNames[month]} ${year}`;
+
+      const grid = document.getElementById('calendar-grid');
+      grid.innerHTML = '';
+
+      const days = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+      days.forEach(d => {
+        const lbl = document.createElement('div');
+        lbl.className = 'cal-day-label';
+        lbl.textContent = d;
+        grid.appendChild(lbl);
+      });
+
+      const firstDay = new Date(year, month, 1).getDay();
+      const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+      for (let i = 0; i < firstDay; i++) {
+        const empty = document.createElement('div');
+        empty.className = 'cal-day empty';
+        grid.appendChild(empty);
+      }
+
+      for (let d = 1; d <= daysInMonth; d++) {
+        const cell = document.createElement('div');
+        cell.className = 'cal-day';
+        if (year === today.getFullYear() && month === today.getMonth() && d === today.getDate()) {
+          cell.classList.add('today');
+        }
+        const num = document.createElement('div');
+        num.className = 'cal-day-num';
+        num.textContent = d;
+        cell.appendChild(num);
+
+        EVENTS.filter(e => e.month === month + 1 && e.day === d && e.year === year).forEach(e => {
+          const ev = document.createElement('div');
+          ev.className = `cal-event ${colorClass[e.color]}`;
+          ev.textContent = e.icon + ' ' + e.title;
+          cell.appendChild(ev);
+        });
+        grid.appendChild(cell);
+      }
+
+      // Events list
+      const list = document.getElementById('events-list');
+      list.innerHTML = '';
+      const monthEvents = EVENTS.filter(e => e.month === month + 1 && e.year === year).sort((a,b) => a.day - b.day);
+      if (monthEvents.length === 0) {
+        list.innerHTML = '<p style="color:var(--muted);font-size:0.95rem;">No events this month.</p>';
+        return;
+      }
+      monthEvents.forEach(e => {
+        const item = document.createElement('div');
+        item.className = `event-item ${colorClass[e.color]}`;
+        item.innerHTML = `
+          <div class="event-date-badge">${monthNames[e.month-1].slice(0,3)}<br>${e.day}</div>
+          <div class="event-info">
+            <h4>${e.icon} ${e.title}</h4>
+            <p>${e.desc}</p>
+          </div>`;
+        list.appendChild(item);
+      });
+    }
+
+    renderCalendar();
+  </script>
+</body>
+</html>

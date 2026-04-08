@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resource Finder – Downingtown Community Resource Hub</title>
+  <link rel="stylesheet" href="default.css">
+  <link rel="stylesheet" href="pages.css">
+</head>
+<body>
+
+  <header class="main-header">
+    <div class="top-bar">
+      <div class="logo">
+        <img src="../images/community-icon-21.png" alt="Logo" class="logo-img">
+      </div>
+      <div class="logo-title">Downingtown Community Resource Hub</div>
+      <nav class="top-nav">
+        <a href="../index.html">Home</a>
+        <div class="nav-dropdown">
+          <a class="nav-dropdown-toggle" tabindex="0">Resources ▾</a>
+          <div class="nav-dropdown-menu">
+            <a href="food.html">🍎 Food Security</a>
+            <a href="housing.html">🏠 Housing &amp; Shelter</a>
+            <a href="health.html">❤️ Health</a>
+            <a href="education.html">📚 Education</a>
+            <a href="transportation.html">🚌 Transportation</a>
+            <a href="volunteering.html">🤝 Volunteering</a>
+          </div>
+        </div>
+              <div class="nav-dropdown">
+          <a class="nav-dropdown-toggle" tabindex="0">More ▾</a>
+          <div class="nav-dropdown-menu">
+            <a href="resource-finder.html">🔍 Resource Finder</a>
+            <a href="events.html">📅 Events Calendar</a>
+            <a href="faq.html">❓ FAQ</a>
+            <a href="emergency.html">🚨 Emergency Resources</a>
+            <a href="newsletter.html">📧 Newsletter</a>
+            <a href="stories.html">💬 Success Stories</a>
+            <a href="volunteer-signup.html">🙋 Volunteer Sign-Up</a>
+          </div>
+        </div>
+        <a href="resource-directory.html">Resource Directory</a>
+        <a href="about.html">About Us</a>
+</nav>
+      <input type="text" id="siteSearch" placeholder="Search this page...">
+    </div>
+  </header>
+
+  <section class="hero-finder">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1 class="hero-heading">Resource Finder</h1>
+      <p class="hero-subheading">Answer a few quick questions and we'll point you to the right resources.</p>
+    </div>
+  </section>
+
+  <main class="interior-main">
+    <section class="interior-card">
+      <div class="quiz-container">
+
+        <!-- Step 1 -->
+        <div class="quiz-step active" id="step-1">
+          <p class="quiz-progress">Step 1 of 2</p>
+          <h2>What best describes your situation right now?</h2>
+          <p>Select the option that applies most to you.</p>
+          <div class="quiz-options">
+            <button class="quiz-option" onclick="goStep2('food')"><span class="quiz-icon">🍎</span> I need food or meals</button>
+            <button class="quiz-option" onclick="goStep2('housing')"><span class="quiz-icon">🏠</span> I need housing or shelter</button>
+            <button class="quiz-option" onclick="goStep2('health')"><span class="quiz-icon">❤️</span> I need health care</button>
+            <button class="quiz-option" onclick="goStep2('education')"><span class="quiz-icon">📚</span> I need education or training</button>
+            <button class="quiz-option" onclick="goStep2('transportation')"><span class="quiz-icon">🚌</span> I need transportation help</button>
+            <button class="quiz-option" onclick="goStep2('volunteer')"><span class="quiz-icon">🤝</span> I want to volunteer</button>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="quiz-step" id="step-2">
+          <p class="quiz-progress">Step 2 of 2</p>
+          <h2 id="step2-question">How urgent is your need?</h2>
+          <div class="quiz-options">
+            <button class="quiz-option" onclick="showResult('urgent')"><span class="quiz-icon">🚨</span> Right now / today</button>
+            <button class="quiz-option" onclick="showResult('soon')"><span class="quiz-icon">📅</span> Within the next week</button>
+            <button class="quiz-option" onclick="showResult('planning')"><span class="quiz-icon">🗓️</span> I'm planning ahead</button>
+          </div>
+        </div>
+
+        <!-- Result -->
+        <div class="quiz-result" id="quiz-result">
+          <h2 id="result-title">Your Recommended Resource</h2>
+          <div class="quiz-result-card">
+            <h3 id="result-heading"></h3>
+            <p id="result-description"></p>
+            <a id="result-link" href="#" class="cta-btn" style="margin-top:0;">Go to Resource →</a>
+          </div>
+          <button class="quiz-restart-btn" onclick="restartQuiz()">↩ Start Over</button>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="main-footer">
+    <div class="footer-content">
+      <div class="footer-links">
+        <a href="refrences.html" class="cta-btn">References</a>
+        <a href="FeedbackSuggestions.html" class="cta-btn">Feedback &amp; Suggestions</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="index.js"></script>
+  <script>
+    let selectedCategory = '';
+
+    const results = {
+      food: {
+        urgent:    { h: 'Food Banks & Emergency Meals', d: 'Several local food banks offer same-day assistance. Visit our Food Security page for locations, hours, and contact numbers.', url: 'food.html' },
+        soon:      { h: 'Food Assistance Programs', d: 'Browse food pantries, community meals, and SNAP enrollment help on our Food Security page.', url: 'food.html' },
+        planning:  { h: 'Community Gardens & Long-Term Food Resources', d: 'Explore sustainable food programs, community gardens, and nutrition workshops on our Food Security page.', url: 'food.html' },
+      },
+      housing: {
+        urgent:    { h: 'Emergency Shelter', d: 'Safe Harbor of Greater West Chester provides emergency shelter. See our Housing & Shelter page for immediate contacts.', url: 'housing.html' },
+        soon:      { h: 'Rental Assistance & Transitional Housing', d: 'Find rental assistance programs and transitional housing options on our Housing & Shelter page.', url: 'housing.html' },
+        planning:  { h: 'Housing Programs & Resources', d: 'Learn about affordable housing, home repair grants, and tenant rights on our Housing & Shelter page.', url: 'housing.html' },
+      },
+      health: {
+        urgent:    { h: 'Walk-In Clinics & Crisis Lines', d: 'For emergencies call 911. For mental health crisis call 988. See our Health page for local walk-in clinics.', url: 'health.html' },
+        soon:      { h: 'Local Clinics & Health Services', d: 'Find local clinics, dental services, and mental health counseling on our Health page.', url: 'health.html' },
+        planning:  { h: 'Wellness & Preventive Care', d: 'Browse wellness programs, health screenings, and community health events on our Health page.', url: 'health.html' },
+      },
+      education: {
+        urgent:    { h: 'Tutoring & Academic Support', d: 'Find immediate tutoring and academic support resources on our Education page.', url: 'education.html' },
+        soon:      { h: 'Schools, Libraries & Learning', d: 'Explore schools, libraries, and learning programs available in Downingtown on our Education page.', url: 'education.html' },
+        planning:  { h: 'Adult Education & Workforce Training', d: 'Discover adult education, GED programs, and workforce training opportunities on our Education page.', url: 'education.html' },
+      },
+      transportation: {
+        urgent:    { h: 'Shared Rides & Emergency Transport', d: 'Find same-day ride services and emergency transportation options on our Transportation page.', url: 'transportation.html' },
+        soon:      { h: 'Bus & Rail Routes', d: 'View local bus routes, SEPTA rail, and trail access on our Transportation page.', url: 'transportation.html' },
+        planning:  { h: 'Transportation Planning', d: 'Explore all local transportation options and how to get around Downingtown on our Transportation page.', url: 'transportation.html' },
+      },
+      volunteer: {
+        urgent:    { h: 'Volunteer Today', d: 'Some organizations accept same-day volunteers. Check our Volunteering page for opportunities that need help right now.', url: 'volunteering.html' },
+        soon:      { h: 'Upcoming Volunteer Events', d: 'Browse volunteer events and sign up in advance on our Volunteering page. Also check our Events Calendar.', url: 'volunteering.html' },
+        planning:  { h: 'Long-Term Volunteering', d: 'Find ongoing volunteer roles and community involvement opportunities on our Volunteering page.', url: 'volunteering.html' },
+      },
+    };
+
+    function goStep2(category) {
+      selectedCategory = category;
+      document.getElementById('step-1').classList.remove('active');
+      document.getElementById('step-2').classList.add('active');
+    }
+
+    function showResult(urgency) {
+      const r = results[selectedCategory][urgency];
+      document.getElementById('result-heading').textContent = r.h;
+      document.getElementById('result-description').textContent = r.d;
+      document.getElementById('result-link').href = r.url;
+      document.getElementById('step-2').classList.remove('active');
+      document.getElementById('quiz-result').classList.add('active');
+    }
+
+    function restartQuiz() {
+      selectedCategory = '';
+      document.getElementById('quiz-result').classList.remove('active');
+      document.getElementById('step-2').classList.remove('active');
+      document.getElementById('step-1').classList.add('active');
+    }
+  </script>
+</body>
+</html>

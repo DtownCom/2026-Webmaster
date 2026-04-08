@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQ – Downingtown Community Resource Hub</title>
+  <link rel="stylesheet" href="default.css">
+  <link rel="stylesheet" href="pages.css">
+</head>
+<body>
+
+  <header class="main-header">
+    <div class="top-bar">
+      <div class="logo">
+        <img src="../images/community-icon-21.png" alt="Logo" class="logo-img">
+      </div>
+      <div class="logo-title">Downingtown Community Resource Hub</div>
+      <nav class="top-nav">
+        <a href="../index.html">Home</a>
+        <div class="nav-dropdown">
+          <a class="nav-dropdown-toggle" tabindex="0">Resources ▾</a>
+          <div class="nav-dropdown-menu">
+            <a href="food.html">🍎 Food Security</a>
+            <a href="housing.html">🏠 Housing &amp; Shelter</a>
+            <a href="health.html">❤️ Health</a>
+            <a href="education.html">📚 Education</a>
+            <a href="transportation.html">🚌 Transportation</a>
+            <a href="volunteering.html">🤝 Volunteering</a>
+          </div>
+        </div>
+              <div class="nav-dropdown">
+          <a class="nav-dropdown-toggle" tabindex="0">More ▾</a>
+          <div class="nav-dropdown-menu">
+            <a href="resource-finder.html">🔍 Resource Finder</a>
+            <a href="events.html">📅 Events Calendar</a>
+            <a href="faq.html">❓ FAQ</a>
+            <a href="emergency.html">🚨 Emergency Resources</a>
+            <a href="newsletter.html">📧 Newsletter</a>
+            <a href="stories.html">💬 Success Stories</a>
+            <a href="volunteer-signup.html">🙋 Volunteer Sign-Up</a>
+          </div>
+        </div>
+        <a href="resource-directory.html">Resource Directory</a>
+        <a href="about.html">About Us</a>
+</nav>
+      <input type="text" id="siteSearch" placeholder="Search this page...">
+    </div>
+  </header>
+
+  <section class="hero-faq">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1 class="hero-heading">Frequently Asked Questions</h1>
+      <p class="hero-subheading">Answers to common questions about accessing local resources.</p>
+    </div>
+  </section>
+
+  <main class="interior-main">
+
+    <section class="interior-card">
+      <h2>General Questions</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            What is the Downingtown Community Resource Hub? <span class="faq-chevron">▼</span>
+          </button>
+          <div class="faq-answer">
+            The Downingtown Community Resource Hub is a student-built website that helps residents of the Downingtown area find local support services — including food, housing, health care, education, transportation, and volunteering opportunities — all in one place.
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Is this website official or government-run? <span class="faq-chevron">▼</span>
+          </button>
+          <div class="faq-answer">
+            No. This site was created by students as part of the STEM Webmaster challenge. It is not affiliated with any government agency. Always verify information directly with the listed organizations.
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            How do I suggest a resource to be added? <span class="faq-chevron">▼</span>
+          </button>
+          <div class="faq-answer">
+            Visit our <a href="FeedbackSuggestions.html" style="color:var(--primary);font-weight:600;">Feedback &amp; Suggestions</a> page and fill out the "Suggest a New Resource" form. We review all submissions and will add qualifying resources to the site.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="interior-card">
+      <h2>Food &amp; Housing</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            How do I apply for food assistance? <span class="faq-chevron">▼</span>
+          </button>
+          <div class="faq-answer">
+            You can visit a local food bank directly — most do not require an appointment. For SNAP (food stamps) you can apply through Pennsylvania's COMPASS portal at compass.state.pa.us. See our <a href="food.html" style="color:var(--primary);font-weight:600;">Food Security</a> page for local options.
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            What ID do I need to access a shelter? <span class="faq-chevron">▼</span>
+          </button>
+          <div class="faq-answer">
+            Requirements vary by shelter. Many emergency shelters accept individuals without ID in a crisis. For transitional housing programs, a photo ID and proof of income may be needed. Contact the shelter directly before visiting. See our <a href="housing.html" style="color:var(--primary);font-weight:600;">Housing &amp; Shelter</a> page for contacts.
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Are there resources available for families with children? <span class="faq-chevron">▼</span>
+          </button>
+          <div class="faq-answer">
+            Yes. Many of our listed resources specifically serve families — including family meal programs, family shelter accommodations, and educational support for children. Use our <a href="resource-finder.html" style="color:var(--primary);font-weight:600;">Resource Finder</a> to get personalized recommendations.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="interior-card">
+      <h2>Health &amp; Wellness</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Where can I get free or low-cost health care? <span class="faq-chevron">▼</span>
+          </button>
+          <div class="faq-answer">
+            Chester County offers several community health clinics with sliding-scale fees based on income. Brandywine Hospital also has outreach programs. See our <a href="health.html" style="color:var(--primary);font-weight:600;">Health</a> page for a full list.
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            I'm in a mental health crisis. What should I do? <span class="faq-chevron">▼</span>
+          </button>
+          <div class="faq-answer">
+            Call or text <strong>988</strong> (Suicide &amp; Crisis Lifeline) — available 24/7. For emergencies, call <strong>911</strong>. See our <a href="emergency.html" style="color:var(--primary);font-weight:600;">Emergency Resources</a> page for more crisis lines.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="interior-card">
+      <h2>Volunteering &amp; Getting Involved</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            How can I start volunteering? <span class="faq-chevron">▼</span>
+          </button>
+          <div class="faq-answer">
+            Fill out our <a href="volunteer-signup.html" style="color:var(--primary);font-weight:600;">Volunteer Sign-Up</a> form and we'll connect you with local organizations. You can also visit our <a href="volunteering.html" style="color:var(--primary);font-weight:600;">Volunteering</a> page to browse current opportunities.
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Do I need prior experience to volunteer? <span class="faq-chevron">▼</span>
+          </button>
+          <div class="faq-answer">
+            Most volunteer opportunities do not require prior experience. Many organizations welcome anyone with a willingness to help and will provide training on-site.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="interior-card" style="text-align:center;border-left:none;border-top:5px solid var(--primary);">
+      <h2>Still Have Questions?</h2>
+      <p style="color:var(--muted);margin-bottom:20px;">Can't find the answer you're looking for? Send us a message through our Feedback page.</p>
+      <a href="FeedbackSuggestions.html" class="cta-btn">Contact Us →</a>
+    </section>
+
+  </main>
+
+  <footer class="main-footer">
+    <div class="footer-content">
+      <div class="footer-links">
+        <a href="refrences.html" class="cta-btn">References</a>
+        <a href="FeedbackSuggestions.html" class="cta-btn">Feedback &amp; Suggestions</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="index.js"></script>
+  <script>
+    function toggleFaq(btn) {
+      const answer = btn.nextElementSibling;
+      const isOpen = btn.classList.contains('open');
+      // Close all
+      document.querySelectorAll('.faq-question.open').forEach(q => {
+        q.classList.remove('open');
+        q.nextElementSibling.classList.remove('open');
+      });
+      // Open clicked if it was closed
+      if (!isOpen) {
+        btn.classList.add('open');
+        answer.classList.add('open');
+      }
+    }
+  </script>
+</body>
+</html>
