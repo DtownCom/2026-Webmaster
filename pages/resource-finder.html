@@ -70,9 +70,9 @@
 
         <!-- Step 1 -->
         <div class="quiz-step active" id="step-1">
-          <p class="quiz-progress">Step 1 of 2 &mdash; What do you need?</p>
-          <h2>What best describes your situation right now?</h2>
-          <p>Select the option that applies most to you.</p>
+          <p class="quiz-progress">Step 1 of 2 &mdash; What are you looking for?</p>
+          <h2>What best describes what you're looking for?</h2>
+          <p>Select the category that fits best — we'll ask a follow-up question tailored to that resource.</p>
           <div class="quiz-options">
             <button class="quiz-option" onclick="goStep2('food')"><span class="quiz-icon">🍎</span> Food &amp; Meals</button>
             <button class="quiz-option" onclick="goStep2('housing')"><span class="quiz-icon">🏠</span> Housing &amp; Shelter</button>
@@ -209,8 +209,7 @@
           intro: 'If you need shelter today, contact these organizations immediately.',
           items: [
             { icon: '🚨', h: 'Safe Harbor of Chester County', d: 'Emergency shelter for adults and families experiencing homelessness. Call before arriving if possible.', url: 'housing.html' },
-            { icon: '🏘️', h: 'W.C. Atkinson Memorial Center', d: 'Community service center offering shelter and emergency housing assistance in the Downingtown area.', url: 'housing.html' },
-            { icon: '📞', h: 'Chester County 211', d: 'Call or text 211 to be connected to the nearest emergency housing resource for your location.', url: 'housing.html' },
+            { icon: '🏘️', h: 'W.C. Atkinson Memorial Center', d: 'Community service center offering shelter and emergency housing assistance in the Downingtown area.', url: 'housing.html' },            { icon: '📞', h: 'Chester County Shelter Hotline', d: 'Call 610-436-6630 or dial 2-1-1 to be connected to available shelter beds and emergency housing across Chester County — available 24/7.', url: 'housing.html' },            { icon: '📞', h: 'Chester County 211', d: 'Call or text 211 to be connected to the nearest emergency housing resource for your location.', url: 'housing.html' },
           ], page: 'housing.html'
         },
         soon: {
@@ -218,7 +217,8 @@
           items: [
             { icon: '🏛️', h: 'Chester County Housing Authority', d: 'Administers rental assistance programs including Section 8 vouchers for income-qualifying residents.', url: 'housing.html' },
             { icon: '🔨', h: 'Habitat for Humanity', d: 'Affordable homeownership and home repair programs for low-to-moderate income families.', url: 'housing.html' },
-            { icon: '🤝', h: 'Family Promise of Southern Chester County', d: 'Transitional housing and support services for families experiencing homelessness.', url: 'housing.html' },
+            { icon: '🤝', h: 'Friends Association for Care & Protection of Children', d: 'Chester County\'s only low-barrier family shelter, plus eviction prevention and housing stability case management for families. Call (610) 431-3598.', url: 'housing.html' },
+            { icon: '🕊️', h: 'Home of the Sparrow', d: 'Partners with women facing homelessness to secure housing through eviction prevention, shared housing, and supportive housing programs. Call 610-647-4940.', url: 'housing.html' },
           ], page: 'housing.html'
         },
         planning: {
@@ -282,7 +282,8 @@
           intro: 'Get academic support through tutoring and learning resources in the area.',
           items: [
             { icon: '📖', h: 'Club Z! Tutoring of Downingtown', d: 'In-home and online certified tutoring for all ages and subjects — flexible scheduling available.', url: 'education.html' },
-            { icon: '📚', h: 'Downingtown Public Library', d: 'Free study spaces, internet access, tutoring referrals, and educational materials available now.', url: 'education.html' },
+            { icon: '�', h: 'Kumon – Downingtown', d: 'Self-paced, individualized math and reading enrichment for preschool through high school students. Free placement assessment available.', url: 'education.html' },
+            { icon: '�📚', h: 'Downingtown Public Library', d: 'Free study spaces, internet access, tutoring referrals, and educational materials available now.', url: 'education.html' },
           ], page: 'education.html'
         },
       },
@@ -296,8 +297,7 @@
         },
         ondemand: {
           intro: 'Flexible, on-demand transportation options for residents without personal vehicles.',
-          items: [
-            { icon: '🚐', h: 'Chester County ROVER / Chesco Connect', d: 'Flexible door-to-door shared rides across Chester County. Book by phone or online for convenient scheduling.', url: 'transportation.html' },
+          items: [            { icon: '🚐', h: 'Chesco Connect', d: 'Chester County\'s official door-to-door shared-ride program. Book by phone (610-344-5545) at least one day in advance for medical, work, shopping, or other trips.', url: 'transportation.html' },            { icon: '🚐', h: 'Chester County ROVER / Chesco Connect', d: 'Flexible door-to-door shared rides across Chester County. Book by phone or online for convenient scheduling.', url: 'transportation.html' },
             { icon: '♿', h: 'SEPTA CCT Connect', d: 'Paratransit service for eligible riders with disabilities — bookings can be made in advance.', url: 'transportation.html' },
           ], page: 'transportation.html'
         },
@@ -312,6 +312,7 @@
           intro: 'Active transportation options for biking, walking, and trail use.',
           items: [
             { icon: '🚲', h: 'The Struble Trail', d: 'A scenic multi-use trail connecting Downingtown — ideal for biking and walking commutes.', url: 'transportation.html' },
+            { icon: '🌳', h: 'Harmony Hill Nature Area', d: 'A preserved natural area with car-free walking and hiking trails connecting to Chester County\'s broader trail network. Great for non-motorized travel.', url: 'transportation.html' },
             { icon: '🌳', h: 'Brandywine Trail System', d: 'Connected trail network offering non-motorized routes through the greater Brandywine Valley area.', url: 'transportation.html' },
           ], page: 'transportation.html'
         },

@@ -12,7 +12,6 @@
 
 <body class="page-directory">
 
-  <!-- HEADER -->
     <header class="main-header">
         <div class="top-bar">
             <div class="logo">
@@ -52,7 +51,6 @@
         </div>
     </header>
 
-  <!-- HERO SECTION -->
     <section class="hero-resources">
         <div class="hero-overlay"></div>
         <div class="hero-content">
@@ -61,7 +59,6 @@
         </div>
     </section>
 
-  <!-- MAIN CONTENT -->
     <main class="directory-main">
 
         <section class="directory-controls">
@@ -86,7 +83,6 @@
             </button>
         </section>
 
-  <!-- MAP EMBED -->
         <section class="directory-map">
             <h2 class="map-heading">Resource Locations</h2>
             <p class="map-subheading">Each pin shows where a resource is located. Click a pin for details and a link to that resource.</p>
@@ -103,7 +99,6 @@
             </div>
         </section>
 
-  <!--Grid -->
         <section class="directory-grid">
             <div id="noResults" class="no-results-msg" style="display:none;">
                 <div class="no-results-icon">🔍</div>
@@ -190,7 +185,15 @@
                 <p><strong>Category: </strong>Education</p>
                 <p>The Downingtown Community Education Foundation enhances student learning by funding innovative programs, grants, and enrichment opportunities across the district.</p>
             </div>
-            
+
+            <div class="directory-preview-card" data-category="education" data-name="Kumon – Downingtown">
+                <h3>
+                    <a href="education.html">Kumon – Downingtown</a>
+                </h3>
+                <p><strong>Category: </strong>Education</p>
+                <p>Kumon Downingtown offers individualized, self-paced math and reading enrichment programs for students from preschool through high school, building strong academic foundations and independent study habits.</p>
+            </div>
+
             <div class="directory-preview-card" data-category="health" data-name="Educational and Behavioral Health Services">
                 <h3>
                     <a href="health.html">Educational and Behavioral Health Services</a>
@@ -267,8 +270,32 @@
                 <h3>
                     <a href="housing.html">Pennsylvania 2-1-1 Housing Assistance</a>
                 </h3>
-                <p><strong>Category: </strong>Housing & Shelter</p>
+                <p><strong>Category: </strong>Housing &amp; Shelter</p>
                 <p>Family Promise of Southern Chester County supports families experiencing homelessness through temporary housing, case management, and services that promote long-term stability.</p>
+            </div>
+
+            <div class="directory-preview-card" data-category="housing" data-name="Chester County Shelter Hotline">
+                <h3>
+                    <a href="housing.html">Chester County Shelter Hotline</a>
+                </h3>
+                <p><strong>Category: </strong>Housing &amp; Shelter</p>
+                <p>The Chester County Shelter Hotline is a 24/7 emergency line connecting individuals and families with available shelter beds and housing assistance across Chester County. Call 610-436-6630 or 2-1-1.</p>
+            </div>
+
+            <div class="directory-preview-card" data-category="housing" data-name="Friends Association for Care &amp; Protection of Children">
+                <h3>
+                    <a href="housing.html">Friends Association for Care &amp; Protection of Children</a>
+                </h3>
+                <p><strong>Category: </strong>Housing &amp; Shelter</p>
+                <p>Friends Association operates Chester County's only low-barrier family shelter and provides eviction prevention and housing stability case management to empower families facing homelessness.</p>
+            </div>
+
+            <div class="directory-preview-card" data-category="housing" data-name="Home of the Sparrow">
+                <h3>
+                    <a href="housing.html">Home of the Sparrow</a>
+                </h3>
+                <p><strong>Category: </strong>Housing &amp; Shelter</p>
+                <p>Home of the Sparrow partners with women facing homelessness to secure housing and achieve long-term stability through six prevention and supportive housing programs in Chester County.</p>
             </div>
 
 
@@ -341,10 +368,26 @@
                 <p><strong>Category: </strong>Transportation</p>
                 <p>The Amtrak Keystone Service delivers fast, reliable intercity rail travel linking Chester County with Philadelphia, Harrisburg, and New York City through multiple daily departures.</p>
             </div>
+
+            <div class="directory-preview-card" data-category="transportation" data-name="Harmony Hill Nature Area">
+                <h3>
+                    <a href="transportation.html">Harmony Hill Nature Area</a>
+                </h3>
+                <p><strong>Category: </strong>Transportation</p>
+                <p>Harmony Hill Nature Area provides scenic walking and hiking trails through Chester County's preserved natural landscape, serving as a car-free active-transportation corridor for pedestrians and cyclists.</p>
+            </div>
+
+            <div class="directory-preview-card" data-category="transportation" data-name="Chesco Connect">
+                <h3>
+                    <a href="transportation.html">Chesco Connect</a>
+                </h3>
+                <p><strong>Category: </strong>Transportation</p>
+                <p>Chesco Connect is Chester County's door-to-door shared-ride transit program, providing advance-scheduled rides to medical appointments, work, grocery stores, and other destinations county-wide. Call 610-344-5545.</p>
+            </div>
+
         </section>
     </main>
 
-  <!-- FOOTER -->
     <footer class="main-footer">
         <div class="footer-content">
             <div class="footer-links">
@@ -410,7 +453,13 @@
             { name: 'SEPTA Regional Rail – Downingtown Station', category: 'transportation', coords: [40.0032, -75.7007], link: 'transportation.html' },
             { name: 'Chester County ROVER / Chesco Connect',   category: 'transportation', coords: [39.9610, -75.5970], link: 'transportation.html' },
             { name: 'The Struble Trail',                        category: 'transportation', coords: [40.0060, -75.7120], link: 'transportation.html' },
-            { name: 'Amtrak Keystone Service – Downingtown',   category: 'transportation', coords: [40.0030, -75.7004], link: 'transportation.html' }
+            { name: 'Amtrak Keystone Service – Downingtown',   category: 'transportation', coords: [40.0030, -75.7004], link: 'transportation.html' },
+            { name: 'Harmony Hill Nature Area',                  category: 'transportation', coords: [39.9940, -75.7490], link: 'transportation.html' },
+            { name: 'Chesco Connect',                            category: 'transportation', coords: [39.9588, -75.6059], link: 'transportation.html' },
+            { name: 'Chester County Shelter Hotline',            category: 'housing',        coords: [39.9588, -75.6059], link: 'housing.html' },
+            { name: 'Friends Association for Care & Protection of Children', category: 'housing', coords: [39.9757, -75.6124], link: 'housing.html' },
+            { name: 'Home of the Sparrow',                       category: 'housing',        coords: [40.0451, -75.6271], link: 'housing.html' },
+            { name: 'Kumon – Downingtown',                       category: 'education',      coords: [40.0027, -75.7015], link: 'education.html' }
           ];
 
           resources.forEach(r => {
@@ -477,7 +526,13 @@
             "Amtrak Keystone Service – Downingtown": [40.0030, -75.7004],
             "Downingtown Volunteer Fire Company": [40.0040, -75.7030],
             "Chester County Food Bank Volunteers": [40.0310, -75.7320],
-            "YMCA of Greater Brandywine": [40.0025, -75.7060]
+            "YMCA of Greater Brandywine": [40.0025, -75.7060],
+            "Chester County Shelter Hotline": [39.9588, -75.6059],
+            "Friends Association for Care & Protection of Children": [39.9757, -75.6124],
+            "Home of the Sparrow": [40.0451, -75.6271],
+            "Harmony Hill Nature Area": [39.9940, -75.7490],
+            "Chesco Connect": [39.9588, -75.6059],
+            "Kumon – Downingtown": [40.0027, -75.7015]
           };
 
           btn.addEventListener('click', function () {
