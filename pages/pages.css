@@ -1287,6 +1287,7 @@
 /* Remove dark overlay on solid-color hero banners so top matches footer exactly */
 .page-about .hero-overlay,
 .page-directory .hero-overlay,
+.page-finder .hero-overlay,
 .page-events .hero-overlay,
 .page-faq .hero-overlay,
 .page-emergency .hero-overlay,
