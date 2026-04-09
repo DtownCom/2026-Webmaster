@@ -192,13 +192,15 @@ body {
 -------------------------------------------------- */
 .hero {
   position: relative;
-  background: url('../images/hero.jpg') center/cover no-repeat;
-  height: 520px;
+  background: url('../images/DowningtownStreet.jpg') center/cover no-repeat;
+  background-attachment: fixed;
+  height: 75vh;
   display: flex;
   align-items: center;
   justify-content: center;
   color: white;
   text-align: center;
+  overflow: hidden;
 }
 
 .hero-overlay {
@@ -214,6 +216,8 @@ body {
   text-align: center;
   padding: 20px;
   max-width: 760px;
+  transition: opacity 0.1s linear, transform 0.1s linear;
+  will-change: opacity, transform;
 }
 
 .hero-heading {

@@ -66,7 +66,7 @@
         <section class="welcome-banner">
             <h2>Welcome to the Downingtown Community Resource Hub!</h2>
             <p>
-                We’re so glad you’re here. This site is your one-stop spot for finding local support, services, and opportunities. Whether you're looking for food assistance, housing, health care, or ways to get involved — we've got you covered.
+                We’re so glad you’re here. This site is your one-stop spot for finding local support, services, and opportunities in or near Downingtown. Whether you're looking for food assistance, housing, health care, or ways to get involved — we've got you covered.
             </p>
             <p>
                 Bookmark this page and explore the categories below. If you know of a resource that should be added, please visit our <a href="FeedbackSuggestions.html">Feedback & Suggestions</a> page.
@@ -153,5 +153,24 @@
 
     </footer>
     <script src="index.js"></script>
+    <script>
+      (function () {
+        var hero = document.querySelector('.hero');
+        var heroContent = document.querySelector('.hero-content');
+        var heroOverlay = document.querySelector('.hero .hero-overlay');
+        if (!hero || !heroContent) return;
+        function onScroll() {
+          var scrollY = window.scrollY;
+          var heroH = hero.offsetHeight;
+          var progress = Math.min(scrollY / heroH, 1);
+          // Fade + float-up the content
+          heroContent.style.opacity = 1 - progress * 1.8;
+          heroContent.style.transform = 'translateY(' + (-scrollY * 0.3) + 'px)';
+          // Deepen the dark overlay as user scrolls
+          heroOverlay.style.opacity = 1 + progress * 0.8;
+        }
+        window.addEventListener('scroll', onScroll, { passive: true });
+      })();
+    </script>
 </body>
 </html>

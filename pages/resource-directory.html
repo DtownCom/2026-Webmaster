@@ -10,7 +10,7 @@
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
 </head>
 
-<body>
+<body class="page-directory">
 
   <!-- HEADER -->
     <header class="main-header">
@@ -80,6 +80,10 @@
                 <option value="transportation">Transportation</option>
                 <option value="volunteering">Volunteering</option>
             </select>
+
+            <button id="nearMeBtn" title="Sort by distance from your location" style="padding:10px 18px;border-radius:8px;background:#1d4ed8;color:#fff;border:none;font-weight:600;font-size:0.9rem;cursor:pointer;display:flex;align-items:center;gap:6px;white-space:nowrap;">
+                📍 Near Me
+            </button>
         </section>
 
   <!-- MAP EMBED -->
@@ -137,6 +141,22 @@
                 </h3>
                 <p><strong>Category: </strong>Food Security</p>
                 <p>The Chester County Food Bank connects residents with food pantries, meal programs, and nutrition assistance through its county-wide Food Finder network.</p>
+            </div>
+
+            <div class="directory-preview-card" data-category="food" data-name="Ebenezer Full Revival Baptist Church Food Pantry">
+                <h3>
+                    <a href="food.html">Ebenezer Full Revival Baptist Church Food Pantry</a>
+                </h3>
+                <p><strong>Category: </strong>Food Security</p>
+                <p>The Ebenezer Full Revival Baptist Church Food Pantry provides free groceries and hygiene necessities to community members on the 2nd and 4th Saturdays of each month from 10:00 AM to 12:00 PM.</p>
+            </div>
+
+            <div class="directory-preview-card" data-category="food" data-name="Philabundance">
+                <h3>
+                    <a href="food.html">Philabundance</a>
+                </h3>
+                <p><strong>Category: </strong>Food Security</p>
+                <p>Philabundance is a regional food bank working with 350+ community partners across Southeastern Pennsylvania — including Chester County — to distribute food and connect residents with nearby pantries and meal sites.</p>
             </div>
 
             <div class="directory-preview-card" data-category="education" data-name="Downingtown Elementary Schools">
@@ -203,7 +223,21 @@
                 <p>The 988 Lifeline provides 24/7 confidential crisis support for individuals experiencing emotional distress, mental health emergencies, or suicidal thoughts.</p>
             </div>
 
+            <div class="directory-preview-card" data-category="health" data-name="Main Line HealthCare Primary Care in Downingtown">
+                <h3>
+                    <a href="health.html">Main Line HealthCare Primary Care in Downingtown</a>
+                </h3>
+                <p><strong>Category: </strong>Health</p>
+                <p>Offers primary care, internal medicine, senior health, cardiovascular care, and integrated behavioral health at Mill Town Square, 150 E. Pennsylvania Ave, Downingtown. Call 610.280.7960.</p>
+            </div>
 
+            <div class="directory-preview-card" data-category="health" data-name="365 Health Services">
+                <h3>
+                    <a href="health.html">365 Health Services</a>
+                </h3>
+                <p><strong>Category: </strong>Health</p>
+                <p>ACHC-accredited home care agency serving Downingtown, West Chester, and Chester County — providing in-home pediatric care, adult nursing, personal assistance, disability support, veterans care, and more. Available 24/7/365.</p>
+            </div>
 
             <div class="directory-preview-card" data-category="housing" data-name="Housing Partnership of Chester County">
                 <h3>
@@ -269,7 +303,13 @@
                 <p><strong>Category: </strong>Volunteering</p>
                 <p>Volunteer Chesco serves as the county’s central hub for matching residents with meaningful service roles across health, human services, transportation, and community support programs.</p>
             </div>
-
+            <div class="directory-preview-card" data-category="volunteering" data-name="YMCA of Greater Brandywine">
+                <h3>
+                    <a href="volunteering.html">YMCA of Greater Brandywine</a>
+                </h3>
+                <p><strong>Category: </strong>Volunteering</p>
+                <p>The YMCA of Greater Brandywine supports youth development, healthy living, and social responsibility through volunteer opportunities at branches throughout Chester County, including Downingtown.</p>
+            </div>
             <div class="directory-preview-card" data-category="transportation" data-name="SEPTA Regional Rail">
                 <h3>
                     <a href="transportation.html">SEPTA Regional Rail</a>
@@ -348,6 +388,8 @@
             { name: 'Safe Harbor of Chester County',             category: 'food',           coords: [39.9650, -75.5970], link: 'food.html' },
             { name: 'DASD Food Pantry',                         category: 'food',           coords: [40.0093, -75.7256], link: 'food.html' },
             { name: 'Chester County Food Bank',                 category: 'food',           coords: [40.0381, -75.6219], link: 'food.html' },
+            { name: 'Ebenezer Full Revival Baptist Church Food Pantry', category: 'food',   coords: [40.0020, -75.7001], link: 'food.html' },
+            { name: 'Philabundance',                            category: 'food',           coords: [39.9200, -75.1710], link: 'food.html' },
             { name: 'Downingtown Elementary Schools',           category: 'education',      coords: [40.0065, -75.7280], link: 'education.html' },
             { name: 'Downingtown Middle Schools',               category: 'education',      coords: [40.0100, -75.7150], link: 'education.html' },
             { name: 'Downingtown High Schools',                 category: 'education',      coords: [40.0201, -75.7052], link: 'education.html' },
@@ -355,6 +397,8 @@
             { name: 'Educational & Behavioral Health Services', category: 'health',         coords: [40.0075, -75.7055], link: 'health.html' },
             { name: 'Communities that Care',                    category: 'health',         coords: [40.0085, -75.7040], link: 'health.html' },
             { name: 'Chester County Addiction Support Groups',  category: 'health',         coords: [39.9610, -75.5940], link: 'health.html' },
+            { name: 'Main Line HealthCare Primary Care – Downingtown', category: 'health',  coords: [40.0017, -75.7042], link: 'health.html' },
+            { name: '365 Health Services',                      category: 'health',         coords: [40.0030, -75.7002], link: 'health.html' },
             { name: 'Housing Partnership of Chester County',    category: 'housing',        coords: [39.9800, -75.8200], link: 'housing.html' },
             { name: "Atkinson Men's Shelter",                   category: 'housing',        coords: [39.9615, -75.5950], link: 'housing.html' },
             { name: 'Family Promise of Southern Chester County', category: 'housing',       coords: [39.8513, -75.7100], link: 'housing.html' },
@@ -362,6 +406,7 @@
             { name: 'Meals on Wheels of Chester County',        category: 'volunteering',   coords: [39.9620, -75.5960], link: 'volunteering.html' },
             { name: 'Chester County Community Foundation',      category: 'volunteering',   coords: [39.9640, -75.5955], link: 'volunteering.html' },
             { name: 'Chesco Volunteer Opportunities',           category: 'volunteering',   coords: [39.9630, -75.5965], link: 'volunteering.html' },
+            { name: 'YMCA of Greater Brandywine',               category: 'volunteering',   coords: [40.0025, -75.7060], link: 'volunteering.html' },
             { name: 'SEPTA Regional Rail – Downingtown Station', category: 'transportation', coords: [40.0032, -75.7007], link: 'transportation.html' },
             { name: 'Chester County ROVER / Chesco Connect',   category: 'transportation', coords: [39.9610, -75.5970], link: 'transportation.html' },
             { name: 'The Struble Trail',                        category: 'transportation', coords: [40.0060, -75.7120], link: 'transportation.html' },
@@ -382,6 +427,109 @@
               );
           });
           }); // end window.load
+        </script>
+
+        <script>
+        // ── Near Me: sort directory cards by distance ──
+        (function () {
+          var btn = document.getElementById('nearMeBtn');
+          if (!btn) return;
+
+          function haversine(lat1, lon1, lat2, lon2) {
+            var R = 3958.8; // miles
+            var dLat = (lat2 - lat1) * Math.PI / 180;
+            var dLon = (lon2 - lon1) * Math.PI / 180;
+            var a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+                    Math.cos(lat1 * Math.PI/180) * Math.cos(lat2 * Math.PI/180) *
+                    Math.sin(dLon/2) * Math.sin(dLon/2);
+            return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+          }
+
+          // Coords embedded per card name — must match the Leaflet resources array
+          var cardCoords = {
+            "Lord's Pantry of Downingtown": [40.0018, -75.7066],
+            "Safe Harbor of Chester County": [40.0055, -75.7080],
+            "Downingtown Area School District Food Pantry": [40.0093, -75.7256],
+            "Chester County Food Bank": [40.0310, -75.7320],
+            "Ebenezer Full Revival Baptist Church Food Pantry": [40.0020, -75.7001],
+            "Philabundance": [39.9200, -75.1710],
+            "Chester County Housing Authority": [39.9590, -75.6060],
+            "Habitat for Humanity": [39.9600, -75.6050],
+            "Chester County Department of Community Development": [39.9610, -75.6040],
+            "Chester County Domestic Violence Center": [39.9580, -75.6070],
+            "Educational & Behavioral Health Services": [40.0075, -75.7055],
+            "Communities that Care": [40.0085, -75.7040],
+            "Chester County Drug & Alcohol Services": [39.9590, -75.6060],
+            "988 Suicide & Crisis Lifeline": [40.0000, -75.7000],
+            "Main Line HealthCare Primary Care – Downingtown": [40.0017, -75.7042],
+            "365 Health Services": [40.0030, -75.7002],
+            "Downingtown Elementary Schools": [40.0065, -75.7280],
+            "Downingtown Middle Schools": [40.0068, -75.7270],
+            "Downingtown High Schools": [40.0072, -75.7265],
+            "Downingtown Community Education Foundation": [40.0070, -75.7260],
+            "Delaware County Community College – Downingtown Center": [40.0010, -75.7050],
+            "Downingtown Library": [40.0086, -75.7010],
+            "Club Z! Tutoring of Downingtown": [40.0030, -75.7020],
+            "Birth to Three Services – Chester County Intermediate Unit": [40.0015, -75.7080],
+            "SEPTA Regional Rail – Downingtown Station": [40.0032, -75.7007],
+            "Chester County ROVER / Chesco Connect": [39.9610, -75.5970],
+            "The Struble Trail": [40.0060, -75.7120],
+            "Amtrak Keystone Service – Downingtown": [40.0030, -75.7004],
+            "Downingtown Volunteer Fire Company": [40.0040, -75.7030],
+            "Chester County Food Bank Volunteers": [40.0310, -75.7320],
+            "YMCA of Greater Brandywine": [40.0025, -75.7060]
+          };
+
+          btn.addEventListener('click', function () {
+            if (!navigator.geolocation) {
+              alert('Geolocation is not supported by your browser.');
+              return;
+            }
+            btn.textContent = '📍 Locating…';
+            btn.disabled = true;
+            navigator.geolocation.getCurrentPosition(function (pos) {
+              var userLat = pos.coords.latitude;
+              var userLon = pos.coords.longitude;
+              var grid = document.querySelector('.directory-grid');
+              var cards = Array.from(document.querySelectorAll('.directory-preview-card'));
+
+              cards.sort(function (a, b) {
+                var nameA = a.dataset.name || '';
+                var nameB = b.dataset.name || '';
+                var coordsA = cardCoords[nameA];
+                var coordsB = cardCoords[nameB];
+                var distA = coordsA ? haversine(userLat, userLon, coordsA[0], coordsA[1]) : 9999;
+                var distB = coordsB ? haversine(userLat, userLon, coordsB[0], coordsB[1]) : 9999;
+                return distA - distB;
+              });
+
+              // Re-append in sorted order and show distance
+              cards.forEach(function (card) {
+                var name = card.dataset.name || '';
+                var coords = cardCoords[name];
+                var dist = coords ? haversine(userLat, userLon, coords[0], coords[1]) : null;
+                // Remove old distance tag if any
+                var old = card.querySelector('.near-me-dist');
+                if (old) old.remove();
+                if (dist !== null) {
+                  var tag = document.createElement('p');
+                  tag.className = 'near-me-dist';
+                  tag.style.cssText = 'font-size:0.78rem;color:#1d4ed8;font-weight:600;margin-top:4px;';
+                  tag.textContent = '📍 ' + dist.toFixed(1) + ' mi away';
+                  card.appendChild(tag);
+                }
+                grid.appendChild(card);
+              });
+
+              btn.innerHTML = '✅ Sorted by distance';
+              btn.disabled = false;
+            }, function () {
+              alert('Unable to retrieve your location. Please allow location access and try again.');
+              btn.innerHTML = '📍 Near Me';
+              btn.disabled = false;
+            });
+          });
+        })();
         </script>
 </body>
 </html>

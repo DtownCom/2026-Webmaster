@@ -3,8 +3,8 @@
    ============================================= */
 .hero-resources {
   position: relative;
-  background: url('../images/hero.jpg') center/cover no-repeat;
-  height: 350px;
+  background: var(--primary, #1d4ed8);
+  height: 280px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -193,6 +193,54 @@
   line-height: 1.6;
 }
 
+/* Inline citations section */
+.citations-section {
+  background: white;
+  padding: 30px 35px;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  margin-bottom: 30px;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.citations-section h2 {
+  color: var(--navy);
+  margin-bottom: 20px;
+  font-size: 1.4rem;
+  border-bottom: 2px solid var(--primary, #1d4ed8);
+  padding-bottom: 10px;
+}
+
+.citations-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.citations-list li {
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  line-height: 1.7;
+  font-size: 0.95rem;
+  padding-left: 2em;
+  text-indent: -2em;
+}
+
+.citations-list li:last-child {
+  border-bottom: none;
+}
+
+.citations-list li a {
+  color: var(--primary, #1d4ed8);
+  word-break: break-all;
+}
+
+.citations-list li a:hover {
+  text-decoration: underline;
+}
+
 .pdf-buttons {
   display: flex;
   flex-direction: column;
@@ -239,8 +287,8 @@
 
 .hero-about {
   position: relative;
-  background: url('../images/Water.jpg') center/cover no-repeat;
-  height: 350px;
+  background: var(--primary, #1d4ed8);
+  height: 280px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -358,77 +406,16 @@
 /* =============================================
    HERO CLASSES FOR NEW PAGES
    ============================================= */
-.hero-finder {
-  position: relative;
-  background: url('../images/school.jpg') center/cover no-repeat;
-  height: 350px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  text-align: center;
-}
-
-.hero-events {
-  position: relative;
-  background: url('../images/trail.jpg') center/cover no-repeat;
-  height: 350px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  text-align: center;
-}
-
-
-.hero-faq {
-  position: relative;
-  background: url('../images/home.jpg') center/cover no-repeat;
-  height: 350px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  text-align: center;
-}
-
-.hero-emergency {
-  position: relative;
-  background: url('../images/health.jpg') center/cover no-repeat;
-  height: 350px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  text-align: center;
-}
-
-.hero-newsletter {
-  position: relative;
-  background: url('../images/LoongwoodGardens.jpg') center/cover no-repeat;
-  height: 350px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  text-align: center;
-}
-
-.hero-stories {
-  position: relative;
-  background: url('../images/Fishing.jpg') center/cover no-repeat;
-  height: 350px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  text-align: center;
-}
-
+.hero-finder,
+.hero-events,
+.hero-faq,
+.hero-emergency,
+.hero-newsletter,
+.hero-stories,
 .hero-volunteer-signup {
   position: relative;
-  background: url('../images/work.jpg') center/cover no-repeat;
-  height: 350px;
+  background: var(--primary, #1d4ed8);
+  height: 280px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -555,6 +542,134 @@
   color: var(--muted);
   margin-bottom: 4px;
 }
+
+/* ── Quiz progress bar ── */
+.quiz-progress-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 32px;
+  gap: 0;
+}
+.quiz-step-bubble {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #e2e8f0;
+  color: #94a3b8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+.quiz-step-bubble.active {
+  background: var(--primary);
+  color: #fff;
+}
+.quiz-step-bubble.done {
+  background: #22c55e;
+  color: #fff;
+}
+.quiz-step-connector {
+  height: 3px;
+  width: 56px;
+  background: #e2e8f0;
+  flex-shrink: 0;
+  transition: background 0.3s ease;
+}
+.quiz-step-connector.active {
+  background: var(--primary);
+}
+
+/* ── Quiz step/result fade animation ── */
+.quiz-step.active,
+.quiz-result.active {
+  animation: quizFadeIn 0.3s ease;
+}
+@keyframes quizFadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Back button ── */
+.quiz-back-btn {
+  background: none;
+  border: none;
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 4px 0;
+  margin-top: 8px;
+  transition: color 0.2s;
+  width: fit-content;
+}
+.quiz-back-btn:hover { color: var(--primary); }
+
+/* ── Multiple result cards ── */
+.quiz-result-intro {
+  color: var(--muted);
+  font-size: 0.95rem;
+  margin-bottom: 4px;
+}
+.quiz-result-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 14px;
+  margin-bottom: 4px;
+}
+.quiz-result-item {
+  background: #fff;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+.quiz-result-item:hover {
+  box-shadow: 0 4px 18px rgba(15,23,42,0.1);
+  border-color: var(--primary);
+}
+.quiz-result-item-icon { font-size: 1.6rem; }
+.quiz-result-item h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin: 0;
+}
+.quiz-result-item p {
+  font-size: 0.87rem;
+  color: var(--muted);
+  line-height: 1.55;
+  margin: 0;
+  flex: 1;
+}
+.quiz-result-item a {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--primary);
+  text-decoration: none;
+  margin-top: auto;
+}
+.quiz-result-item a:hover { text-decoration: underline; }
+.quiz-view-all-btn {
+  display: inline-block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--primary);
+  text-decoration: none;
+  padding: 8px 0;
+  transition: color 0.2s;
+}
+.quiz-view-all-btn:hover { color: var(--navy); }
+
+/* ── page-finder footer ── */
+.page-finder .main-footer { background: #1d4ed8; }
 
 /* =============================================
    EVENTS CALENDAR
@@ -1094,8 +1209,8 @@
 
 .hero-food {
   position: relative;
-  background: url('../images/food.jpg') center/cover no-repeat;
-  height: 350px;
+  background: url('../images/Resource Images/food-bank.jpg') center/cover no-repeat;
+  height: 280px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1105,8 +1220,8 @@
 
 .hero-health {
   position: relative;
-  background: url('../images/health.jpg') center/cover no-repeat;
-  height: 350px;
+  background: url('../images/Resource Images/health-hero.jpg') center/cover no-repeat;
+  height: 280px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1116,8 +1231,8 @@
 
 .hero-house {
   position: relative;
-  background: url('../images/home.jpg') center/cover no-repeat;
-  height: 350px;
+  background: url('../images/Resource Images/housing-hero.jpg') center/cover no-repeat;
+  height: 280px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1127,8 +1242,8 @@
 
 .hero-move {
   position: relative;
-  background: url('../images/move.jpg') center/cover no-repeat;
-  height: 480px;
+  background: url('../images/Resource Images/transportation-hero.jpg') center/cover no-repeat;
+  height: 280px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1138,8 +1253,8 @@
 
 .hero-work {
   position: relative;
-  background: url('../images/work.jpg') center/cover no-repeat;
-  height: 350px;
+  background: url('../images/Resource Images/volunteer-hero.jpg') center/cover no-repeat;
+  height: 280px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1149,8 +1264,8 @@
 
 .hero-book {
   position: relative;
-  background: url('../images/school.jpg') center/cover no-repeat;
-  height: 350px;
+  background: url('../images/Resource Images/education-hero.jpg') center/cover no-repeat;
+  height: 280px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1158,6 +1273,20 @@
   text-align: center;
 }
 
+
+/* ── Per-page footer colors ── */
+.page-food    .main-footer { background: #1d4ed8; }
+.page-health  .main-footer { background: #1d4ed8; }
+.page-housing .main-footer { background: #1d4ed8; }
+.page-transportation .main-footer { background: #1d4ed8; }
+.page-volunteering   .main-footer { background: #1d4ed8; }
+.page-education      .main-footer { background: #1d4ed8; }
+.page-about          .main-footer { background: #1d4ed8; }
+.page-directory      .main-footer { background: #1d4ed8; }
+
+/* Remove dark overlay on solid-color hero banners so top matches footer exactly */
+.page-about .hero-overlay,
+.page-directory .hero-overlay { background: transparent; }
 
 .feedback-main {
   max-width: 960px;
@@ -1272,6 +1401,13 @@
 
 .resource-card:hover .resource-image img {
   transform: scale(1.04);
+}
+
+.resource-image img.logo-img {
+  object-fit: contain;
+  background: #1a5c35;
+  padding: 24px;
+  transform: none !important;
 }
 
 .resource-content {

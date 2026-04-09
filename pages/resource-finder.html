@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="default.css">
   <link rel="stylesheet" href="pages.css">
 </head>
-<body>
+<body class="page-finder">
 
   <header class="main-header">
     <div class="top-bar">
@@ -59,40 +59,44 @@
     <section class="interior-card">
       <div class="quiz-container">
 
+        <!-- Step progress indicator -->
+        <div class="quiz-progress-bar">
+          <div class="quiz-step-bubble active" id="bubble-1">1</div>
+          <div class="quiz-step-connector" id="line-1"></div>
+          <div class="quiz-step-bubble" id="bubble-2">2</div>
+          <div class="quiz-step-connector" id="line-2"></div>
+          <div class="quiz-step-bubble" id="bubble-3">✓</div>
+        </div>
+
         <!-- Step 1 -->
         <div class="quiz-step active" id="step-1">
-          <p class="quiz-progress">Step 1 of 2</p>
+          <p class="quiz-progress">Step 1 of 2 &mdash; What do you need?</p>
           <h2>What best describes your situation right now?</h2>
           <p>Select the option that applies most to you.</p>
           <div class="quiz-options">
-            <button class="quiz-option" onclick="goStep2('food')"><span class="quiz-icon">🍎</span> I need food or meals</button>
-            <button class="quiz-option" onclick="goStep2('housing')"><span class="quiz-icon">🏠</span> I need housing or shelter</button>
-            <button class="quiz-option" onclick="goStep2('health')"><span class="quiz-icon">❤️</span> I need health care</button>
-            <button class="quiz-option" onclick="goStep2('education')"><span class="quiz-icon">📚</span> I need education or training</button>
-            <button class="quiz-option" onclick="goStep2('transportation')"><span class="quiz-icon">🚌</span> I need transportation help</button>
-            <button class="quiz-option" onclick="goStep2('volunteer')"><span class="quiz-icon">🤝</span> I want to volunteer</button>
+            <button class="quiz-option" onclick="goStep2('food')"><span class="quiz-icon">🍎</span> Food &amp; Meals</button>
+            <button class="quiz-option" onclick="goStep2('housing')"><span class="quiz-icon">🏠</span> Housing &amp; Shelter</button>
+            <button class="quiz-option" onclick="goStep2('health')"><span class="quiz-icon">❤️</span> Health Care</button>
+            <button class="quiz-option" onclick="goStep2('education')"><span class="quiz-icon">📚</span> Education &amp; Training</button>
+            <button class="quiz-option" onclick="goStep2('transportation')"><span class="quiz-icon">🚌</span> Transportation</button>
+            <button class="quiz-option" onclick="goStep2('volunteer')"><span class="quiz-icon">🤝</span> Volunteering</button>
           </div>
         </div>
 
         <!-- Step 2 -->
         <div class="quiz-step" id="step-2">
-          <p class="quiz-progress">Step 2 of 2</p>
-          <h2 id="step2-question">How urgent is your need?</h2>
-          <div class="quiz-options">
-            <button class="quiz-option" onclick="showResult('urgent')"><span class="quiz-icon">🚨</span> Right now / today</button>
-            <button class="quiz-option" onclick="showResult('soon')"><span class="quiz-icon">📅</span> Within the next week</button>
-            <button class="quiz-option" onclick="showResult('planning')"><span class="quiz-icon">🗓️</span> I'm planning ahead</button>
-          </div>
+          <p class="quiz-progress" id="step2-progress">Step 2 of 2</p>
+          <h2 id="step2-question"></h2>
+          <div class="quiz-options" id="step2-options"></div>
+          <button class="quiz-back-btn" onclick="goBack()">← Back to Step 1</button>
         </div>
 
         <!-- Result -->
         <div class="quiz-result" id="quiz-result">
-          <h2 id="result-title">Your Recommended Resource</h2>
-          <div class="quiz-result-card">
-            <h3 id="result-heading"></h3>
-            <p id="result-description"></p>
-            <a id="result-link" href="#" class="cta-btn" style="margin-top:0;">Go to Resource →</a>
-          </div>
+          <h2>Your Recommended Resources</h2>
+          <p class="quiz-result-intro" id="result-intro"></p>
+          <div class="quiz-result-cards" id="result-cards"></div>
+          <a id="result-page-link" href="#" class="quiz-view-all-btn">View all resources in this category →</a>
           <button class="quiz-restart-btn" onclick="restartQuiz()">↩ Start Over</button>
         </div>
 
@@ -111,58 +115,306 @@
 
   <script src="index.js"></script>
   <script>
-    let selectedCategory = '';
+    var selectedCategory = '';
 
-    const results = {
+    var step2Config = {
       food: {
-        urgent:    { h: 'Food Banks & Emergency Meals', d: 'Several local food banks offer same-day assistance. Visit our Food Security page for locations, hours, and contact numbers.', url: 'food.html' },
-        soon:      { h: 'Food Assistance Programs', d: 'Browse food pantries, community meals, and SNAP enrollment help on our Food Security page.', url: 'food.html' },
-        planning:  { h: 'Community Gardens & Long-Term Food Resources', d: 'Explore sustainable food programs, community gardens, and nutrition workshops on our Food Security page.', url: 'food.html' },
+        label: 'How urgent is your need?',
+        question: 'How soon do you need food assistance?',
+        options: [
+          { icon: '🚨', label: 'Right now / today', key: 'urgent' },
+          { icon: '📅', label: 'Within the next week', key: 'soon' },
+          { icon: '🗓️', label: "I'm planning ahead", key: 'planning' },
+        ]
       },
       housing: {
-        urgent:    { h: 'Emergency Shelter', d: 'Safe Harbor of Greater West Chester provides emergency shelter. See our Housing & Shelter page for immediate contacts.', url: 'housing.html' },
-        soon:      { h: 'Rental Assistance & Transitional Housing', d: 'Find rental assistance programs and transitional housing options on our Housing & Shelter page.', url: 'housing.html' },
-        planning:  { h: 'Housing Programs & Resources', d: 'Learn about affordable housing, home repair grants, and tenant rights on our Housing & Shelter page.', url: 'housing.html' },
+        label: 'How urgent is your need?',
+        question: 'How soon do you need housing assistance?',
+        options: [
+          { icon: '🚨', label: 'Right now / today', key: 'urgent' },
+          { icon: '📅', label: 'Within the next week', key: 'soon' },
+          { icon: '🗓️', label: "I'm planning ahead", key: 'planning' },
+        ]
       },
       health: {
-        urgent:    { h: 'Walk-In Clinics & Crisis Lines', d: 'For emergencies call 911. For mental health crisis call 988. See our Health page for local walk-in clinics.', url: 'health.html' },
-        soon:      { h: 'Local Clinics & Health Services', d: 'Find local clinics, dental services, and mental health counseling on our Health page.', url: 'health.html' },
-        planning:  { h: 'Wellness & Preventive Care', d: 'Browse wellness programs, health screenings, and community health events on our Health page.', url: 'health.html' },
-      },
-      education: {
-        urgent:    { h: 'Tutoring & Academic Support', d: 'Find immediate tutoring and academic support resources on our Education page.', url: 'education.html' },
-        soon:      { h: 'Schools, Libraries & Learning', d: 'Explore schools, libraries, and learning programs available in Downingtown on our Education page.', url: 'education.html' },
-        planning:  { h: 'Adult Education & Workforce Training', d: 'Discover adult education, GED programs, and workforce training opportunities on our Education page.', url: 'education.html' },
+        label: 'How urgent is your need?',
+        question: 'How soon do you need health care support?',
+        options: [
+          { icon: '🚨', label: 'Right now / today', key: 'urgent' },
+          { icon: '📅', label: 'Within the next week', key: 'soon' },
+          { icon: '🗓️', label: "I'm planning ahead", key: 'planning' },
+        ]
       },
       transportation: {
-        urgent:    { h: 'Shared Rides & Emergency Transport', d: 'Find same-day ride services and emergency transportation options on our Transportation page.', url: 'transportation.html' },
-        soon:      { h: 'Bus & Rail Routes', d: 'View local bus routes, SEPTA rail, and trail access on our Transportation page.', url: 'transportation.html' },
-        planning:  { h: 'Transportation Planning', d: 'Explore all local transportation options and how to get around Downingtown on our Transportation page.', url: 'transportation.html' },
+        label: 'What type of transportation?',
+        question: 'What type of transportation are you looking for?',
+        options: [
+          { icon: '🚉', label: 'Commuter Rail (SEPTA / Amtrak)', key: 'rail' },
+          { icon: '🚐', label: 'On-Demand or Flexible Rides', key: 'ondemand' },
+          { icon: '🚌', label: 'Local Bus Service', key: 'bus' },
+          { icon: '🚲', label: 'Biking or Walking Trails', key: 'active' },
+        ]
+      },
+      education: {
+        label: 'What type of education?',
+        question: 'What type of education or training are you looking for?',
+        options: [
+          { icon: '🏫', label: 'K–12 School Programs', key: 'k12' },
+          { icon: '🎓', label: 'College or Career Training', key: 'college' },
+          { icon: '👶', label: 'Early Childhood (Birth–Age 5)', key: 'early' },
+          { icon: '📖', label: 'Tutoring or Academic Help', key: 'tutoring' },
+        ]
       },
       volunteer: {
-        urgent:    { h: 'Volunteer Today', d: 'Some organizations accept same-day volunteers. Check our Volunteering page for opportunities that need help right now.', url: 'volunteering.html' },
-        soon:      { h: 'Upcoming Volunteer Events', d: 'Browse volunteer events and sign up in advance on our Volunteering page. Also check our Events Calendar.', url: 'volunteering.html' },
-        planning:  { h: 'Long-Term Volunteering', d: 'Find ongoing volunteer roles and community involvement opportunities on our Volunteering page.', url: 'volunteering.html' },
+        label: 'Where do you want to volunteer?',
+        question: 'What type of place would you like to volunteer at?',
+        options: [
+          { icon: '🍎', label: 'Food & Hunger Relief', key: 'food-vol' },
+          { icon: '📚', label: 'Library & Education', key: 'library-vol' },
+          { icon: '👴', label: 'Senior Services', key: 'senior-vol' },
+          { icon: '👨‍👩‍👧', label: 'Youth & Families', key: 'youth-vol' },
+          { icon: '🏛️', label: 'General Community / Nonprofits', key: 'community-vol' },
+        ]
+      },
+    };
+
+    var results = {
+      food: {
+        urgent: {
+          intro: 'You need food assistance today. Here are the most immediate options in the Downingtown area.',
+          items: [
+            { icon: '🧺', h: "Lord's Pantry of Downingtown", d: "Walk-in pantry at 110 E. Lancaster Ave. Serves families with no appointment required.", url: 'food.html' },
+            { icon: '🏠', h: 'Safe Harbor of Chester County', d: 'Provides emergency meals alongside shelter services. Contact them for same-day availability.', url: 'food.html' },
+            { icon: '🎒', h: 'DASD Food Pantry', d: 'Downingtown Area School District pantry for families with school-age children facing food insecurity.', url: 'food.html' },
+          ], page: 'food.html'
+        },
+        soon: {
+          intro: 'Here are food resources you can access within the next week.',
+          items: [
+            { icon: '📦', h: 'Chester County Food Bank', d: 'Distributes food to families through its network of partner pantries across Chester County.', url: 'food.html' },
+            { icon: '🍽️', h: 'Philabundance', d: 'Regional food bank providing supplemental and emergency food boxes to qualifying households.', url: 'food.html' },
+            { icon: '⛪', h: 'Ebenezer Church Food Pantry', d: 'Community food pantry operating on a scheduled basis — see our Food Security page for current hours.', url: 'food.html' },
+          ], page: 'food.html'
+        },
+        planning: {
+          intro: "If you're planning ahead, these programs offer ongoing food support.",
+          items: [
+            { icon: '📦', h: 'Chester County Food Bank', d: 'Connects residents to long-term nutrition assistance and hosts regular community distributions.', url: 'food.html' },
+            { icon: '📋', h: 'SNAP Enrollment Resources', d: 'Visit our Food Security page to learn about applying for federal food assistance benefits.', url: 'food.html' },
+          ], page: 'food.html'
+        },
+      },
+      housing: {
+        urgent: {
+          intro: 'If you need shelter today, contact these organizations immediately.',
+          items: [
+            { icon: '🚨', h: 'Safe Harbor of Chester County', d: 'Emergency shelter for adults and families experiencing homelessness. Call before arriving if possible.', url: 'housing.html' },
+            { icon: '🏘️', h: 'W.C. Atkinson Memorial Center', d: 'Community service center offering shelter and emergency housing assistance in the Downingtown area.', url: 'housing.html' },
+            { icon: '📞', h: 'Chester County 211', d: 'Call or text 211 to be connected to the nearest emergency housing resource for your location.', url: 'housing.html' },
+          ], page: 'housing.html'
+        },
+        soon: {
+          intro: 'These agencies can help with rental assistance and transitional housing.',
+          items: [
+            { icon: '🏛️', h: 'Chester County Housing Authority', d: 'Administers rental assistance programs including Section 8 vouchers for income-qualifying residents.', url: 'housing.html' },
+            { icon: '🔨', h: 'Habitat for Humanity', d: 'Affordable homeownership and home repair programs for low-to-moderate income families.', url: 'housing.html' },
+            { icon: '🤝', h: 'Family Promise of Southern Chester County', d: 'Transitional housing and support services for families experiencing homelessness.', url: 'housing.html' },
+          ], page: 'housing.html'
+        },
+        planning: {
+          intro: 'Planning ahead? These resources support long-term housing stability.',
+          items: [
+            { icon: '🏘️', h: 'Chester County Community Development', d: 'County office offering housing programs, grants, and homebuyer assistance for residents.', url: 'housing.html' },
+            { icon: '🔨', h: 'Habitat for Humanity', d: 'Build equity and stability through affordable homeownership and home repair programs.', url: 'housing.html' },
+          ], page: 'housing.html'
+        },
+      },
+      health: {
+        urgent: {
+          intro: 'For a medical or mental health emergency, use these immediate resources.',
+          items: [
+            { icon: '🚨', h: 'Call 911', d: 'For any life-threatening medical emergency, call 911 immediately.', url: 'health.html' },
+            { icon: '📞', h: '988 Suicide & Crisis Lifeline', d: 'Call or text 988 for free, confidential mental health crisis support — available 24/7.', url: 'health.html' },
+            { icon: '🏥', h: 'Walk-In Clinics', d: 'Main Line HealthCare and 365 Health Services offer walk-in and same-day appointments in Downingtown.', url: 'health.html' },
+          ], page: 'health.html'
+        },
+        soon: {
+          intro: 'These providers offer accessible care you can schedule within the next week.',
+          items: [
+            { icon: '🩺', h: 'Main Line HealthCare – Downingtown', d: 'Primary care, preventive services, and specialist referrals at a convenient Downingtown location.', url: 'health.html' },
+            { icon: '❤️', h: '365 Health Services', d: 'Comprehensive health services emphasizing accessible, affordable care for individuals and families.', url: 'health.html' },
+            { icon: '🧠', h: 'CCRES Behavioral Health', d: 'Mental health counseling and behavioral support services for children, youth, and adults.', url: 'health.html' },
+          ], page: 'health.html'
+        },
+        planning: {
+          intro: 'Explore wellness and preventive health programs available in the community.',
+          items: [
+            { icon: '🌱', h: 'Communities That Care (CTC)', d: 'Prevention-focused programs promoting youth wellness and community mental health in Downingtown.', url: 'health.html' },
+            { icon: '🧠', h: 'CCRES Behavioral Health', d: 'Schedule ongoing counseling or therapy through Chester County\'s behavioral health services.', url: 'health.html' },
+            { icon: '💊', h: 'Chester County Drug & Alcohol Services', d: 'Community-based substance use prevention and recovery support resources.', url: 'health.html' },
+          ], page: 'health.html'
+        },
+      },
+      education: {
+        k12: {
+          intro: 'Here are resources to support K–12 students and families in Downingtown.',
+          items: [
+            { icon: '🏫', h: 'Downingtown Area School District', d: 'Information on enrollment, academic programs, student services, and extracurriculars for K–12 families.', url: 'education.html' },
+            { icon: '📖', h: 'Club Z! Tutoring of Downingtown', d: 'In-home and online certified tutoring for K–12 students across all subjects.', url: 'education.html' },
+            { icon: '📚', h: 'Downingtown Public Library', d: 'Free study spaces, internet access, homework help, and educational materials for students.', url: 'education.html' },
+          ], page: 'education.html'
+        },
+        college: {
+          intro: 'Explore higher education and career training programs close to home.',
+          items: [
+            { icon: '🎓', h: 'DCCC – Downingtown Center', d: 'Full degrees, certificates, and workforce programs at the local Delaware County Community College campus.', url: 'education.html' },
+            { icon: '🏛️', h: 'Downingtown Community Education Foundation', d: 'Funds enrichment programs, scholarships, and community educational initiatives.', url: 'education.html' },
+          ], page: 'education.html'
+        },
+        early: {
+          intro: 'Early childhood education and development programs for young children.',
+          items: [
+            { icon: '👶', h: 'Birth to Three Services (CCIU)', d: 'Free early intervention for children birth–age 3 with developmental concerns. Referrals welcomed.', url: 'education.html' },
+            { icon: '📚', h: 'Downingtown Public Library', d: 'Story times, early literacy programs, and family learning resources for young children.', url: 'education.html' },
+          ], page: 'education.html'
+        },
+        tutoring: {
+          intro: 'Get academic support through tutoring and learning resources in the area.',
+          items: [
+            { icon: '📖', h: 'Club Z! Tutoring of Downingtown', d: 'In-home and online certified tutoring for all ages and subjects — flexible scheduling available.', url: 'education.html' },
+            { icon: '📚', h: 'Downingtown Public Library', d: 'Free study spaces, internet access, tutoring referrals, and educational materials available now.', url: 'education.html' },
+          ], page: 'education.html'
+        },
+      },
+      transportation: {
+        rail: {
+          intro: 'Commuter and intercity rail options serving Downingtown.',
+          items: [
+            { icon: '🚉', h: 'SEPTA Regional Rail – Downingtown', d: 'Commuter rail connecting Downingtown to Center City Philadelphia and major suburban employment hubs.', url: 'transportation.html' },
+            { icon: '🚆', h: 'Amtrak Keystone Service', d: 'Intercity rail linking Downingtown with Philadelphia, Harrisburg, and New York City.', url: 'transportation.html' },
+          ], page: 'transportation.html'
+        },
+        ondemand: {
+          intro: 'Flexible, on-demand transportation options for residents without personal vehicles.',
+          items: [
+            { icon: '🚐', h: 'Chester County ROVER / Chesco Connect', d: 'Flexible door-to-door shared rides across Chester County. Book by phone or online for convenient scheduling.', url: 'transportation.html' },
+            { icon: '♿', h: 'SEPTA CCT Connect', d: 'Paratransit service for eligible riders with disabilities — bookings can be made in advance.', url: 'transportation.html' },
+          ], page: 'transportation.html'
+        },
+        bus: {
+          intro: 'Local bus services available in and around Downingtown.',
+          items: [
+            { icon: '🚌', h: 'SEPTA Bus Routes', d: 'SEPTA operates bus routes connecting Downingtown to neighboring communities and transit hubs.', url: 'transportation.html' },
+            { icon: '🚐', h: 'Chester County ROVER', d: 'Shared-ride van service that can supplement fixed bus routes for hard-to-reach destinations.', url: 'transportation.html' },
+          ], page: 'transportation.html'
+        },
+        active: {
+          intro: 'Active transportation options for biking, walking, and trail use.',
+          items: [
+            { icon: '🚲', h: 'The Struble Trail', d: 'A scenic multi-use trail connecting Downingtown — ideal for biking and walking commutes.', url: 'transportation.html' },
+            { icon: '🌳', h: 'Brandywine Trail System', d: 'Connected trail network offering non-motorized routes through the greater Brandywine Valley area.', url: 'transportation.html' },
+          ], page: 'transportation.html'
+        },
+      },
+      volunteer: {
+        'food-vol': {
+          intro: 'Help combat hunger — these organizations welcome food relief volunteers.',
+          items: [
+            { icon: '🧺', h: "Lord's Pantry of Downingtown", d: "Volunteers help sort and distribute food at the pantry. Drop by during operating hours.", url: 'volunteering.html' },
+            { icon: '📦', h: 'Chester County Food Bank', d: 'Regularly needs volunteers to pack and sort food. Check their site for available shifts.', url: 'volunteering.html' },
+            { icon: '🍽️', h: 'Philabundance', d: 'Regional food bank with volunteer shifts for sorting, packing, and community distributions.', url: 'volunteering.html' },
+          ], page: 'volunteering.html'
+        },
+        'library-vol': {
+          intro: 'Support literacy and learning through library volunteer programs.',
+          items: [
+            { icon: '📚', h: 'Downingtown Public Library', d: 'Volunteer in teen programs, book sales, or general library support. Opportunities open seasonally.', url: 'volunteering.html' },
+            { icon: '🏛️', h: 'Downingtown Community Education Foundation', d: 'Support community education initiatives and enrichment programs through volunteer involvement.', url: 'volunteering.html' },
+          ], page: 'volunteering.html'
+        },
+        'senior-vol': {
+          intro: 'Make a difference in the lives of older adults in Chester County.',
+          items: [
+            { icon: '🍽️', h: 'Meals on Wheels of Chester County', d: 'Deliver hot meals to homebound seniors on your own schedule — routes typically take about one hour.', url: 'volunteering.html' },
+            { icon: '🏥', h: 'Chester County Senior Centers', d: 'Volunteer at local senior centers offering programming, meals, and social activities for older adults.', url: 'volunteering.html' },
+          ], page: 'volunteering.html'
+        },
+        'youth-vol': {
+          intro: 'Support young people and families through these volunteer opportunities.',
+          items: [
+            { icon: '🏋️', h: 'YMCA of Greater Brandywine', d: 'Support camps, fitness programs, and community events at YMCA branches across Chester County.', url: 'volunteering.html' },
+            { icon: '👧', h: 'Big Brothers Big Sisters', d: 'Mentor a child in Chester County through one-on-one or group volunteer programs.', url: 'volunteering.html' },
+            { icon: '🌱', h: 'Communities That Care (CTC)', d: 'Volunteer with prevention programs focused on youth wellness and positive community development.', url: 'volunteering.html' },
+          ], page: 'volunteering.html'
+        },
+        'community-vol': {
+          intro: 'Connect with nonprofits and community organizations across Chester County.',
+          items: [
+            { icon: '🤝', h: 'Chester County Community Foundation', d: 'Connect with nonprofits addressing food, education, youth development, and community health.', url: 'volunteering.html' },
+            { icon: '🏛️', h: 'Volunteer Chesco', d: "Chester County's official portal matching residents with meaningful service roles across many sectors.", url: 'volunteering.html' },
+            { icon: '❤️', h: 'United Way of Chester County', d: 'Find volunteer opportunities aligned with community impact goals through the local United Way chapter.', url: 'volunteering.html' },
+          ], page: 'volunteering.html'
+        },
       },
     };
 
     function goStep2(category) {
       selectedCategory = category;
+      var config = step2Config[category];
+      document.getElementById('step2-progress').innerHTML = 'Step 2 of 2 &mdash; ' + config.label;
+      document.getElementById('step2-question').textContent = config.question;
+      var optionsHtml = config.options.map(function(opt) {
+        return '<button class="quiz-option" onclick="showResult(\'' + opt.key + '\')">' +
+          '<span class="quiz-icon">' + opt.icon + '</span> ' + opt.label + '</button>';
+      }).join('');
+      document.getElementById('step2-options').innerHTML = optionsHtml;
+      document.getElementById('bubble-1').classList.remove('active');
+      document.getElementById('bubble-1').classList.add('done');
+      document.getElementById('line-1').classList.add('active');
+      document.getElementById('bubble-2').classList.add('active');
       document.getElementById('step-1').classList.remove('active');
       document.getElementById('step-2').classList.add('active');
     }
 
+    function goBack() {
+      document.getElementById('bubble-1').classList.add('active');
+      document.getElementById('bubble-1').classList.remove('done');
+      document.getElementById('line-1').classList.remove('active');
+      document.getElementById('bubble-2').classList.remove('active');
+      document.getElementById('step-2').classList.remove('active');
+      document.getElementById('step-1').classList.add('active');
+    }
+
     function showResult(urgency) {
-      const r = results[selectedCategory][urgency];
-      document.getElementById('result-heading').textContent = r.h;
-      document.getElementById('result-description').textContent = r.d;
-      document.getElementById('result-link').href = r.url;
+      var r = results[selectedCategory][urgency];
+      var cardsHtml = r.items.map(function(item) {
+        return '<div class="quiz-result-item">' +
+          '<div class="quiz-result-item-icon">' + item.icon + '</div>' +
+          '<h3>' + item.h + '</h3>' +
+          '<p>' + item.d + '</p>' +
+          '<a href="' + item.url + '">Learn more →</a>' +
+          '</div>';
+      }).join('');
+      document.getElementById('result-intro').textContent = r.intro;
+      document.getElementById('result-cards').innerHTML = cardsHtml;
+      document.getElementById('result-page-link').href = r.page;
+      document.getElementById('bubble-2').classList.remove('active');
+      document.getElementById('bubble-2').classList.add('done');
+      document.getElementById('line-2').classList.add('active');
+      document.getElementById('bubble-3').classList.add('done');
       document.getElementById('step-2').classList.remove('active');
       document.getElementById('quiz-result').classList.add('active');
     }
 
     function restartQuiz() {
       selectedCategory = '';
+      ['bubble-1','bubble-2','bubble-3'].forEach(function(id) {
+        document.getElementById(id).classList.remove('active','done');
+      });
+      ['line-1','line-2'].forEach(function(id) {
+        document.getElementById(id).classList.remove('active');
+      });
+      document.getElementById('bubble-1').classList.add('active');
       document.getElementById('quiz-result').classList.remove('active');
       document.getElementById('step-2').classList.remove('active');
       document.getElementById('step-1').classList.add('active');
