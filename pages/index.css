@@ -454,7 +454,7 @@ body {
    FOOTER
 -------------------------------------------------- */
 .main-footer {
-  background: var(--navy);
+  background: #1d4ed8;
   color: white;
   padding: 24px 20px;
   text-align: center;
