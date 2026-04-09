@@ -183,12 +183,12 @@
     function toggleFaq(btn) {
       const answer = btn.nextElementSibling;
       const isOpen = btn.classList.contains('open');
-      // Close all
+      
       document.querySelectorAll('.faq-question.open').forEach(q => {
         q.classList.remove('open');
         q.nextElementSibling.classList.remove('open');
       });
-      // Open clicked if it was closed
+      
       if (!isOpen) {
         btn.classList.add('open');
         answer.classList.add('open');

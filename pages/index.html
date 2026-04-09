@@ -160,10 +160,10 @@
           var scrollY = window.scrollY;
           var heroH = hero.offsetHeight;
           var progress = Math.min(scrollY / heroH, 1);
-          // Fade + float-up the content
+          
           heroContent.style.opacity = 1 - progress * 1.8;
           heroContent.style.transform = 'translateY(' + (-scrollY * 0.3) + 'px)';
-          // Deepen the dark overlay as user scrolls
+          
           heroOverlay.style.opacity = 1 + progress * 0.8;
         }
         window.addEventListener('scroll', onScroll, { passive: true });

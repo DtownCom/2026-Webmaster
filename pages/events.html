@@ -87,7 +87,7 @@
   <script src="index.js"></script>
   <script>
     const EVENTS = [
-      // --- APRIL 2026 ---
+      
       { month: 4, day: 9,  year: 2026, title: 'Candlelight Vigil & Memorial Service',      desc: 'Remember loved ones lost to violent crime. Crime Victims\' Memorial at the Ponds, W. Pennsylvania Ave, Downingtown. 6:00 PM.',                                                          color: 'purple', icon: '🕯️', link: 'https://www.downingtown.org/Calendar.aspx?EID=1414' },
       { month: 4, day: 11, year: 2026, title: 'Solar Viewing Drop-In – Library',            desc: 'See the sun with special solar telescopes. Downingtown Library. Drop in anytime 10:00 AM – 12:30 PM. Weather permitting.',                                                               color: 'gold',   icon: '☀️', link: 'https://ccls.libcal.com/event/16141637' },
       { month: 4, day: 11, year: 2026, title: 'Downingtown Farmers Market',                 desc: 'Shop fresh local produce and goods at Kerr Park. 10:00 AM – 12:00 PM.',                                                                                                                    color: 'green',  icon: '🌽', link: 'https://www.downingtown.org/calendar' },
@@ -101,20 +101,20 @@
       { month: 4, day: 26, year: 2026, title: 'Ebenezer Food Pantry',                       desc: 'Free groceries & hygiene items. Ebenezer Full Revival Baptist Church, 199 Wallace Ave, Downingtown. 10:00 AM – 12:00 PM. (4th Saturday of each month)',                                    color: 'green',  icon: '🍎', link: 'https://www.facebook.com/EbenezerFoodPantry/' },
       { month: 4, day: 26, year: 2026, title: 'Library Spring Book Sale',                   desc: 'Friends of the Downingtown Library Spring Book Sale continues. Downingtown Library. 1:00 PM – 4:00 PM.',                                                                                   color: 'blue',   icon: '📚', link: 'https://ccls.libcal.com/event/16545942' },
       { month: 4, day: 29, year: 2026, title: '"Time We Discuss" Podcast – Library',        desc: 'An evening with podcaster Dan Swift on careers and purpose. Registration required. Downingtown Library Krapf Room. 6:30 PM – 7:30 PM.',                                                     color: 'blue',   icon: '🎙️', link: 'https://ccls.libcal.com/event/16587244' },
-      // --- MAY 2026 ---
+      
       { month: 5, day: 2,  year: 2026, title: 'Free Document Shred Event',                  desc: 'Free document shredding at Downingtown United Methodist Church. 9:00 AM.',                                                                                                                color: 'gold',   icon: '🗂️', link: 'https://www.downingtown.org/Calendar.aspx?EID=1413' },
       { month: 5, day: 9,  year: 2026, title: 'Library Book Sale – Bag Sale Week',          desc: 'Fill a bag for one price! Downingtown Library Spring Book Sale bag sale week. During regular library hours.',                                                                               color: 'blue',   icon: '📚', link: 'https://ccls.libcal.com/event/16545942' },
       { month: 5, day: 9,  year: 2026, title: 'Ebenezer Food Pantry',                       desc: 'Free groceries & hygiene items. Ebenezer Full Revival Baptist Church, 199 Wallace Ave, Downingtown. 10:00 AM – 12:00 PM. (2nd Saturday of each month)',                                    color: 'green',  icon: '🍎', link: 'https://www.facebook.com/EbenezerFoodPantry/' },
       { month: 5, day: 23, year: 2026, title: 'Ebenezer Food Pantry',                       desc: 'Free groceries & hygiene items. Ebenezer Full Revival Baptist Church, 199 Wallace Ave, Downingtown. 10:00 AM – 12:00 PM. (4th Saturday of each month)',                                    color: 'green',  icon: '🍎', link: 'https://www.facebook.com/EbenezerFoodPantry/' },
       { month: 5, day: 30, year: 2026, title: 'Community CPR Day',                          desc: 'Free community CPR training. East Brandywine Fire Company. 10:00 AM. Learn to save a life!',                                                                                               color: 'red',    icon: '❤️', link: 'https://www.downingtown.org/Calendar.aspx?EID=1417' },
-      // --- JUNE 2026 ---
+      
       { month: 6, day: 6,  year: 2026, title: 'Friends Association Charity Ball',            desc: 'Annual fundraising gala benefiting Chester County\'s only low-barrier family shelter. Supports eviction prevention and housing stability programs. Visit friendsassoc.org for tickets.',      color: 'purple', icon: '🏠', link: 'https://friendsassoc.org/charity-ball/' },
       { month: 6, day: 14, year: 2026, title: 'Kumon Free Family Math Day',                  desc: 'Kumon Downingtown hosts a free open house with math activities and free placement assessments for new students. A great introduction to the Kumon method.',                                    color: 'blue',   icon: '📐', link: 'https://www.kumon.com/downingtown' },
       { month: 6, day: 21, year: 2026, title: 'Home of the Sparrow Community Awareness Walk', desc: 'Annual awareness walk supporting women facing homelessness in Chester County. Starting at Community Bandstand, Downingtown. Registration details at homeofthesparrow.org.',                  color: 'gold',   icon: '🕊️', link: 'https://www.homeofthesparrow.org' },
     ];
 
     const colorClass = { green: 'green', red: 'red', blue: '', purple: 'purple', gold: 'gold' };
-    let currentDate = new Date(2026, 3, 1); // April 2026
+    let currentDate = new Date(2026, 3, 1); 
 
     function changeMonth(dir) {
       currentDate.setMonth(currentDate.getMonth() + dir);
@@ -123,8 +123,8 @@
 
     function renderCalendar() {
       const year  = currentDate.getFullYear();
-      const month = currentDate.getMonth(); // 0-indexed
-      const today = new Date(2026, 3, 4);   // April 4 2026
+      const month = currentDate.getMonth(); 
+      const today = new Date(2026, 3, 4);   
 
       const monthNames = ['January','February','March','April','May','June','July','August','September','October','November','December'];
       document.getElementById('cal-title').textContent = `${monthNames[month]} ${year}`;
@@ -169,7 +169,7 @@
         grid.appendChild(cell);
       }
 
-      // Events list
+      
       const list = document.getElementById('events-list');
       list.innerHTML = '';
       const monthEvents = EVENTS.filter(e => e.month === month + 1 && e.year === year).sort((a,b) => a.day - b.day);

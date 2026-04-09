@@ -474,17 +474,17 @@
                 </div>`
               );
           });
-          }); // end window.load
+          }); 
         </script>
 
         <script>
-        // ── Near Me: sort directory cards by distance ──
+        
         (function () {
           var btn = document.getElementById('nearMeBtn');
           if (!btn) return;
 
           function haversine(lat1, lon1, lat2, lon2) {
-            var R = 3958.8; // miles
+            var R = 3958.8; 
             var dLat = (lat2 - lat1) * Math.PI / 180;
             var dLon = (lon2 - lon1) * Math.PI / 180;
             var a = Math.sin(dLat/2) * Math.sin(dLat/2) +
@@ -493,7 +493,7 @@
             return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
           }
 
-          // Coords embedded per card name — must match the Leaflet resources array
+          
           var cardCoords = {
             "Lord's Pantry of Downingtown": [40.0018, -75.7066],
             "Safe Harbor of Chester County": [40.0055, -75.7080],
@@ -557,12 +557,12 @@
                 return distA - distB;
               });
 
-              // Re-append in sorted order and show distance
+              
               cards.forEach(function (card) {
                 var name = card.dataset.name || '';
                 var coords = cardCoords[name];
                 var dist = coords ? haversine(userLat, userLon, coords[0], coords[1]) : null;
-                // Remove old distance tag if any
+                
                 var old = card.querySelector('.near-me-dist');
                 if (old) old.remove();
                 if (dist !== null) {
