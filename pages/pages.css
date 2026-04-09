@@ -1286,7 +1286,20 @@
 
 /* Remove dark overlay on solid-color hero banners so top matches footer exactly */
 .page-about .hero-overlay,
-.page-directory .hero-overlay { background: transparent; }
+.page-directory .hero-overlay,
+.page-events .hero-overlay,
+.page-faq .hero-overlay,
+.page-emergency .hero-overlay,
+.page-newsletter .hero-overlay,
+.page-stories .hero-overlay,
+.page-volunteer-signup .hero-overlay { background: transparent; }
+
+.page-events         .main-footer { background: #1d4ed8; }
+.page-faq            .main-footer { background: #1d4ed8; }
+.page-emergency      .main-footer { background: #1d4ed8; }
+.page-newsletter     .main-footer { background: #1d4ed8; }
+.page-stories        .main-footer { background: #1d4ed8; }
+.page-volunteer-signup .main-footer { background: #1d4ed8; }
 
 .feedback-main {
   max-width: 960px;
