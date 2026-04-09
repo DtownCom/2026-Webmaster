@@ -265,7 +265,7 @@
 
 .hero-references {
   position: relative;
-  background: url('../images/Fishing.jpg') center/cover no-repeat;
+  background: var(--primary, #1d4ed8);
   height: 350px;
   display: flex;
   align-items: center;
@@ -276,7 +276,7 @@
 
 .hero-feedback {
   position: relative;
-  background: url('../images/LoongwoodGardens.jpg') center/cover no-repeat;
+  background: var(--primary, #1d4ed8);
   height: 350px;
   display: flex;
   align-items: center;
@@ -1293,7 +1293,9 @@
 .page-emergency .hero-overlay,
 .page-newsletter .hero-overlay,
 .page-stories .hero-overlay,
-.page-volunteer-signup .hero-overlay { background: transparent; }
+.page-volunteer-signup .hero-overlay,
+.page-references .hero-overlay,
+.page-feedback .hero-overlay { background: transparent; }
 
 .page-events         .main-footer { background: #1d4ed8; }
 .page-faq            .main-footer { background: #1d4ed8; }
@@ -1301,6 +1303,8 @@
 .page-newsletter     .main-footer { background: #1d4ed8; }
 .page-stories        .main-footer { background: #1d4ed8; }
 .page-volunteer-signup .main-footer { background: #1d4ed8; }
+.page-references     .main-footer { background: #1d4ed8; }
+.page-feedback       .main-footer { background: #1d4ed8; }
 
 .feedback-main {
   max-width: 960px;
