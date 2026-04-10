@@ -1220,7 +1220,7 @@
 
 .hero-health {
   position: relative;
-  background: url('../images/Resource Images/health-hero.png') center/cover no-repeat;
+  background: url('../images/Resource Images/health-hero.jpg') center/cover no-repeat;
   height: 280px;
   display: flex;
   align-items: center;
