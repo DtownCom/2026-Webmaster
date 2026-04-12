@@ -6,9 +6,17 @@
   <title>Health – Downingtown Community Resource Hub</title>
   <link rel="stylesheet" href="default.css">
   <link rel="stylesheet" href="pages.css">
+  <script>
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'es,zh-CN,hi,tl,ar,fr,pt,ko,vi,it', autoDisplay: false}, 'google_translate_element');
+    }
+  </script>
+  <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </head>
 
 <body class="page-health">
+  <div id="google_translate_element" style="display:none;"></div>
+
 
   
     <header class="main-header">
@@ -46,6 +54,22 @@
                 </div>
                 <a href="resource-directory.html">Resource Directory</a>
                 <a href="about.html">About Us</a>
+<div class="nav-dropdown lang-dropdown">
+                    <a class="nav-dropdown-toggle" tabindex="0">🌐 Language ▾</a>
+                    <div class="nav-dropdown-menu">
+                        <a href="#" onclick="switchLanguage('en');return false;">🇺🇸 English</a>
+                        <a href="#" onclick="switchLanguage('es');return false;">🇲🇽 Spanish</a>
+                        <a href="#" onclick="switchLanguage('zh-CN');return false;">🇨🇳 Chinese</a>
+                        <a href="#" onclick="switchLanguage('hi');return false;">🇮🇳 Hindi</a>
+                        <a href="#" onclick="switchLanguage('tl');return false;">🇵🇭 Tagalog</a>
+                        <a href="#" onclick="switchLanguage('ar');return false;">🇸🇦 Arabic</a>
+                        <a href="#" onclick="switchLanguage('fr');return false;">🇫🇷 French</a>
+                        <a href="#" onclick="switchLanguage('pt');return false;">🇧🇷 Portuguese</a>
+                        <a href="#" onclick="switchLanguage('ko');return false;">🇰🇷 Korean</a>
+                        <a href="#" onclick="switchLanguage('vi');return false;">🇻🇳 Vietnamese</a>
+                        <a href="#" onclick="switchLanguage('it');return false;">🇮🇹 Italian</a>
+                    </div>
+                </div>
 </nav>
             <input type="text" id="siteSearch" placeholder="Search this page...">
         </div>

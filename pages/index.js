@@ -275,3 +275,20 @@ if (dirFilter) dirFilter.addEventListener('change', filterDirectory);
   }, { threshold: 0.1 });
   targets.forEach(function (el) { io.observe(el); });
 })();
+
+function switchLanguage(lang) {
+  if (lang === 'en') {
+    var restore = document.querySelector('.goog-te-banner-frame');
+    if (restore) {
+      try { restore.contentDocument.querySelector('#\\:0\\.restore').click(); } catch(e) {}
+    }
+    var combo = document.querySelector('.goog-te-combo');
+    if (combo) { combo.value = 'en'; combo.dispatchEvent(new Event('change')); }
+    return;
+  }
+  var select = document.querySelector('.goog-te-combo');
+  if (select) {
+    select.value = lang;
+    select.dispatchEvent(new Event('change'));
+  }
+}

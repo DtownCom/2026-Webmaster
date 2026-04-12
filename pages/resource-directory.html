@@ -8,9 +8,17 @@
   <link rel="stylesheet" href="pages.css">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
+  <script>
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'es,zh-CN,hi,tl,ar,fr,pt,ko,vi,it', autoDisplay: false}, 'google_translate_element');
+    }
+  </script>
+  <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </head>
 
 <body class="page-directory">
+  <div id="google_translate_element" style="display:none;"></div>
+
 
     <header class="main-header">
         <div class="top-bar">
@@ -47,6 +55,22 @@
                 </div>
                 <a href="resource-directory.html">Resource Directory</a>
                 <a href="about.html">About Us</a>
+<div class="nav-dropdown lang-dropdown">
+                    <a class="nav-dropdown-toggle" tabindex="0">🌐 Language ▾</a>
+                    <div class="nav-dropdown-menu">
+                        <a href="#" onclick="switchLanguage('en');return false;">🇺🇸 English</a>
+                        <a href="#" onclick="switchLanguage('es');return false;">🇲🇽 Spanish</a>
+                        <a href="#" onclick="switchLanguage('zh-CN');return false;">🇨🇳 Chinese</a>
+                        <a href="#" onclick="switchLanguage('hi');return false;">🇮🇳 Hindi</a>
+                        <a href="#" onclick="switchLanguage('tl');return false;">🇵🇭 Tagalog</a>
+                        <a href="#" onclick="switchLanguage('ar');return false;">🇸🇦 Arabic</a>
+                        <a href="#" onclick="switchLanguage('fr');return false;">🇫🇷 French</a>
+                        <a href="#" onclick="switchLanguage('pt');return false;">🇧🇷 Portuguese</a>
+                        <a href="#" onclick="switchLanguage('ko');return false;">🇰🇷 Korean</a>
+                        <a href="#" onclick="switchLanguage('vi');return false;">🇻🇳 Vietnamese</a>
+                        <a href="#" onclick="switchLanguage('it');return false;">🇮🇹 Italian</a>
+                    </div>
+                </div>
 </nav>
         </div>
     </header>
@@ -262,8 +286,8 @@
                 <h3>
                     <a href="housing.html">Family Promise of Southern Chester County</a>
                 </h3>
-                <p><strong>Category: </strong>Housing &amp; Shelter</p>
-                <p>Family Promise of Southern Chester County supports families experiencing homelessness through temporary housing, case management, and services that promote long-term stability.</p>
+                <p><strong>Category: </strong>Housing & Shelter</p>
+                <p>Pennsylvania 2-1-1 connects individuals and families with emergency shelter, rental assistance, eviction prevention, and other housing-related resources through a free, confidential helpline.</p>
             </div>
 
             <div class="directory-preview-card" data-category="housing" data-name="Pennsylvania 2-1-1 Housing Assistance">
@@ -271,7 +295,7 @@
                     <a href="housing.html">Pennsylvania 2-1-1 Housing Assistance</a>
                 </h3>
                 <p><strong>Category: </strong>Housing &amp; Shelter</p>
-                <p>Pennsylvania 2-1-1 connects individuals and families with emergency shelter, rental assistance, eviction prevention, and other housing-related resources through a free, confidential helpline.</p>
+                <p>Family Promise of Southern Chester County supports families experiencing homelessness through temporary housing, case management, and services that promote long-term stability.</p>
             </div>
 
             <div class="directory-preview-card" data-category="housing" data-name="Chester County Shelter Hotline">
@@ -390,7 +414,7 @@
     <footer class="main-footer">
         <div class="footer-content">
             <div class="footer-links">
-                <a href="references.html" class="cta-btn">Reference Page</a>
+                <a href="refrences.html" class="cta-btn">References</a>
                 <a href="FeedbackSuggestions.html" class="cta-btn">Feedback & Suggestions</a>
             </div>
         </div>
