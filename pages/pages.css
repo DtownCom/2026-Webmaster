@@ -1,8 +1,3 @@
-/* =============================================
-   RESOURCE DIRECTORY
-   ============================================= */
-
-
 .directory-main {
   max-width: 1200px;
   margin: 40px auto;
@@ -161,8 +156,6 @@
   margin-bottom: 8px;
 }
 
-/* References Page*/
-
 .references-section,
 .pdf-section {
   background: white;
@@ -184,7 +177,6 @@
   line-height: 1.6;
 }
 
-/* Inline citations section */
 .citations-section {
   background: white;
   padding: 30px 35px;
@@ -254,8 +246,6 @@
   background: #ffd633;
 }
 
-
-/* About Page */
 .about-main {
   max-width: 960px;
   margin: 48px auto;
@@ -335,9 +325,6 @@
   margin-bottom: 20px;
 }
 
-/* =============================================
-   SHARED INTERIOR PAGE LAYOUT
-   ============================================= */
 .interior-main {
   max-width: 960px;
   margin: 48px auto;
@@ -361,8 +348,6 @@
   color: var(--navy);
   margin-bottom: 16px;
 }
-
-/* ALL HERO CSS STUFF */
 
 .hero-finder,
 .hero-events,
@@ -503,10 +488,6 @@
 .page-volunteer-signup .hero-overlay,
 .page-finder .hero-overlay { background: transparent; }
 
-
-/* =============================================
-   RESOURCE FINDER (QUIZ)
-   ============================================= */
 .quiz-container {
   max-width: 680px;
   margin: 0 auto;
@@ -624,7 +605,6 @@
   margin-bottom: 4px;
 }
 
-/* ── Quiz progress bar ── */
 .quiz-progress-bar {
   display: flex;
   align-items: center;
@@ -665,7 +645,6 @@
   background: var(--primary);
 }
 
-/* ── Quiz step/result fade animation ── */
 .quiz-step.active,
 .quiz-result.active {
   animation: quizFadeIn 0.3s ease;
@@ -675,7 +654,6 @@
   to   { opacity: 1; transform: translateY(0); }
 }
 
-/* ── Back button ── */
 .quiz-back-btn {
   background: none;
   border: none;
@@ -690,7 +668,6 @@
 }
 .quiz-back-btn:hover { color: var(--primary); }
 
-/* ── Multiple result cards ── */
 .quiz-result-intro {
   color: var(--muted);
   font-size: 0.95rem;
@@ -749,12 +726,8 @@
 }
 .quiz-view-all-btn:hover { color: var(--navy); }
 
-/* ── page-finder footer ── */
 .page-finder .main-footer { background: #1d4ed8; }
 
-/* =============================================
-   EVENTS CALENDAR
-   ============================================= */
 .calendar-header {
   display: flex;
   justify-content: space-between;
@@ -896,9 +869,6 @@
   line-height: 1.5;
 }
 
-/* =============================================
-   INTERACTIVE MAP
-   ============================================= */
 .map-embed-wrapper {
   border-radius: 12px;
   overflow: hidden;
@@ -938,9 +908,6 @@
   flex-shrink: 0;
 }
 
-/* =============================================
-   FAQ ACCORDION
-   ============================================= */
 .faq-list {
   display: flex;
   flex-direction: column;
@@ -1006,9 +973,6 @@
   padding: 16px 20px;
 }
 
-/* =============================================
-   EMERGENCY RESOURCES
-   ============================================= */
 .emergency-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
@@ -1079,9 +1043,6 @@
   color: #991b1b;
 }
 
-/* =============================================
-   NEWSLETTER
-   ============================================= */
 .newsletter-form {
   display: flex;
   flex-direction: column;
@@ -1136,9 +1097,6 @@
   accent-color: var(--primary);
 }
 
-/* =============================================
-   SUCCESS STORIES
-   ============================================= */
 .stories-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -1231,9 +1189,6 @@
   font-size: 0.93rem;
 }
 
-/* =============================================
-   VOLUNTEER SIGN-UP
-   ============================================= */
 .volunteer-form {
   display: flex;
   flex-direction: column;
@@ -1288,7 +1243,6 @@
   accent-color: var(--primary);
 }
 
-/* ── Per-page footer colors ── */
 .page-food    .main-footer { background: #1d4ed8; }
 .page-health  .main-footer { background: #1d4ed8; }
 .page-housing .main-footer { background: #1d4ed8; }

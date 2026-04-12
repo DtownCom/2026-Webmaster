@@ -1,6 +1,3 @@
-/* --------------------------------------------------
-   RESET + BASE STYLES
--------------------------------------------------- */
 * {
     margin: 0;
     padding: 0;
@@ -20,16 +17,13 @@ body {
 
 main {
     flex: 1;
-    min-height: calc(100vh - 400px); /* adjust based on your header/footer height */
-    max-width: 1200px; /* keeps text readable on large screens */
-    margin: 0 auto; /* centers the content */
+    min-height: calc(100vh - 400px); 
+    max-width: 1200px; 
+    margin: 0 auto; 
     padding: clamp(32px, 4vw, 40px);
 
 }
 
-/* --------------------------------------------------
-   COLOR SYSTEM
--------------------------------------------------- */
 :root {
     --primary: #1d4ed8;
     --primary-soft: #93c5fd;
@@ -46,8 +40,6 @@ main {
     --dark-gray: #334155;
     --white: #ffffff;
 }
-
-/* footer stuff */
 
 .footer-content {
     display: flex;
@@ -75,7 +67,6 @@ main {
     margin-top: auto;
 }
 
-/* ── Back to Top Button ── */
 #back-to-top {
   position: fixed;
   bottom: 32px;
@@ -108,7 +99,6 @@ main {
   transform: translateY(-2px);
 }
 
-/* ── Scroll-in card animations ── */
 .resource-card,
 .directory-preview-card,
 .feature-box,
@@ -127,7 +117,6 @@ main {
   transform: translateY(0);
 }
 
-/* ── Print styles ── */
 @media print {
   .main-header, .main-footer, #back-to-top,
   .hero-overlay, .resource-btn, nav, #siteSearch { display: none !important; }
@@ -136,8 +125,6 @@ main {
   .resource-image { display: none; }
   a[href]::after { content: " (" attr(href) ")"; font-size: 0.8em; color: #555; }
 }
-
-/* Seach Bar Stuff */
 
 .search-section {
     margin-bottom: 5px;
@@ -160,7 +147,6 @@ main {
     padding: 2px 4px;
 }
 
-/* Top Bar */
 .main-header {
   position: sticky;
   top: 0;
@@ -204,7 +190,6 @@ main {
   outline: none;
 }
 
-/* Dropdown */
 .nav-dropdown {
   position: relative;
 }
@@ -275,7 +260,6 @@ main {
   max-width: 300px;
 }
 
-/* ── Enhanced Site Search ───────────────────────────────── */
 #search-wrapper {
   position: relative;
   display: flex;
@@ -407,8 +391,6 @@ main {
   height: auto;
 }
 
-/* button and default hero*/
-
 .hero-heading {
     font-size: clamp(2.2rem, 5vw, 3.8rem);
     font-weight: 800;
@@ -464,4 +446,3 @@ main {
   box-shadow: 0 10px 28px rgba(0, 0, 0, 0.28);
   background: #f0f4ff;
 }
-
