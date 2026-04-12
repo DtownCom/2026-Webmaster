@@ -278,17 +278,11 @@ if (dirFilter) dirFilter.addEventListener('change', filterDirectory);
 
 function switchLanguage(lang) {
   if (lang === 'en') {
-    var restore = document.querySelector('.goog-te-banner-frame');
-    if (restore) {
-      try { restore.contentDocument.querySelector('#\\:0\\.restore').click(); } catch(e) {}
-    }
-    var combo = document.querySelector('.goog-te-combo');
-    if (combo) { combo.value = 'en'; combo.dispatchEvent(new Event('change')); }
-    return;
+    document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+    document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=' + location.hostname + ';';
+  } else {
+    document.cookie = 'googtrans=/en/' + lang + '; path=/;';
+    document.cookie = 'googtrans=/en/' + lang + '; path=/; domain=' + location.hostname + ';';
   }
-  var select = document.querySelector('.goog-te-combo');
-  if (select) {
-    select.value = lang;
-    select.dispatchEvent(new Event('change'));
-  }
+  location.reload();
 }
