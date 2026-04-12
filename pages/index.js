@@ -1,37 +1,39 @@
+/* SITE-WIDE SEARCH - Shows live dropdown results across all site sections - Each result has a title, category badge, snippet & link - Keyboard navigable (↑ ↓ Enter Escape) - Highlights matched text in-page when a result is clicked */
+
 const SITE_INDEX = [
-  
+  // Food
   { title: "Lord's Pantry of Downingtown",              category: "Food",           page: "food.html",               snippet: "Supplemental groceries and essential food items for individuals and families facing food insecurity." },
   { title: "Safe Harbor of Chester County",             category: "Food",           page: "food.html",               snippet: "Hot meals and broader support services for unhoused and low-income adults, plus shelter and case management." },
   { title: "DASD Food Pantry",                          category: "Food",           page: "food.html",               snippet: "The DASD Food Pantry serves students and families with perishable and non-perishable food items by appointment." },
   { title: "Chester County Food Bank",                  category: "Food",           page: "food.html",               snippet: "Food Finder directory connecting residents with local pantries, mobile markets, and nutrition programs." },
   { title: "Ebenezer Food Pantry",                      category: "Food",           page: "food.html",               snippet: "Free groceries and hygiene necessities every 2nd and 4th Saturday, 10 AM–12 PM." },
-  
+  // Housing
   { title: "Housing Partnership of Chester County",     category: "Housing",        page: "housing.html",            snippet: "Housing assistance, education, and support services for long-term housing stability." },
   { title: "Atkinson Men's Shelter",                    category: "Housing",        page: "housing.html",            snippet: "Emergency housing and supportive services to help unhoused men in Chester County stabilize." },
   { title: "Family Promise of Southern Chester County", category: "Housing",        page: "housing.html",            snippet: "Temporary housing, case management, and stability services for families experiencing homelessness." },
   { title: "Pennsylvania 2-1-1 Housing Assistance",     category: "Housing",        page: "housing.html",            snippet: "Free helpline connecting individuals with emergency shelter, rental assistance, and eviction prevention." },
-  
+  // Health
   { title: "Educational & Behavioral Health Services",  category: "Health",         page: "health.html",             snippet: "Counseling, mental health support, and behavioral interventions for students and families." },
   { title: "Communities That Care (CTC)",               category: "Health",         page: "health.html",             snippet: "Prevention programs reducing youth substance use and promoting healthy development." },
   { title: "Chester County Addiction Support Groups",   category: "Health",         page: "health.html",             snippet: "Treatment referrals and behavioral health resources for individuals affected by substance use." },
   { title: "988 Suicide & Crisis Lifeline",             category: "Health",         page: "health.html",             snippet: "24/7 confidential crisis support for mental health emergencies. Call or text 988." },
-  
+  // Education
   { title: "Downingtown Elementary Schools",            category: "Education",      page: "education.html",          snippet: "Foundational academic instruction and social-emotional development for young learners in DASD." },
   { title: "Downingtown Middle Schools",                category: "Education",      page: "education.html",          snippet: "Rigorous academics and developmental guidance preparing students for high school." },
   { title: "Downingtown High Schools",                  category: "Education",      page: "education.html",          snippet: "Advanced coursework, career pathways, and extracurricular opportunities preparing students for college." },
   { title: "Downingtown Community Education Foundation","category": "Education",    page: "education.html",          snippet: "Funds innovative programs and enrichment opportunities across the Downingtown school district." },
-  
+  // Transportation
   { title: "SEPTA Regional Rail",                       category: "Transportation", page: "transportation.html",     snippet: "Commuter rail connecting Chester County suburbs to Center City Philadelphia and regional hubs." },
   { title: "Chester County ROVER / Chesco Connect",     category: "Transportation", page: "transportation.html",     snippet: "Door-to-door shared-ride transportation across Chester County for hard-to-reach destinations." },
   { title: "The Struble Trail",                         category: "Transportation", page: "transportation.html",     snippet: "Paved multi-use trail for walking, biking, and short-distance commuting near Downingtown." },
   { title: "Amtrak Keystone Service",                   category: "Transportation", page: "transportation.html",     snippet: "Intercity rail linking Chester County with Philadelphia, Harrisburg, and New York City." },
-  
+  // Volunteering
   { title: "Downingtown Library Volunteering",          category: "Volunteering",   page: "volunteering.html",       snippet: "Youth and adult volunteer opportunities supporting library operations and community programs." },
   { title: "Meals on Wheels of Chester County",         category: "Volunteering",   page: "volunteering.html",       snippet: "Volunteer to deliver nutritious meals and provide social connection to homebound seniors." },
   { title: "Chester County Community Foundation",       category: "Volunteering",   page: "volunteering.html",       snippet: "Connect with volunteer opportunities at nonprofits addressing food, education, and community health." },
   { title: "Chesco Volunteer Opportunities",            category: "Volunteering",   page: "volunteering.html",       snippet: "County hub matching residents with service roles across health, transportation, and community support." },
   { title: "YMCA of Greater Brandywine",               category: "Volunteering",   page: "volunteering.html",       snippet: "Youth development, healthy living, and volunteer opportunities at YMCA branches across Chester County including Downingtown." },
-  
+  // More pages
   { title: "Resource Finder Quiz",                      category: "Tool",           page: "resource-finder.html",    snippet: "Answer a few questions and get matched to the right local resources for your needs." },
   { title: "Events Calendar",                           category: "Community",      page: "events.html",             snippet: "Upcoming community events, food drives, cleanups, library programs, and more." },
   { title: "FAQ",                                       category: "Info",           page: "faq.html",                snippet: "Answers to common questions about accessing local resources in Downingtown." },
@@ -54,13 +56,13 @@ const CATEGORY_COLORS = {
   const searchInput = document.getElementById('siteSearch');
   if (!searchInput) return;
 
-  
+  // Wrap input in a relative container and build dropdown
   const wrapper = document.createElement('div');
   wrapper.id = 'search-wrapper';
   searchInput.parentNode.insertBefore(wrapper, searchInput);
   wrapper.appendChild(searchInput);
 
-  
+  // Update placeholder
   searchInput.placeholder = '🔍 Search resources, events, pages…';
   searchInput.setAttribute('autocomplete', 'off');
   searchInput.setAttribute('aria-label', 'Search the site');
@@ -141,7 +143,7 @@ const CATEGORY_COLORS = {
   }
 
   function highlightOnPage(query) {
-    
+    // Clear old highlights
     document.querySelectorAll('.highlight').forEach(el => {
       el.replaceWith(document.createTextNode(el.textContent));
     });
@@ -216,6 +218,7 @@ const CATEGORY_COLORS = {
   });
 })();
 
+// Resource Directory search + filter
 const dirSearch = document.getElementById('directorySearch');
 const dirFilter = document.getElementById('directoryFilter');
 
@@ -241,6 +244,7 @@ function filterDirectory() {
 if (dirSearch) dirSearch.addEventListener('input', filterDirectory);
 if (dirFilter) dirFilter.addEventListener('change', filterDirectory);
 
+// Back to Top Button
 (function () {
   var btn = document.createElement('button');
   btn.id = 'back-to-top';
@@ -255,6 +259,7 @@ if (dirFilter) dirFilter.addEventListener('change', filterDirectory);
   });
 })();
 
+// Scroll-in animations (Intersection Observer)
 (function () {
   var targets = document.querySelectorAll(
     '.resource-card, .directory-preview-card, .feature-box, .welcome-banner, .new-residents'

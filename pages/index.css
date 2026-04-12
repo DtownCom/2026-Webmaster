@@ -1,6 +1,4 @@
-/* --------------------------------------------------
-   RESET + BASE
--------------------------------------------------- */
+/* RESET + BASE */
 * {
   margin: 0;
   padding: 0;
@@ -18,9 +16,7 @@ body {
   scroll-behavior: smooth;
 }
 
-/* --------------------------------------------------
-   COLOR SYSTEM
--------------------------------------------------- */
+/* COLOR SYSTEM */
 :root {
   --primary: #1d4ed8;
   --primary-soft: #93c5fd;
@@ -38,9 +34,7 @@ body {
   --white: #ffffff;
 }
 
-/* --------------------------------------------------
-   HEADER
--------------------------------------------------- */
+/* HEADER */
 .main-header {
   position: sticky;
   top: 0;
@@ -187,9 +181,7 @@ body {
   padding: 2px 4px;
 }
 
-/* --------------------------------------------------
-   HERO
--------------------------------------------------- */
+/* HERO */
 .hero {
   position: relative;
   background: url('../images/DowningtownStreet.jpg') center/cover no-repeat;
@@ -259,9 +251,7 @@ body {
   background: #f0f4ff;
 }
 
-/* --------------------------------------------------
-   MAIN CONTENT
--------------------------------------------------- */
+/* MAIN CONTENT */
 .main-content {
   flex: 1;
   max-width: 1200px;
@@ -273,9 +263,7 @@ body {
   gap: 48px;
 }
 
-/* --------------------------------------------------
-   WELCOME BANNER
--------------------------------------------------- */
+/* WELCOME BANNER */
 .welcome-banner {
   background: var(--surface);
   border-radius: var(--radius);
@@ -314,9 +302,7 @@ body {
   border-color: var(--primary);
 }
 
-/* --------------------------------------------------
-   NEW RESIDENTS
--------------------------------------------------- */
+/* NEW RESIDENTS */
 .new-residents {
   background: var(--surface);
   border-radius: var(--radius);
@@ -363,9 +349,7 @@ body {
   line-height: 1.6;
 }
 
-/* --------------------------------------------------
-   CATEGORY SECTION
--------------------------------------------------- */
+/* CATEGORY SECTION */
 .category-section {
   display: flex;
   flex-direction: column;
@@ -395,9 +379,7 @@ body {
   width: 100%;
 }
 
-/* --------------------------------------------------
-   CATEGORY CARDS
--------------------------------------------------- */
+/* CATEGORY CARDS */
 .category-card {
   background: var(--surface);
   border-radius: var(--radius);
@@ -450,9 +432,7 @@ body {
 .cat-transport { border-top-color: #0ea5e9; }
 .cat-volunteer { border-top-color: #ec4899; }
 
-/* --------------------------------------------------
-   FOOTER
--------------------------------------------------- */
+/* FOOTER */
 .main-footer {
   background: #1d4ed8;
   color: white;
