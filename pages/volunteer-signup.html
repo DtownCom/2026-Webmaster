@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Volunteer Sign-Up – Downingtown Community Resource Hub</title>
+  <link rel="stylesheet" href="default.css">
+  <link rel="stylesheet" href="pages.css">
+  <script>
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'es,zh-CN,hi,tl,ar,fr,pt,ko,vi,it', autoDisplay: false}, 'google_translate_element');
+    }
+  </script>
+  <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</head>
+<body class="page-volunteer-signup">
+  <div id="google_translate_element" style="display:none;"></div>
+
+
+  <header class="main-header">
+    <div class="top-bar">
+      <div class="logo">
+        <img src="../images/resourceImages/community-icon-21.png" alt="Logo" class="logo-img">
+      </div>
+      <div class="logo-title">Downingtown Community Resource Hub</div>
+      <nav class="top-nav">
+        <a href="../index.html">Home</a>
+        <div class="nav-dropdown">
+          <a class="nav-dropdown-toggle" tabindex="0">Resources ▾</a>
+          <div class="nav-dropdown-menu">
+            <a href="food.html">🍎 Food Security</a>
+            <a href="housing.html">🏠 Housing &amp; Shelter</a>
+            <a href="health.html">❤️ Health</a>
+            <a href="education.html">📚 Education</a>
+            <a href="transportation.html">🚌 Transportation</a>
+            <a href="volunteering.html">🤝 Volunteering</a>
+          </div>
+        </div>
+              <div class="nav-dropdown">
+          <a class="nav-dropdown-toggle" tabindex="0">More ▾</a>
+          <div class="nav-dropdown-menu">
+            <a href="resource-finder.html">🔍 Resource Finder</a>
+            <a href="events.html">📅 Events Calendar</a>
+            <a href="faq.html">❓ FAQ</a>
+            <a href="emergency.html">🚨 Emergency Resources</a>
+            <a href="newsletter.html">📧 Newsletter</a>
+            <a href="stories.html">💬 Success Stories</a>
+            <a href="volunteer-signup.html">🙋 Volunteer Sign-Up</a>
+          </div>
+        </div>
+        <a href="resource-directory.html">Resource Directory</a>
+        <a href="about.html">About Us</a>
+<div class="nav-dropdown lang-dropdown">
+                    <a class="nav-dropdown-toggle" tabindex="0">🌐 Language ▾</a>
+                    <div class="nav-dropdown-menu">
+                        <a href="#" onclick="switchLanguage('en');return false;">🇺🇸 English</a>
+                        <a href="#" onclick="switchLanguage('es');return false;">🇲🇽 Spanish</a>
+                        <a href="#" onclick="switchLanguage('zh-CN');return false;">🇨🇳 Chinese</a>
+                        <a href="#" onclick="switchLanguage('hi');return false;">🇮🇳 Hindi</a>
+                        <a href="#" onclick="switchLanguage('tl');return false;">🇵🇭 Tagalog</a>
+                        <a href="#" onclick="switchLanguage('ar');return false;">🇸🇦 Arabic</a>
+                        <a href="#" onclick="switchLanguage('fr');return false;">🇫🇷 French</a>
+                        <a href="#" onclick="switchLanguage('pt');return false;">🇧🇷 Portuguese</a>
+                        <a href="#" onclick="switchLanguage('ko');return false;">🇰🇷 Korean</a>
+                        <a href="#" onclick="switchLanguage('vi');return false;">🇻🇳 Vietnamese</a>
+                        <a href="#" onclick="switchLanguage('it');return false;">🇮🇹 Italian</a>
+                    </div>
+                </div>
+</nav>
+      <input type="text" id="siteSearch" placeholder="Search this page...">
+    </div>
+  </header>
+
+  <section class="hero-volunteer-signup">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1 class="hero-heading">Volunteer Sign-Up</h1>
+      <p class="hero-subheading">Ready to give back? Sign up and we'll connect you with local organizations that need your help.</p>
+    </div>
+  </section>
+
+  <main class="interior-main">
+
+    <section class="interior-card">
+      <h2>Sign Up to Volunteer</h2>
+      <p style="color:var(--muted);margin-bottom:24px;">Fill out the form below and we'll match you with volunteer opportunities in the community that fit your interests, skills, and availability.</p>
+
+      <form class="volunteer-form" onsubmit="handleVolunteerSubmit(event)">
+
+        <label for="v-name">Full Name *</label>
+        <input type="text" id="v-name" name="name" placeholder="Jane Smith" required>
+
+        <label for="v-email">Email Address *</label>
+        <input type="email" id="v-email" name="email" placeholder="you@example.com" required>
+
+        <label for="v-phone">Phone Number (optional)</label>
+        <input type="tel" id="v-phone" name="phone" placeholder="(610) 555-0000">
+
+        <label for="v-age">Age Group *</label>
+        <select id="v-age" name="age" required>
+          <option value="">Select your age group</option>
+          <option value="under18">Under 18 (parental consent required)</option>
+          <option value="18-24">18–24</option>
+          <option value="25-34">25–34</option>
+          <option value="35-54">35–54</option>
+          <option value="55+">55+</option>
+        </select>
+
+        <label>Areas you'd like to volunteer in (select all that apply) *</label>
+        <div class="checkbox-group">
+          <label class="checkbox-item"><input type="checkbox" name="area" value="food"> 🍎 Food Security</label>
+          <label class="checkbox-item"><input type="checkbox" name="area" value="housing"> 🏠 Housing &amp; Shelter</label>
+          <label class="checkbox-item"><input type="checkbox" name="area" value="health"> ❤️ Health &amp; Wellness</label>
+          <label class="checkbox-item"><input type="checkbox" name="area" value="education"> 📚 Education &amp; Tutoring</label>
+          <label class="checkbox-item"><input type="checkbox" name="area" value="transportation"> 🚌 Transportation</label>
+          <label class="checkbox-item"><input type="checkbox" name="area" value="events"> 📅 Community Events</label>
+          <label class="checkbox-item"><input type="checkbox" name="area" value="general"> 🤝 General Community Help</label>
+          <label class="checkbox-item"><input type="checkbox" name="area" value="admin"> 💻 Administrative / Virtual</label>
+        </div>
+
+        <label>Availability</label>
+        <div class="checkbox-group">
+          <label class="checkbox-item"><input type="checkbox" name="avail" value="weekday-morning"> Weekday Mornings</label>
+          <label class="checkbox-item"><input type="checkbox" name="avail" value="weekday-afternoon"> Weekday Afternoons</label>
+          <label class="checkbox-item"><input type="checkbox" name="avail" value="weekday-evening"> Weekday Evenings</label>
+          <label class="checkbox-item"><input type="checkbox" name="avail" value="weekends"> Weekends</label>
+          <label class="checkbox-item"><input type="checkbox" name="avail" value="flexible"> Flexible</label>
+        </div>
+
+        <label for="v-skills">Any relevant skills or experience? (optional)</label>
+        <textarea id="v-skills" name="skills" rows="3" placeholder="e.g. bilingual Spanish/English, first aid certified, event planning..."></textarea>
+
+        <label for="v-why">Why do you want to volunteer? (optional)</label>
+        <textarea id="v-why" name="why" rows="3" placeholder="Tell us a little about yourself and your motivation."></textarea>
+
+        <button type="submit" class="submit-btn">Submit Sign-Up →</button>
+      </form>
+
+      <div id="v-success" style="display:none;background:#f0fdf4;border:2px solid #16a34a;border-radius:10px;padding:20px 24px;margin-top:20px;color:#15803d;font-weight:600;font-size:1rem;">
+        ✅ Thank you for signing up! We'll be in touch soon to connect you with volunteer opportunities in your area.
+      </div>
+    </section>
+
+    <section class="interior-card" style="border-left:none;border-top:5px solid var(--primary);">
+      <h2>Why Volunteer?</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px;margin-top:10px;">
+        <div style="background:var(--light-gray);border-radius:10px;padding:18px 16px;">
+          <div style="font-size:1.8rem;margin-bottom:8px;">💪</div>
+          <strong style="color:var(--navy);">Build Skills</strong>
+          <p style="font-size:0.87rem;color:var(--muted);margin-top:6px;">Gain real-world experience and develop new abilities.</p>
+        </div>
+        <div style="background:var(--light-gray);border-radius:10px;padding:18px 16px;">
+          <div style="font-size:1.8rem;margin-bottom:8px;">🤝</div>
+          <strong style="color:var(--navy);">Meet People</strong>
+          <p style="font-size:0.87rem;color:var(--muted);margin-top:6px;">Connect with neighbors and build lasting friendships.</p>
+        </div>
+        <div style="background:var(--light-gray);border-radius:10px;padding:18px 16px;">
+          <div style="font-size:1.8rem;margin-bottom:8px;">🌟</div>
+          <strong style="color:var(--navy);">Make an Impact</strong>
+          <p style="font-size:0.87rem;color:var(--muted);margin-top:6px;">Directly improve the lives of people in your community.</p>
+        </div>
+        <div style="background:var(--light-gray);border-radius:10px;padding:18px 16px;">
+          <div style="font-size:1.8rem;margin-bottom:8px;">📄</div>
+          <strong style="color:var(--navy);">Boost Your Resume</strong>
+          <p style="font-size:0.87rem;color:var(--muted);margin-top:6px;">Community service stands out to colleges and employers.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="main-footer">
+    <div class="footer-content">
+      <div class="footer-links">
+        <a href="refrences.html" class="cta-btn">References</a>
+                <a href="FeedbackSuggestions.html" class="cta-btn">Feedback &amp; Suggestions</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="index.js"></script>
+  <script>
+    function handleVolunteerSubmit(e) {
+      e.preventDefault();
+      document.querySelector('.volunteer-form').style.display = 'none';
+      document.getElementById('v-success').style.display = 'block';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  </script>
+</body>
+</html>

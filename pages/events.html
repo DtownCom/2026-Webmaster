@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Events Calendar – Downingtown Community Resource Hub</title>
+  <link rel="stylesheet" href="default.css">
+  <link rel="stylesheet" href="pages.css">
+  <script>
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'es,zh-CN,hi,tl,ar,fr,pt,ko,vi,it', autoDisplay: false}, 'google_translate_element');
+    }
+  </script>
+  <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</head>
+<body class="page-events">
+  <div id="google_translate_element" style="display:none;"></div>
+
+
+  <header class="main-header">
+    <div class="top-bar">
+      <div class="logo">
+        <img src="../images/resourceImages/community-icon-21.png" alt="Logo" class="logo-img">
+      </div>
+      <div class="logo-title">Downingtown Community Resource Hub</div>
+      <nav class="top-nav">
+        <a href="../index.html">Home</a>
+        <div class="nav-dropdown">
+          <a class="nav-dropdown-toggle" tabindex="0">Resources ▾</a>
+          <div class="nav-dropdown-menu">
+            <a href="food.html">🍎 Food Security</a>
+            <a href="housing.html">🏠 Housing &amp; Shelter</a>
+            <a href="health.html">❤️ Health</a>
+            <a href="education.html">📚 Education</a>
+            <a href="transportation.html">🚌 Transportation</a>
+            <a href="volunteering.html">🤝 Volunteering</a>
+          </div>
+        </div>
+              <div class="nav-dropdown">
+          <a class="nav-dropdown-toggle" tabindex="0">More ▾</a>
+          <div class="nav-dropdown-menu">
+            <a href="resource-finder.html">🔍 Resource Finder</a>
+            <a href="events.html">📅 Events Calendar</a>
+            <a href="faq.html">❓ FAQ</a>
+            <a href="emergency.html">🚨 Emergency Resources</a>
+            <a href="newsletter.html">📧 Newsletter</a>
+            <a href="stories.html">💬 Success Stories</a>
+            <a href="volunteer-signup.html">🙋 Volunteer Sign-Up</a>
+          </div>
+        </div>
+        <a href="resource-directory.html">Resource Directory</a>
+        <a href="about.html">About Us</a>
+<div class="nav-dropdown lang-dropdown">
+                    <a class="nav-dropdown-toggle" tabindex="0">🌐 Language ▾</a>
+                    <div class="nav-dropdown-menu">
+                        <a href="#" onclick="switchLanguage('en');return false;">🇺🇸 English</a>
+                        <a href="#" onclick="switchLanguage('es');return false;">🇲🇽 Spanish</a>
+                        <a href="#" onclick="switchLanguage('zh-CN');return false;">🇨🇳 Chinese</a>
+                        <a href="#" onclick="switchLanguage('hi');return false;">🇮🇳 Hindi</a>
+                        <a href="#" onclick="switchLanguage('tl');return false;">🇵🇭 Tagalog</a>
+                        <a href="#" onclick="switchLanguage('ar');return false;">🇸🇦 Arabic</a>
+                        <a href="#" onclick="switchLanguage('fr');return false;">🇫🇷 French</a>
+                        <a href="#" onclick="switchLanguage('pt');return false;">🇧🇷 Portuguese</a>
+                        <a href="#" onclick="switchLanguage('ko');return false;">🇰🇷 Korean</a>
+                        <a href="#" onclick="switchLanguage('vi');return false;">🇻🇳 Vietnamese</a>
+                        <a href="#" onclick="switchLanguage('it');return false;">🇮🇹 Italian</a>
+                    </div>
+                </div>
+</nav>
+      <input type="text" id="siteSearch" placeholder="Search this page...">
+    </div>
+  </header>
+
+  <section class="hero-events">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1 class="hero-heading">Events Calendar</h1>
+      <p class="hero-subheading">Stay up to date with community events, food drives, health fairs, and more.</p>
+    </div>
+  </section>
+
+  <main class="interior-main">
+
+    
+    <section class="interior-card">
+      <div class="calendar-header">
+        <button class="cal-nav-btn" onclick="changeMonth(-1)">&#8592; Prev</button>
+        <h3 id="cal-title"></h3>
+        <button class="cal-nav-btn" onclick="changeMonth(1)">Next &#8594;</button>
+      </div>
+      <div class="calendar-grid" id="calendar-grid"></div>
+    </section>
+
+    
+    <section class="interior-card">
+      <h2>Upcoming Events</h2>
+      <div class="events-list" id="events-list"></div>
+    </section>
+
+  </main>
+
+  <footer class="main-footer">
+    <div class="footer-content">
+      <div class="footer-links">
+        <a href="refrences.html" class="cta-btn">References</a>
+                <a href="FeedbackSuggestions.html" class="cta-btn">Feedback &amp; Suggestions</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="index.js"></script>
+  <script>
+    const EVENTS = [
+      
+      { month: 4, day: 9,  year: 2026, title: 'Candlelight Vigil & Memorial Service',      desc: 'Remember loved ones lost to violent crime. Crime Victims\' Memorial at the Ponds, W. Pennsylvania Ave, Downingtown. 6:00 PM.',                                                          color: 'purple', icon: '🕯️', link: 'https://www.downingtown.org/Calendar.aspx?EID=1414' },
+      { month: 4, day: 11, year: 2026, title: 'Solar Viewing Drop-In – Library',            desc: 'See the sun with special solar telescopes. Downingtown Library. Drop in anytime 10:00 AM – 12:30 PM. Weather permitting.',                                                               color: 'gold',   icon: '☀️', link: 'https://ccls.libcal.com/event/16141637' },
+      { month: 4, day: 11, year: 2026, title: 'Downingtown Farmers Market',                 desc: 'Shop fresh local produce and goods at Kerr Park. 10:00 AM – 12:00 PM.',                                                                                                                    color: 'green',  icon: '🌽', link: 'https://www.downingtown.org/calendar' },
+      { month: 4, day: 11, year: 2026, title: 'Main Street Cleanup',                        desc: 'Help beautify Downingtown\'s Main Street. Organized by the Downingtown Main Street Association. 10:00 AM.',                                                                                color: 'green',  icon: '🧹', link: 'https://www.downingtown.org/Calendar.aspx?EID=1412' },
+      { month: 4, day: 12, year: 2026, title: 'Ebenezer Food Pantry',                       desc: 'Free groceries & hygiene items. Ebenezer Full Revival Baptist Church, 199 Wallace Ave, Downingtown. 10:00 AM – 12:00 PM. (2nd Saturday of each month)',                                    color: 'green',  icon: '🍎', link: 'https://www.facebook.com/EbenezerFoodPantry/' },
+      { month: 4, day: 18, year: 2026, title: 'Brandywine Creek Clean-Up',                  desc: 'Community clean-up along the Brandywine Creek. 8:00 AM – 12:00 PM.',                                                                                                                       color: 'green',  icon: '🌊', link: 'https://www.downingtown.org/Calendar.aspx?EID=1420' },
+      { month: 4, day: 22, year: 2026, title: 'Dine & Donate – Restore Our Roots',          desc: 'Shade Tree Commission fundraiser. A portion of dining proceeds benefits the community. 4:00 PM – 10:00 PM.',                                                                                color: 'gold',   icon: '🍽️', link: 'https://www.downingtown.org/Calendar.aspx?EID=1416' },
+      { month: 4, day: 24, year: 2026, title: 'Library Spring Book Sale – Preview Night',   desc: 'Friends of the Downingtown Library Spring Book Sale opens. Hardbacks $3, paperbacks $1, children\'s books $0.50. Downingtown Library. 4:00 PM – 7:00 PM.',                                 color: 'blue',   icon: '📚', link: 'https://ccls.libcal.com/event/16545942' },
+      { month: 4, day: 25, year: 2026, title: 'Downingtown Farmers Market',                 desc: 'Shop fresh local produce and goods at Kerr Park. 10:00 AM – 12:00 PM.',                                                                                                                    color: 'green',  icon: '🌽', link: 'https://www.downingtown.org/calendar' },
+      { month: 4, day: 25, year: 2026, title: 'Library Spring Book Sale',                   desc: 'Friends of the Downingtown Library Spring Book Sale. Downingtown Library. 9:00 AM – 4:00 PM.',                                                                                             color: 'blue',   icon: '📚', link: 'https://ccls.libcal.com/event/16545942' },
+      { month: 4, day: 26, year: 2026, title: 'Ebenezer Food Pantry',                       desc: 'Free groceries & hygiene items. Ebenezer Full Revival Baptist Church, 199 Wallace Ave, Downingtown. 10:00 AM – 12:00 PM. (4th Saturday of each month)',                                    color: 'green',  icon: '🍎', link: 'https://www.facebook.com/EbenezerFoodPantry/' },
+      { month: 4, day: 26, year: 2026, title: 'Library Spring Book Sale',                   desc: 'Friends of the Downingtown Library Spring Book Sale continues. Downingtown Library. 1:00 PM – 4:00 PM.',                                                                                   color: 'blue',   icon: '📚', link: 'https://ccls.libcal.com/event/16545942' },
+      { month: 4, day: 29, year: 2026, title: '"Time We Discuss" Podcast – Library',        desc: 'An evening with podcaster Dan Swift on careers and purpose. Registration required. Downingtown Library Krapf Room. 6:30 PM – 7:30 PM.',                                                     color: 'blue',   icon: '🎙️', link: 'https://ccls.libcal.com/event/16587244' },
+      
+      { month: 5, day: 2,  year: 2026, title: 'Free Document Shred Event',                  desc: 'Free document shredding at Downingtown United Methodist Church. 9:00 AM.',                                                                                                                color: 'gold',   icon: '🗂️', link: 'https://www.downingtown.org/Calendar.aspx?EID=1413' },
+      { month: 5, day: 9,  year: 2026, title: 'Library Book Sale – Bag Sale Week',          desc: 'Fill a bag for one price! Downingtown Library Spring Book Sale bag sale week. During regular library hours.',                                                                               color: 'blue',   icon: '📚', link: 'https://ccls.libcal.com/event/16545942' },
+      { month: 5, day: 9,  year: 2026, title: 'Ebenezer Food Pantry',                       desc: 'Free groceries & hygiene items. Ebenezer Full Revival Baptist Church, 199 Wallace Ave, Downingtown. 10:00 AM – 12:00 PM. (2nd Saturday of each month)',                                    color: 'green',  icon: '🍎', link: 'https://www.facebook.com/EbenezerFoodPantry/' },
+      { month: 5, day: 23, year: 2026, title: 'Ebenezer Food Pantry',                       desc: 'Free groceries & hygiene items. Ebenezer Full Revival Baptist Church, 199 Wallace Ave, Downingtown. 10:00 AM – 12:00 PM. (4th Saturday of each month)',                                    color: 'green',  icon: '🍎', link: 'https://www.facebook.com/EbenezerFoodPantry/' },
+      { month: 5, day: 30, year: 2026, title: 'Community CPR Day',                          desc: 'Free community CPR training. East Brandywine Fire Company. 10:00 AM. Learn to save a life!',                                                                                               color: 'red',    icon: '❤️', link: 'https://www.downingtown.org/Calendar.aspx?EID=1417' },
+      
+      { month: 6, day: 6,  year: 2026, title: 'Friends Association Charity Ball',            desc: 'Annual fundraising gala benefiting Chester County\'s only low-barrier family shelter. Supports eviction prevention and housing stability programs. Visit friendsassoc.org for tickets.',      color: 'purple', icon: '🏠', link: 'https://friendsassoc.org/charity-ball/' },
+      { month: 6, day: 14, year: 2026, title: 'Kumon Free Family Math Day',                  desc: 'Kumon Downingtown hosts a free open house with math activities and free placement assessments for new students. A great introduction to the Kumon method.',                                    color: 'blue',   icon: '📐', link: 'https://www.kumon.com/downingtown' },
+      { month: 6, day: 21, year: 2026, title: 'Home of the Sparrow Community Awareness Walk', desc: 'Annual awareness walk supporting women facing homelessness in Chester County. Starting at Community Bandstand, Downingtown. Registration details at homeofthesparrow.org.',                  color: 'gold',   icon: '🕊️', link: 'https://www.homeofthesparrow.org' },
+    ];
+
+    const colorClass = { green: 'green', red: 'red', blue: '', purple: 'purple', gold: 'gold' };
+    let currentDate = new Date(2026, 3, 1); 
+
+    function changeMonth(dir) {
+      currentDate.setMonth(currentDate.getMonth() + dir);
+      renderCalendar();
+    }
+
+    function renderCalendar() {
+      const year  = currentDate.getFullYear();
+      const month = currentDate.getMonth(); 
+      const today = new Date(2026, 3, 4);   
+
+      const monthNames = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+      document.getElementById('cal-title').textContent = `${monthNames[month]} ${year}`;
+
+      const grid = document.getElementById('calendar-grid');
+      grid.innerHTML = '';
+
+      const days = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+      days.forEach(d => {
+        const lbl = document.createElement('div');
+        lbl.className = 'cal-day-label';
+        lbl.textContent = d;
+        grid.appendChild(lbl);
+      });
+
+      const firstDay = new Date(year, month, 1).getDay();
+      const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+      for (let i = 0; i < firstDay; i++) {
+        const empty = document.createElement('div');
+        empty.className = 'cal-day empty';
+        grid.appendChild(empty);
+      }
+
+      for (let d = 1; d <= daysInMonth; d++) {
+        const cell = document.createElement('div');
+        cell.className = 'cal-day';
+        if (year === today.getFullYear() && month === today.getMonth() && d === today.getDate()) {
+          cell.classList.add('today');
+        }
+        const num = document.createElement('div');
+        num.className = 'cal-day-num';
+        num.textContent = d;
+        cell.appendChild(num);
+
+        EVENTS.filter(e => e.month === month + 1 && e.day === d && e.year === year).forEach(e => {
+          const ev = document.createElement('div');
+          ev.className = `cal-event ${colorClass[e.color]}`;
+          ev.textContent = e.icon + ' ' + e.title;
+          cell.appendChild(ev);
+        });
+        grid.appendChild(cell);
+      }
+
+      
+      const list = document.getElementById('events-list');
+      list.innerHTML = '';
+      const monthEvents = EVENTS.filter(e => e.month === month + 1 && e.year === year).sort((a,b) => a.day - b.day);
+      if (monthEvents.length === 0) {
+        list.innerHTML = '<p style="color:var(--muted);font-size:0.95rem;">No events this month.</p>';
+        return;
+      }
+      monthEvents.forEach(e => {
+        const item = document.createElement('div');
+        item.className = `event-item ${colorClass[e.color]}`;
+        item.innerHTML = `
+          <div class="event-date-badge">${monthNames[e.month-1].slice(0,3)}<br>${e.day}</div>
+          <div class="event-info">
+            <h4>${e.icon} ${e.title}</h4>
+            <p>${e.desc}</p>
+            ${e.link ? `<a href="${e.link}" target="_blank" rel="noopener noreferrer" style="font-size:0.85rem;font-weight:600;color:var(--primary,#1d4ed8);text-decoration:none;">More Info →</a>` : ''}
+          </div>`;
+        list.appendChild(item);
+      });
+    }
+
+    renderCalendar();
+  </script>
+</body>
+</html>
